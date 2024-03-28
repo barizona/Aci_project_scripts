@@ -108,8 +108,8 @@ pcoa$vectors[,1:2] %>%
         # add margin to y-axis title
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
-ggsave("output/pcoar_dataset.png", width = 5, height = 5)
-ggsave("output/pcoar_dataset.pdf", width = 5, height = 5)
+ggsave("output/pcoa_Fourier_transformed_infrared_measurements.png", width = 5, height = 5)
+ggsave("output/pcoa_Fourier_transformed_infrared_measurements.pdf", width = 5, height = 5)
 
 sessionInfo() %>% 
   capture.output() %>% 
