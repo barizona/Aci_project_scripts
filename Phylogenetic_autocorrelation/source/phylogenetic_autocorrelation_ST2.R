@@ -77,24 +77,41 @@ autocorr_result_tab <- autocorr_result %>%
 ## Plot -----
 #xxxxxxxxxx
 
-p
-autocorr_result_tab %>%
-  slice_sample(n = 1000) %>%
+# p
+# 
+# autocorr_result_tab %>%
+#   slice_sample(n = 5000) %>%
+#   ggplot(aes(x = Year, y = autocorrelations)) +
+#   geom_pointdensity(size = 0.5) +
+#   scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
+#   # regression
+#   geom_smooth(method = "loess", formula = y ~ x,
+#               color = "gray30", se = TRUE) +
+#   stat_cor(method = "pearson", cor.coef.name = "rho",
+#            label.x.npc = "left", label.y.npc = "bottom", show.legend = FALSE) +
+#   labs(x = "MRCA (years)", y = "Autocorrelation") +
+#   ggtitle("loess, y ~ x") +
+#   theme_minimal()
+
+p <- autocorr_result_tab %>%
+  # slice_sample(n = 5000) %>%
   ggplot(aes(x = Year, y = autocorrelations)) +
   geom_pointdensity(size = 0.5) +
   scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
   # regression
-  geom_smooth(method = mgcv::gam, formula = y ~ s(x, bs = "ds"),
+  geom_smooth(method = mgcv::gam, formula = y ~ s(x, bs = "bs"),
               color = "gray30", se = TRUE) +
-  stat_cor(method = "spearman", cor.coef.name = "rho",
+  stat_cor(method = "pearson", cor.coef.name = "rho",
            label.x.npc = "left", label.y.npc = "bottom", show.legend = FALSE) +
   labs(x = "MRCA (years)", y = "Autocorrelation") +
+  # ggtitle("gam, y ~ s(x, bs = \"so\")") +
   theme_minimal()
 
 
-
-ggsave("output/autocorr_result_with_city_EA_NA_EE.png", width = 12, height = 10, dpi = 300)
-ggsave("output/autocorr_result_with_city_EA_NA_EE.pdf", width = 12, height = 10)
+ggsave("output/autocorr_result_with_city.png", p, 
+       width = 7, height = 5, dpi = 300)
+ggsave("output/autocorr_result_with_city.pdf", p, 
+       width = 7, height = 5)
 
 save.image()
 
