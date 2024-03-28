@@ -18,13 +18,15 @@ library(ggtext) # for superscripts: theme(... element_markdown())
 # read the large distance matrix from lower tsv
 # header only, the first column contains no names but distances, 0 diagonal is 
 # needed
-distance_matrix <- read.table("input/more_samples_lower_distance_matrix.tsv", 
-                              header = TRUE, sep = "\t") %>% 
+distance_matrix <- read.table(
+  "input/Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv", 
+  header = TRUE, sep = "\t") %>% 
   as.matrix() %>% 
   as.dist(., upper = TRUE)
 
 # row names for the PCoA
-row_names <- file("input/more_samples_lower_distance_matrix.tsv") %>% 
+row_names <- file(
+  "input/Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv") %>% 
   scan(., what = "", nlines = 1, sep="\t", quote = "\"") 
 
 # change "." in labels to space
@@ -40,7 +42,8 @@ pcoa <- ape::pcoa(distance_matrix, correction = "none")
 ## Variables for plotting ----
 #xxxxxxxxxx
 # colouring table
-meta <- read_tsv("input/more_samples_metadata.tsv") %>% 
+meta <- read_tsv(
+  "input/Fourier_transformed_infrared_measurements_metadata.tsv") %>% 
   # convert `Phage resistant` to markdown
   mutate(`Phage resistant` = case_match(`Phage resistant`, 
                                         "H" ~ "H<sup>R</sup>",
