@@ -33,13 +33,14 @@ library(vegan) # mantel
 # read the large distance matrix from lower tsv
 # header only, the first column contains no names but distances, 0 diagonal is needed
 distance_matrix_A <- read.table(
-  "input/less_samples_lower_distance_matrix.tsv", 
+  "input/ST636_KL40_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv", 
   header = TRUE, sep = "\t") %>% 
   as.matrix() %>% 
   as.dist(., upper = TRUE)
 
 # row names for the PCoA
-row_names_A <- file("input/less_samples_lower_distance_matrix.tsv") %>% 
+row_names_A <- file(
+  "input/ST636_KL40_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv") %>% 
   scan(., what = "", nlines = 1, sep="\t", quote = "\"",) 
 
 # change "." in labels to space
@@ -130,10 +131,11 @@ plot_A <- plot_A + theme(legend.position = "none")
 ## Input ----
 #xxxxxxxxxx
 # read data
-bin_matrix_B <- read.table("input/less_samples_aci_phage_binary_fullmatrix.tsv", 
-                           header = TRUE, sep = "\t", row.names = 1)
+bin_matrix_B <- read.table(
+  "input/ST636_KL40_phage_susceptibility_profile_binary_full_matrix.tsv", 
+  header = TRUE, sep = "\t", row.names = 1)
 
-# Jaccard distance from the binary phage data
+# Jaccard distance from the binary phage susceptibility data
 distance_matrix_B <- ade4::dist.binary(bin_matrix_B, upper = TRUE, method = 1)
 
 rm(bin_matrix_B)
@@ -205,10 +207,10 @@ names_C <- labels(distance_matrix_A) %>%
   # delete spaces
   str_remove_all(" ")
 
-# change Aci126 to Aci126_Belgrade5
+# rename Aci126 to Aci126_Belgrade5
 names_C[which(names_C == "Aci126")] <- "Aci126_Belgrade5"
 
-# filter to only the small dataset
+# filter to only the dataset in focus
 distance_matrix_C <- all_dist %>% 
   filter((A1 %in% names_C) & (A2 %in% names_C)) %>% 
   # add space to names
@@ -296,13 +298,13 @@ p <- plot_grid(plot_A, plot_B, plot_C, nrow = 1,
 
 plot_grid(legend, p, ncol = 1, rel_heights = c(0.1, 1))
 
-ggsave("output/pcoa_Aer_dataset_and_phageJaccard_and_geneticsDist.png", 
-       width = 15, height = 5)
-ggsave("output/pcoa_Aer_dataset_and_phageJaccard_and_geneticsDist.pdf", 
-       width = 12, height = 4)
+ggsave("output/3_pcoas_ST636_KL40.png", width = 15, height = 5)
+ggsave("output/3_pcoas_ST636_KL40.pdf", width = 12, height = 4)
 
-
-
+# Zoom in to C to catch the points overlapping each other
+plot_C + 
+  coord_cartesian(xlim = c(-7.25, -6.5), ylim = c(1.35, 1.55))
+ggsave("output/C_zoom_in.png", width = 5, height = 5)
 
 
 

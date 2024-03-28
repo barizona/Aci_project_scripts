@@ -19,14 +19,14 @@ library(ggtext) # for superscripts: theme(... element_markdown())
 # header only, the first column contains no names but distances, 0 diagonal is 
 # needed
 distance_matrix <- read.table(
-  "input/Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv", 
+  "input/ST2_KL3_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv", 
   header = TRUE, sep = "\t") %>% 
   as.matrix() %>% 
   as.dist(., upper = TRUE)
 
 # row names for the PCoA
 row_names <- file(
-  "input/Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv") %>% 
+  "input/ST2_KL3_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv") %>% 
   scan(., what = "", nlines = 1, sep="\t", quote = "\"") 
 
 # change "." in labels to space
@@ -43,7 +43,7 @@ pcoa <- ape::pcoa(distance_matrix, correction = "none")
 #xxxxxxxxxx
 # colouring table
 meta <- read_tsv(
-  "input/Fourier_transformed_infrared_measurements_metadata.tsv") %>% 
+  "input/ST2_KL3_Fourier_transformed_infrared_measurements_metadata.tsv") %>% 
   # convert `Phage resistant` to markdown
   mutate(`Phage resistant` = case_match(`Phage resistant`, 
                                         "H" ~ "H<sup>R</sup>",
@@ -108,8 +108,8 @@ pcoa$vectors[,1:2] %>%
         # add margin to y-axis title
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
-ggsave("output/pcoa_Fourier_transformed_infrared_measurements.png", width = 5, height = 5)
-ggsave("output/pcoa_Fourier_transformed_infrared_measurements.pdf", width = 5, height = 5)
+ggsave("output/pcoa_ST2_KL3_Fourier_transformed_infrared_measurements.png", width = 5, height = 5)
+ggsave("output/pcoa_ST2_KL3_Fourier_transformed_infrared_measurements.pdf", width = 5, height = 5)
 
 sessionInfo() %>% 
   capture.output() %>% 
