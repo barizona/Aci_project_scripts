@@ -1,6 +1,5 @@
 library(tidyverse)
 library(ggrepel) # for geom_text_repel
-library(ggtext) # for superscripts: theme(... element_markdown())
 library(cowplot)
 library(vegan) # mantel
 

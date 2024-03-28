@@ -1,3 +1,8 @@
+library(tidyverse)
+library(ggrepel) # for geom_text_repel
+library(cowplot)
+library(vegan) # mantel
+
 #xxxxxxxxxxxxxxxxxxxxxxx
 # D --------------------------------------------------------------------------
 #xxxxxxxxxxxxxxxxxxxxxxx
@@ -177,7 +182,6 @@ plot_grid(legend, p2, ncol = 1, rel_heights = c(0.1, 1))
 ggsave("output/DE_pcoas_ST636_KL40.png", width = 8, height = 4)
 ggsave("output/DE_pcoas_ST636_KL40.pdf", width = 8, height = 4)
 
-
 rm(Names)
 
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -218,4 +222,4 @@ for(i in 1:nrow(Mantel_test_results)) {
 
 rm(i)
 
-Mantel_test_results %>% write_tsv("output/Mantel_test_results.tsv")
+Mantel_test_results %>% write_tsv("output/Mantel_test_results_pearson.tsv")
