@@ -345,4 +345,20 @@ mantel(xdis = distance_matrix_A,
 #     90%   95% 97.5%   99% 
 #   0.364 0.446 0.521 0.702 
 
+#xxxxxxxxxx
+## B vs C ----
+#xxxxxxxxxx
+mantel(xdis = distance_matrix_B, 
+       ydis = distance_matrix_C, 
+       method = "pearson", 
+       permutations = 100000,
+       parallel = getOption("mc.cores"))
+
+# Mantel statistic r:  0.11 
+# Significance: 0.27158 
+# Upper quantiles of permutations (null model):
+#   90%   95% 97.5%   99% 
+#   0.243 0.306 0.357 0.466 
+# Permutation: free
+# Number of permutations: 1e+05
 

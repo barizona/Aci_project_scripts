@@ -178,3 +178,44 @@ ggsave("output/DE_pcoas_ST636_KL40.png", width = 8, height = 4)
 ggsave("output/DE_pcoas_ST636_KL40.pdf", width = 8, height = 4)
 
 
+rm(Names)
+
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# Comparing the distance matrices with Mantel tests ---------------------------
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+set.seed(1)
+
+# comparing all the 5 distance matrices 
+# $statistic -> r
+# $signif  -> p-value
+
+# a list of all distance matrices
+distance_matrices_list <- list("A" = distance_matrix_A, 
+                               "B" = distance_matrix_B, 
+                               "C" = distance_matrix_C, 
+                               "D" = distance_matrix_D, 
+                               "E" = distance_matrix_E)
+
+# all combinations of distance matrices
+Mantel_test_results <- combn(names(distance_matrices_list), 2) %>% 
+    t() %>% 
+    as.data.frame() %>% 
+    tibble()
+
+for(i in 1:nrow(Mantel_test_results)) {
+    Mantel_test_results$r[i] <- mantel(xdis = distance_matrices_list[[Mantel_test_results$V1[i]]], 
+                                               ydis = distance_matrices_list[[Mantel_test_results$V2[i]]], 
+                                               method = "pearson", 
+                                               permutations = 100000,
+                                               parallel = getOption("mc.cores"))$statistic
+    Mantel_test_results$p[i] <- mantel(xdis = distance_matrices_list[[Mantel_test_results$V1[i]]], 
+                                            ydis = distance_matrices_list[[Mantel_test_results$V2[i]]], 
+                                            method = "pearson", 
+                                            permutations = 100000,
+                                            parallel = getOption("mc.cores"))$signif
+}
+
+rm(i)
+
+Mantel_test_results %>% write_tsv("output/Mantel_test_results.tsv")
