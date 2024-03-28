@@ -298,7 +298,7 @@ p <- plot_grid(plot_A, plot_B, plot_C, nrow = 1,
 
 plot_grid(legend, p, ncol = 1, rel_heights = c(0.1, 1))
 
-ggsave("output/3_pcoas_ST636_KL40.png", width = 15, height = 5)
+ggsave("output/3_pcoas_ST636_KL40.png", width = 12, height = 4)
 ggsave("output/3_pcoas_ST636_KL40.pdf", width = 12, height = 4)
 
 # Zoom in to C to catch the points overlapping each other
