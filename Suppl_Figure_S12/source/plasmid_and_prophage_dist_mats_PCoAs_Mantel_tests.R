@@ -14,45 +14,22 @@ library(vegan) # mantel
 ## Input ----
 #xxxxxxxxxx
 # read data
-distance_matrix_D <- read.table("input/st636plasmidvegdist.tsv", 
-    header = TRUE, sep = "\t")
-
-# rename samples to match the pam_A_tab
-# add a space after "Aci" in the sample names
-# column names
-colnames(distance_matrix_D) <- colnames(distance_matrix_D) %>% 
-    str_replace_all("Aci", "Aci ") %>% 
-    str_replace_all("Aci 126_Belgrade5", "Aci 126")
-
-# row names
-distance_matrix_D$X <- distance_matrix_D$X %>% 
-    str_replace_all("Aci", "Aci ") %>% 
-    str_replace_all("Aci 126_Belgrade5", "Aci 126")
-
-# filter only those samples that are in the pam_A_tab
-# order pam_A_tab$Sample numerically and create a vector of sample names
-Names <- pam_A_tab$Sample %>% 
-    str_replace_all("Aci ", "") %>% 
-    as.numeric() %>% 
-    sort() %>% 
-    paste0("Aci ", .)
-
-# create the distance matrix
-distance_matrix_D <- distance_matrix_D %>% 
-    filter(X %in% Names) %>% 
-    select(Names) %>% 
+distance_matrix_D_all <- read.table("input/st636plasmidvegdist.tsv", 
+    header = TRUE, sep = "\t") %>% 
+    # remove the first column
+    select(-X) %>% 
     as.matrix() %>% 
     as.dist(., upper = TRUE)
 
 #xxxxxxxxxx
 ## PCoA ----
 #xxxxxxxxxx
-pcoa_D <- ape::pcoa(distance_matrix_D, correction = "none")
+pcoa_D_all <- ape::pcoa(distance_matrix_D_all, correction = "none")
 
 # relative eigen values for axis names
-axis_labs_D <- c("Axis.1" = paste0("PC1: ", round(pcoa_D$values$Relative_eig[1], 
+axis_labs_D_all <- c("Axis.1" = paste0("PC1: ", round(pcoa_D_all$values$Relative_eig[1], 
                                                   3)),
-                 "Axis.2" = paste0("PC2: ", round(pcoa_D$values$Relative_eig[2], 
+                 "Axis.2" = paste0("PC2: ", round(pcoa_D_all$values$Relative_eig[2], 
                                                   3)))
 
 #xxxxxxxxxx
@@ -60,23 +37,21 @@ axis_labs_D <- c("Axis.1" = paste0("PC1: ", round(pcoa_D$values$Relative_eig[1],
 #xxxxxxxxxx
 # converting for ggplot
 # 1st and 2nd axis
-plot_D <- pcoa_D$vectors[,1:2] %>% 
+plot_D_all <- pcoa_D_all$vectors[,1:2] %>% 
     as.data.frame() %>% 
     tibble() %>% 
     # add rownames
-    bind_cols(Sample = rownames(pcoa_D$vectors), .) %>% 
-    # add pam clusters
-    left_join(., pam_A_tab) %>%
-    ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
+    bind_cols(Sample = rownames(pcoa_D_all$vectors), .) %>% 
+    ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample)) +
     geom_point(size = 3) +
-    geom_text_repel(size = 4, show.legend = FALSE) +
+    geom_text_repel(size = 4, show.legend = FALSE,
+                    box.padding = 0.5, max.overlaps = 100) +
     # rename axes
-    labs(x = axis_labs_D[1], y = axis_labs_D[2]) +
+    labs(x = axis_labs_D_all[1], y = axis_labs_D_all[2]) +
     # add title
     ggtitle("Plasmid profile") +
     theme_linedraw() +
     theme(axis.text = element_text(size = 12),
-          legend.position = "none",
           # remove the vertical grid lines
           panel.grid.major.x = element_blank(),
           panel.grid.minor.x = element_blank(),
@@ -99,38 +74,22 @@ plot_D <- pcoa_D$vectors[,1:2] %>%
 ## Input ----
 #xxxxxxxxxx
 # read data
-distance_matrix_E <- read.table("input/st636prophagevegdist.tsv", 
-                                header = TRUE, sep = "\t")
-
-# rename samples to match the pam_A_tab
-# add a space after "Aci" in the sample names
-# column names
-colnames(distance_matrix_E) <- colnames(distance_matrix_E) %>% 
-    str_replace_all("Aci", "Aci ") %>% 
-    str_replace_all("Aci 126_Belgrade5", "Aci 126")
-
-# row names
-distance_matrix_E$X <- distance_matrix_E$X %>% 
-    str_replace_all("Aci", "Aci ") %>% 
-    str_replace_all("Aci 126_Belgrade5", "Aci 126")
-
-# filter only those samples that are in the pam_A_tab (Names)
-# create the distance matrix
-distance_matrix_E <- distance_matrix_E %>% 
-    filter(X %in% Names) %>% 
-    select(Names) %>% 
+distance_matrix_E_all <- read.table("input/st636prophagevegdist.tsv", 
+                                    header = TRUE, sep = "\t") %>% 
+    # remove the first column
+    select(-X) %>% 
     as.matrix() %>% 
     as.dist(., upper = TRUE)
 
 #xxxxxxxxxx
 ## PCoA ----
 #xxxxxxxxxx
-pcoa_E <- ape::pcoa(distance_matrix_E, correction = "none")
+pcoa_E_all <- ape::pcoa(distance_matrix_E_all, correction = "none")
 
 # relative eigen values for axis names
-axis_labs_E <- c("Axis.1" = paste0("PC1: ", round(pcoa_E$values$Relative_eig[1], 
+axis_labs_E_all <- c("Axis.1" = paste0("PC1: ", round(pcoa_E_all$values$Relative_eig[1], 
                                                   3)),
-                 "Axis.2" = paste0("PC2: ", round(pcoa_E$values$Relative_eig[2], 
+                 "Axis.2" = paste0("PC2: ", round(pcoa_E_all$values$Relative_eig[2], 
                                                   3)))
 
 #xxxxxxxxxx
@@ -138,23 +97,21 @@ axis_labs_E <- c("Axis.1" = paste0("PC1: ", round(pcoa_E$values$Relative_eig[1],
 #xxxxxxxxxx
 # converting for ggplot
 # 1st and 2nd axis
-plot_E <- pcoa_E$vectors[,1:2] %>% 
+plot_E_all <- pcoa_E_all$vectors[,1:2] %>% 
     as.data.frame() %>% 
     tibble() %>% 
     # add rownames
-    bind_cols(Sample = rownames(pcoa_E$vectors), .) %>% 
-    # add pam clusters
-    left_join(., pam_A_tab) %>%
-    ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
+    bind_cols(Sample = rownames(pcoa_E_all$vectors), .) %>% 
+    ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample)) +
     geom_point(size = 3) +
-    geom_text_repel(size = 4, show.legend = FALSE) +
+    geom_text_repel(size = 4, show.legend = FALSE,
+                    box.padding = 0.5, max.overlaps = 100) +
     # rename axes
-    labs(x = axis_labs_E[1], y = axis_labs_E[2]) +
+    labs(x = axis_labs_E_all[1], y = axis_labs_E_all[2]) +
     # add title
     ggtitle("Prophage profile") +
     theme_linedraw() +
     theme(axis.text = element_text(size = 12),
-          legend.position = "none",
           # remove the vertical grid lines
           panel.grid.major.x = element_blank(),
           panel.grid.minor.x = element_blank(),
@@ -174,52 +131,6 @@ plot_E <- pcoa_E$vectors[,1:2] %>%
 # D: Plasmid profile
 # E: Prophage profile
 
-p2 <- plot_grid(plot_D, plot_E, nrow = 1,
-               labels = c("D", "E"))
+plot_grid(plot_D_all, plot_E_all, nrow = 1)
 
-plot_grid(legend, p2, ncol = 1, rel_heights = c(0.1, 1))
-
-ggsave("output/DE_pcoas_ST636_KL40.png", width = 8, height = 4)
-ggsave("output/DE_pcoas_ST636_KL40.pdf", width = 8, height = 4)
-
-rm(Names)
-
-#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-# Comparing the distance matrices with Mantel tests ---------------------------
-#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-set.seed(1)
-
-# comparing all the 5 distance matrices 
-# $statistic -> r
-# $signif  -> p-value
-
-# a list of all distance matrices
-distance_matrices_list <- list("A" = distance_matrix_A, 
-                               "B" = distance_matrix_B, 
-                               "C" = distance_matrix_C, 
-                               "D" = distance_matrix_D, 
-                               "E" = distance_matrix_E)
-
-# all combinations of distance matrices
-Mantel_test_results <- combn(names(distance_matrices_list), 2) %>% 
-    t() %>% 
-    as.data.frame() %>% 
-    tibble()
-
-for(i in 1:nrow(Mantel_test_results)) {
-    Mantel_test_results$r[i] <- mantel(xdis = distance_matrices_list[[Mantel_test_results$V1[i]]], 
-                                               ydis = distance_matrices_list[[Mantel_test_results$V2[i]]], 
-                                               method = "pearson", 
-                                               permutations = 100000,
-                                               parallel = getOption("mc.cores"))$statistic
-    Mantel_test_results$p[i] <- mantel(xdis = distance_matrices_list[[Mantel_test_results$V1[i]]], 
-                                            ydis = distance_matrices_list[[Mantel_test_results$V2[i]]], 
-                                            method = "pearson", 
-                                            permutations = 100000,
-                                            parallel = getOption("mc.cores"))$signif
-}
-
-rm(i)
-
-Mantel_test_results %>% write_tsv("output/Mantel_test_results_pearson.tsv")
+ggsave("output/DE_all_pcoas_ST636_KL40.png", width = 15, height = 7)

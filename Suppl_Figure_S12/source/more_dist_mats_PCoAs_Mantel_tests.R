@@ -1,7 +1,7 @@
 library(tidyverse)
 library(ggrepel) # for geom_text_repel
 library(cowplot)
-library(vegan) # mantel
+library(vegan) # for mantel
 
 #xxxxxxxxxxxxxxxxxxxx
 # AIM: Plot PCoA to of distance matrix for Supplementary Figure 12 ---------------------------
@@ -12,40 +12,35 @@ library(vegan) # mantel
 # isolates of ST636-KL40 strain correlate with phage susceptibility profile
 # differences.
 
-#xxxxxxxxxxxxxxxxxxxx
-# A -----------------------------------------------------------------------
-#xxxxxxxxxxxxxxxxxxxx
+set.seed(1)
 
-# Description:
-# Principal coordinate analysis (PCoA) plot of nine ST636-KL40 isolates from
-# Eastern and Southern Europe derived from the Fourier-transformed infrared
-# measurement using the IR Biotyper instrument (Supplementary Table 23,
-# Methods). Each isolate has at least one pair of isolates that are
-# phylogenetically closely related (that is, diverged within two years).
-# Principal coordinates 1 and 2 explain 53% and 24% of the variation. The
-# isolates are coloured based on their Partitioning Around Medoids (PAM)
-# clustering into four clusters.
+#xxxxxxxxxxxxxxxxxxxxxxx
+# A --------------------------------------------------------------------------
+#xxxxxxxxxxxxxxxxxxxxxxx
+
+# Description: 
+# PCoA plot of the phage susceptibility profile differences
+# calculated with the Jaccard index. Principal coordinates 1 and 2 explain 33%
+# and 23% of the variation. The isolates are coloured based on the PAM
+# clustering into four clusters of the samples in Fig S12A. Differences in the
+# surface properties derived from the Fourier-transformed infrared signal
+# correlate with phage susceptibility profile differences calculated with the
+# Jaccard index (Mantel test, r = 0.408, p-value = 0.011, n = 9, number of
+# permutations: 10,000, method: Pearson correlation). Measurements were carried
+# out in three technical replicates.
 
 #xxxxxxxxxx
 ## Input ----
 #xxxxxxxxxx
-# read the large distance matrix from lower tsv
-# header only, the first column contains no names but distances, 0 diagonal is needed
-distance_matrix_A <- read.table(
-  "input/ST636_KL40_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv", 
-  header = TRUE, sep = "\t") %>% 
-  as.matrix() %>% 
-  as.dist(., upper = TRUE)
+# read data
+bin_matrix_A <- read.table(
+  "input/ST636_KL40_phage_susceptibility_profile_binary_full_matrix.tsv", 
+  header = TRUE, sep = "\t", row.names = 1)
 
-# row names for the PCoA
-row_names_A <- file(
-  "input/ST636_KL40_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv") %>% 
-  scan(., what = "", nlines = 1, sep="\t", quote = "\"",) 
+# Jaccard distance from the binary phage susceptibility data
+distance_matrix_A <- ade4::dist.binary(bin_matrix_A, upper = TRUE, method = 1)
 
-# change "." in labels to space
-dendextend::labels(distance_matrix_A) <- row_names_A
-
-rm(row_names_A)
+rm(bin_matrix_A)
 
 #xxxxxxxx
 ## k-medoids or PAM (Partitioning Around Meroids) ----
@@ -84,17 +79,20 @@ plot_A <- pcoa_A$vectors[,1:2] %>%
   left_join(., pam_A_tab) %>% 
   ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
   geom_point(size = 3) +
-  geom_text_repel(size = 4, show.legend = FALSE) +
-  # rename axes
-  labs(x = axis_labs_A[1], y = axis_labs_A[2]) +
+  geom_text_repel(size = 4, show.legend = FALSE, 
+                  box.padding = 0.5, max.overlaps = 100) +
+  # colouring scheme
+  scale_color_brewer(palette = "Set1") +
+  # rename axes and legend title
+  labs(x = axis_labs_A[1], y = axis_labs_A[2],
+       color = "PAM cluster of phage\nsusceptibility profile") +
   # add title
-  ggtitle("Infrared signal") +
-  # legend title
-  labs(color = "PAM cluster of infrared signal") +
+  ggtitle("Phage susceptibility profile") +
   theme_linedraw() +
   theme(axis.text = element_text(size = 12),
-        legend.position = "top",
-        legend.text = element_text(size = 12),
+        # legend
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 14),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
@@ -107,37 +105,44 @@ plot_A <- pcoa_A$vectors[,1:2] %>%
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
 # saving legend to a variable
-legend <- get_legend(plot_A)
+legend <- get_plot_component(plot_A, "guide-box-right", return_all = TRUE)
 # removing legend from the plot
 plot_A <- plot_A + theme(legend.position = "none")
 
-#xxxxxxxxxxxxxxxxxxxxxxx
-# B --------------------------------------------------------------------------
-#xxxxxxxxxxxxxxxxxxxxxxx
+#xxxxxxxxxxxxxxxxxxxx
+# B -----------------------------------------------------------------------
+#xxxxxxxxxxxxxxxxxxxx
 
-# Description: 
-# PCoA plot of the phage susceptibility profile differences
-# calculated with the Jaccard index. Principal coordinates 1 and 2 explain 33%
-# and 23% of the variation. The isolates are coloured based on the PAM
-# clustering into four clusters of the samples in Fig S12A. Differences in the
-# surface properties derived from the Fourier-transformed infrared signal
-# correlate with phage susceptibility profile differences calculated with the
-# Jaccard index (Mantel test, r = 0.408, p-value = 0.011, n = 9, number of
-# permutations: 10,000, method: Pearson correlation). Measurements were carried
-# out in three technical replicates.
+# Description:
+# Principal coordinate analysis (PCoA) plot of nine ST636-KL40 isolates from
+# Eastern and Southern Europe derived from the Fourier-transformed infrared
+# measurement using the IR Biotyper instrument (Supplementary Table 23,
+# Methods). Each isolate has at least one pair of isolates that are
+# phylogenetically closely related (that is, diverged within two years).
+# Principal coordinates 1 and 2 explain 53% and 24% of the variation. The
+# isolates are coloured based on their Partitioning Around Medoids (PAM)
+# clustering into four clusters.
 
 #xxxxxxxxxx
 ## Input ----
 #xxxxxxxxxx
-# read data
-bin_matrix_B <- read.table(
-  "input/ST636_KL40_phage_susceptibility_profile_binary_full_matrix.tsv", 
-  header = TRUE, sep = "\t", row.names = 1)
+# read the large distance matrix from lower tsv
+# header only, the first column contains no names but distances, 0 diagonal is needed
+distance_matrix_B <- read.table(
+  "input/ST636_KL40_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv", 
+  header = TRUE, sep = "\t") %>% 
+  as.matrix() %>% 
+  as.dist(., upper = TRUE)
 
-# Jaccard distance from the binary phage susceptibility data
-distance_matrix_B <- ade4::dist.binary(bin_matrix_B, upper = TRUE, method = 1)
+# row names for the PCoA
+row_names_B <- file(
+  "input/ST636_KL40_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv") %>% 
+  scan(., what = "", nlines = 1, sep="\t", quote = "\"",) 
 
-rm(bin_matrix_B)
+# change "." in labels to space
+dendextend::labels(distance_matrix_B) <- row_names_B
+
+rm(row_names_B)
 
 #xxxxxxxxxx
 ## PCoA ----
@@ -164,14 +169,18 @@ plot_B <- pcoa_B$vectors[,1:2] %>%
   left_join(., pam_A_tab) %>% 
   ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
   geom_point(size = 3) +
-  geom_text_repel(size = 4, show.legend = FALSE) +
+  geom_text_repel(size = 4, show.legend = FALSE, 
+                  box.padding = 0.5, max.overlaps = 100) +
+  # colouring scheme
+  scale_color_brewer(palette = "Set1") +
   # rename axes
   labs(x = axis_labs_B[1], y = axis_labs_B[2]) +
   # add title
-  ggtitle("Phage susceptibility profile") +
+  ggtitle("Infrared signal") +
   theme_linedraw() +
   theme(axis.text = element_text(size = 12),
         legend.position = "none",
+        legend.text = element_text(size = 12),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
@@ -263,12 +272,185 @@ plot_C <- pcoa_C$vectors[,1:2] %>%
   left_join(., pam_A_tab) %>% 
   ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
   geom_point(size = 3) +
-  geom_text_repel(size = 4, show.legend = FALSE) +
-  # scale_color_manual(name = NULL, values = Colors) +
+  geom_text_repel(size = 4, show.legend = FALSE, 
+                  box.padding = 0.5, max.overlaps = 100) +
+  # colouring scheme
+  scale_color_brewer(palette = "Set1") +
   # rename axes
   labs(x = axis_labs_C[1], y = axis_labs_C[2]) +
   # add title
   ggtitle("Genetic distance") +
+  theme_linedraw() +
+  theme(axis.text = element_text(size = 12),
+        legend.position = "none",
+        # remove the vertical grid lines
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        # remove the horizontal grid lines
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        # add margin to x-axis title
+        axis.title.x = element_text(size = 14, margin = margin(t = 10)), 
+        # add margin to y-axis title
+        axis.title.y = element_text(size = 14, margin = margin(r = 10)))
+
+#xxxxxxxxxxxxxxxxxxxxxxx
+# D --------------------------------------------------------------------------
+#xxxxxxxxxxxxxxxxxxxxxxx
+
+# Description: 
+# Plasmid distance
+
+#xxxxxxxxxx
+## Input ----
+#xxxxxxxxxx
+# read data
+distance_matrix_D <- read.table("input/st636plasmidvegdist.tsv", 
+                                header = TRUE, sep = "\t")
+
+# rename samples to match the pam_A_tab
+# add a space after "Aci" in the sample names
+# column names
+colnames(distance_matrix_D) <- colnames(distance_matrix_D) %>% 
+  str_replace_all("Aci", "Aci ") %>% 
+  str_replace_all("Aci 126_Belgrade5", "Aci 126")
+
+# row names
+distance_matrix_D$X <- distance_matrix_D$X %>% 
+  str_replace_all("Aci", "Aci ") %>% 
+  str_replace_all("Aci 126_Belgrade5", "Aci 126")
+
+# filter only those samples that are in the pam_A_tab
+# order pam_A_tab$Sample numerically and create a vector of sample names
+Names <- pam_A_tab$Sample %>% 
+  str_replace_all("Aci ", "") %>% 
+  as.numeric() %>% 
+  sort() %>% 
+  paste0("Aci ", .)
+
+# create the distance matrix
+distance_matrix_D <- distance_matrix_D %>% 
+  filter(X %in% Names) %>% 
+  select(all_of(Names)) %>% 
+  as.matrix() %>% 
+  as.dist(., upper = TRUE)
+
+#xxxxxxxxxx
+## PCoA ----
+#xxxxxxxxxx
+pcoa_D <- ape::pcoa(distance_matrix_D, correction = "none")
+
+# relative eigen values for axis names
+axis_labs_D <- c("Axis.1" = paste0("PC1: ", round(pcoa_D$values$Relative_eig[1], 
+                                                  3)),
+                 "Axis.2" = paste0("PC2: ", round(pcoa_D$values$Relative_eig[2], 
+                                                  3)))
+
+#xxxxxxxxxx
+## Plot ----
+#xxxxxxxxxx
+# converting for ggplot
+# 1st and 2nd axis
+plot_D <- pcoa_D$vectors[,1:2] %>% 
+  as.data.frame() %>% 
+  tibble() %>% 
+  # add rownames
+  bind_cols(Sample = rownames(pcoa_D$vectors), .) %>% 
+  # add pam clusters
+  left_join(., pam_A_tab) %>%
+  ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
+  geom_point(size = 3) +
+  geom_text_repel(size = 4, show.legend = FALSE, 
+                  box.padding = 0.5, max.overlaps = 100) +
+  # colouring scheme
+  scale_color_brewer(palette = "Set1") +
+  # rename axes
+  labs(x = axis_labs_D[1], y = axis_labs_D[2]) +
+  # add title
+  ggtitle("Plasmid profile") +
+  theme_linedraw() +
+  theme(axis.text = element_text(size = 12),
+        legend.position = "none",
+        # remove the vertical grid lines
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        # remove the horizontal grid lines
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        # add margin to x-axis title
+        axis.title.x = element_text(size = 14, margin = margin(t = 10)), 
+        # add margin to y-axis title
+        axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
+
+#xxxxxxxxxxxxxxxxxxxxxxx
+# E --------------------------------------------------------------------------
+#xxxxxxxxxxxxxxxxxxxxxxx
+
+# Description: 
+# Prophage distance
+
+#xxxxxxxxxx
+## Input ----
+#xxxxxxxxxx
+# read data
+distance_matrix_E <- read.table("input/st636prophagevegdist.tsv", 
+                                header = TRUE, sep = "\t")
+
+# rename samples to match the pam_A_tab
+# add a space after "Aci" in the sample names
+# column names
+colnames(distance_matrix_E) <- colnames(distance_matrix_E) %>% 
+  str_replace_all("Aci", "Aci ") %>% 
+  str_replace_all("Aci 126_Belgrade5", "Aci 126")
+
+# row names
+distance_matrix_E$X <- distance_matrix_E$X %>% 
+  str_replace_all("Aci", "Aci ") %>% 
+  str_replace_all("Aci 126_Belgrade5", "Aci 126")
+
+# filter only those samples that are in the pam_A_tab (Names)
+# create the distance matrix
+distance_matrix_E <- distance_matrix_E %>% 
+  filter(X %in% Names) %>% 
+  select(Names) %>% 
+  as.matrix() %>% 
+  as.dist(., upper = TRUE)
+
+rm(Names)
+
+#xxxxxxxxxx
+## PCoA ----
+#xxxxxxxxxx
+pcoa_E <- ape::pcoa(distance_matrix_E, correction = "none")
+
+# relative eigen values for axis names
+axis_labs_E <- c("Axis.1" = paste0("PC1: ", round(pcoa_E$values$Relative_eig[1], 
+                                                  3)),
+                 "Axis.2" = paste0("PC2: ", round(pcoa_E$values$Relative_eig[2], 
+                                                  3)))
+
+#xxxxxxxxxx
+## Plot ----
+#xxxxxxxxxx
+# converting for ggplot
+# 1st and 2nd axis
+plot_E <- pcoa_E$vectors[,1:2] %>% 
+  as.data.frame() %>% 
+  tibble() %>% 
+  # add rownames
+  bind_cols(Sample = rownames(pcoa_E$vectors), .) %>% 
+  # add pam clusters
+  left_join(., pam_A_tab) %>%
+  ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
+  geom_point(size = 3) +
+  geom_text_repel(size = 4, show.legend = FALSE, 
+                  box.padding = 0.25) +
+  # colouring scheme
+  scale_color_brewer(palette = "Set1") +
+  # rename axes
+  labs(x = axis_labs_E[1], y = axis_labs_E[2]) +
+  # add title
+  ggtitle("Prophage profile") +
   theme_linedraw() +
   theme(axis.text = element_text(size = 12),
         legend.position = "none",
@@ -291,19 +473,23 @@ plot_C <- pcoa_C$vectors[,1:2] %>%
 # A: infrared signal
 # B: phage susceptibility profile
 # C: genetic distance
+# D: Plasmid profile
+# E: Prophage profile
 
-p <- plot_grid(plot_A, plot_B, plot_C, nrow = 1,
-               labels = c("A", "B", "C"))
+plot_grid(plot_A, NULL, plot_B, NULL, plot_C, 
+          NULL, NULL, NULL, NULL, NULL,
+          plot_D, NULL, plot_E, NULL, legend,
+          nrow = 3,
+          align = "hv",
+          axis = "l",
+          rel_heights = c(1, 0.05, 1),
+          rel_widths = c(1, 0.05, 1, 0.05, 1),
+          labels = c("A", "", "B", "", "C", 
+                     "", "", "", "", "",
+                     "D", "",  "E"))
 
-plot_grid(legend, p, ncol = 1, rel_heights = c(0.1, 1))
-
-ggsave("output/3_pcoas_ST636_KL40.png", width = 12, height = 4)
-ggsave("output/3_pcoas_ST636_KL40.pdf", width = 12, height = 4)
-
-# Zoom in to C to catch the points overlapping each other
-plot_C + 
-  coord_cartesian(xlim = c(-7.25, -6.5), ylim = c(1.35, 1.55))
-ggsave("output/C_zoom_in.png", width = 5, height = 5)
+ggsave("output/5_pcoas_ST636_KL40.png", width = 13, height = 8.5)
+ggsave("output/5_pcoas_ST636_KL40.pdf", width = 13, height = 8.5)
 
 
 
@@ -311,53 +497,36 @@ ggsave("output/C_zoom_in.png", width = 5, height = 5)
 # Comparing the distance matrices with Mantel tests ---------------------------
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-set.seed(1)
+# comparing all the 5 distance matrices 
+# $statistic -> r
+# $signif  -> p-value
 
-#xxxxxxxxxx
-## A vs B ----
-#xxxxxxxxxx
-mantel(xdis = distance_matrix_A, 
-       ydis = distance_matrix_B, 
-       method = "pearson", 
-       permutations = 100000,
-       parallel = getOption("mc.cores"))
+# a list of all distance matrices
+distance_matrices_list <- list("A" = distance_matrix_A, 
+                               "B" = distance_matrix_B, 
+                               "C" = distance_matrix_C, 
+                               "D" = distance_matrix_D, 
+                               "E" = distance_matrix_E)
 
-# Mantel statistic r: 0.4081 
-# Significance: 0.01134 
-# Upper quantiles of permutations (null model):
-#     90%   95% 97.5%   99% 
-#   0.231 0.295 0.352 0.417 
+# all combinations of distance matrices
+Mantel_test_results <- combn(names(distance_matrices_list), 2) %>% 
+  t() %>% 
+  as.data.frame() %>% 
+  tibble()
 
-#xxxxxxxxxx
-## A vs C ----
-#xxxxxxxxxx
-mantel(xdis = distance_matrix_A, 
-       ydis = distance_matrix_C, 
-       method = "pearson", 
-       permutations = 100000,
-       parallel = getOption("mc.cores"))
+for(i in 1:nrow(Mantel_test_results)) {
+  Mantel_test_results$r[i] <- mantel(xdis = distance_matrices_list[[Mantel_test_results$V1[i]]], 
+                                     ydis = distance_matrices_list[[Mantel_test_results$V2[i]]], 
+                                     method = "pearson", 
+                                     permutations = 100000,
+                                     parallel = getOption("mc.cores"))$statistic
+  Mantel_test_results$p[i] <- mantel(xdis = distance_matrices_list[[Mantel_test_results$V1[i]]], 
+                                     ydis = distance_matrices_list[[Mantel_test_results$V2[i]]], 
+                                     method = "pearson", 
+                                     permutations = 100000,
+                                     parallel = getOption("mc.cores"))$signif
+}
 
-# Mantel statistic r: -0.02499 
-# Significance: 0.49813 
-# 
-# Upper quantiles of permutations (null model):
-#     90%   95% 97.5%   99% 
-#   0.364 0.446 0.521 0.702 
+rm(i)
 
-#xxxxxxxxxx
-## B vs C ----
-#xxxxxxxxxx
-mantel(xdis = distance_matrix_B, 
-       ydis = distance_matrix_C, 
-       method = "pearson", 
-       permutations = 100000,
-       parallel = getOption("mc.cores"))
-
-# Mantel statistic r:  0.11 
-# Significance: 0.27158 
-# Upper quantiles of permutations (null model):
-#   90%   95% 97.5%   99% 
-#   0.243 0.306 0.357 0.466 
-# Permutation: free
-# Number of permutations: 1e+05
-
+Mantel_test_results %>% write_tsv("output/Mantel_test_results_pearson.tsv")
