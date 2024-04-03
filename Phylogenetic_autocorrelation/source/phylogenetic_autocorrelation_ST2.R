@@ -51,7 +51,7 @@ autocorr_result <- geographic_acf(trees = dated_tree_with_city,
                                   tip_latitudes = metadata_with_city$lat,
                                   tip_longitudes = metadata_with_city$lon,
                                   # every tip pair of every tree is included exactly once
-                                  Npairs = 300000,
+                                  Npairs = 1000000,
                                   Nbins = NULL,
                                   min_phylodistance = 0,
                                   max_phylodistance = NULL,
@@ -74,7 +74,7 @@ autocorr_result_tab <- autocorr_result %>%
   mutate(Year = phylodistances / 2)
 
 #xxxxxxxxxx
-## Plot -----
+## Plot of the first 20 years -----
 #xxxxxxxxxx
 
 p <- autocorr_result_tab %>%
@@ -84,9 +84,10 @@ p <- autocorr_result_tab %>%
   scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
   # regression
   geom_smooth(method = "loess", formula = y ~ x,
-              span = 0.99, color = "gray30", se = TRUE) +
+              span = 0.5, color = "gray30", se = TRUE) +
+  scale_x_continuous(limits = c(0, 20)) +
   scale_y_continuous(limits = c(-1, 1)) +
-  stat_cor(method = "pearson", cor.coef.name = "rho",
+  stat_cor(method = "spearman", cor.coef.name = "rho",
            label.x.npc = "left", label.y.npc = "bottom", show.legend = FALSE) +
   labs(x = "MRCA (years)", y = "Autocorrelation") +
   theme_minimal()
@@ -95,7 +96,5 @@ ggsave("output/autocorr_result_with_city.png", p,
        width = 7, height = 5, dpi = 300)
 ggsave("output/autocorr_result_with_city.pdf", p, 
        width = 7, height = 5)
-
-save.image()
 
 
