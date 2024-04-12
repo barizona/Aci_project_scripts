@@ -27,7 +27,9 @@ E_tab %<>%
     # create a new column for phage
     separate(value_type, into = c("phage", "type"), sep = "_") %>%
     # convert it to wider format having mean, lower and upper sd-s in columns
-    pivot_wider(names_from = type, values_from = log10_FC)
+    pivot_wider(names_from = type, values_from = log10_FC) %>% 
+    # mutate phage to factor
+    mutate(phage = factor(phage, levels = c("H", "S", "F", "Ph")))
 
 #xxxxxxxxxxxxxxxxxx
 # Errorbar plot -----------------------------------------------------------
@@ -35,11 +37,20 @@ E_tab %<>%
 
 E_tab %>% 
     ggplot(aes(x = isolate, y = mean, color = phage)) +
+    # add a line to 0
+    geom_hline(aes(yintercept = 0), linetype = "dashed") + 
+    # add vertical lines between isolates
+    geom_vline(xintercept = c(1.5, 2.5, 3.5), colour = "gray50") +
     geom_point(size = 2, position = position_dodge(width = 0.5)) +
     geom_errorbar(aes(ymin = lower, ymax = higher),
                   width = 0.5, position = position_dodge(width = 0.5)) +
-    geom_hline(aes(yintercept = 0), linetype = "dashed") + 
+    # colouring scheme
+    scale_color_brewer(palette = "Set1") +
     theme_bw()
 
+# TODO: colouring isolates x axis label, the same colouring scheme as on Fig6F and Fig7
+# rotate x axis label
+# change y axis label to "log10 fold change in free phages"
+# remove lines from plot
 
     
