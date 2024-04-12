@@ -34,12 +34,28 @@ metadata <- readRDS("input/aci_study.rds") %>%
 all.equal(dated_tree$tip.label, metadata$assembly)
 # [1] TRUE
 
+geodate_tab <- read_tsv("input/aci_collapse_geodate2.tsv")
+
+# check if the geodate_tab contain all tips of the tree
+setdiff(dated_tree$tip.label, geodate_tab$assembly)
+# character(0)
+
 #xxxxxxxxxx
 ## Keep only those genomes where the city column is filled in the metadata ----
+# and kept after geodate filtering
 #xxxxxxxxxx
 
+# keep only those filtered == TRUE and downsampled == TRUE in geodate_tab
+to_keep <- geodate_tab %>%
+  filter(filtered == TRUE & downsampled == TRUE) %>% 
+  select(assembly) %>%
+  pull()
+
+# filtering metadata
 metadata_with_city <- metadata %>%
-  filter(!is.na(city))
+  filter(!is.na(city)) %>% 
+  filter(assembly %in% to_keep)
+rm(to_keep)
 
 dated_tree_with_city <- dated_tree %>%
   ape::keep.tip(phy = ., tip = metadata_with_city$assembly)
