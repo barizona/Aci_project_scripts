@@ -74,11 +74,33 @@ autocorr_result_tab <- autocorr_result %>%
   mutate(Year = phylodistances / 2)
 
 #xxxxxxxxxx
-## Plot of the first 20 years -----
+## Plot of all years -----
 #xxxxxxxxxx
 
 p <- autocorr_result_tab %>%
   # slice_sample(n = 30000) %>%
+  ggplot(aes(x = Year, y = autocorrelations)) +
+  geom_pointdensity(size = 0.5) +
+  scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
+  # regression
+  geom_smooth(method = "loess", formula = y ~ x,
+              span = 0.3, color = "gray30", se = FALSE) +
+  scale_y_continuous(limits = c(-1, 1)) +
+  stat_cor(method = "spearman", cor.coef.name = "rho",
+           label.x.npc = "left", label.y.npc = "bottom", show.legend = FALSE) +
+  labs(x = "MRCA (years)", y = "Autocorrelation") +
+  theme_minimal()
+
+ggsave("output/autocorr_result_with_city.png", p, 
+       width = 7, height = 5, dpi = 300)
+ggsave("output/autocorr_result_with_city.pdf", p, 
+       width = 7, height = 5)
+
+#xxxxxxxxxx
+## Plot of the first 20 years -----
+#xxxxxxxxxx
+
+p2 <- autocorr_result_tab %>%
   ggplot(aes(x = Year, y = autocorrelations)) +
   geom_pointdensity(size = 0.5) +
   scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
@@ -92,9 +114,7 @@ p <- autocorr_result_tab %>%
   labs(x = "MRCA (years)", y = "Autocorrelation") +
   theme_minimal()
 
-ggsave("output/autocorr_result_with_city.png", p, 
+ggsave("output/autocorr_result_with_city_20years.png", p2, 
        width = 7, height = 5, dpi = 300)
-ggsave("output/autocorr_result_with_city.pdf", p, 
+ggsave("output/autocorr_result_with_city_20years.pdf", p2, 
        width = 7, height = 5)
-
-
