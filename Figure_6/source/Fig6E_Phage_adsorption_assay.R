@@ -1,5 +1,8 @@
 library(tidyverse)
 library(magrittr)
+library(ggtext) # for superscripts: theme(... element_markdown())
+
+set.seed(1)
 #xxxxxxxxxxxxxxxxxxxx
 # AIM: mean-variance plot of phage absorption for Figure 6 E -------------------
 #xxxxxxxxxxxxxxxxxxxx
@@ -25,32 +28,62 @@ E_tab %<>%
     # convert it to long format
     pivot_longer(!isolate, names_to = "value_type", values_to = "log10_FC") %>% 
     # create a new column for phage
-    separate(value_type, into = c("phage", "type"), sep = "_") %>%
-    # convert it to wider format having mean, lower and upper sd-s in columns
-    pivot_wider(names_from = type, values_from = log10_FC) %>% 
-    # mutate phage to factor
-    mutate(phage = factor(phage, levels = c("H", "S", "F", "Ph")))
+    separate(value_type, into = c("phage", "replicate"), sep = "_") %>%
+    # mutate isolate and phage to factors
+    mutate(isolate = factor(isolate, levels = c("Aci110", "Aci110-1", 
+                                                "Aci110-2", "Aci110-G1")),
+           phage = factor(phage, levels = c("H", "S", "F", "Ph")))
 
 #xxxxxxxxxxxxxxxxxx
-# Errorbar plot -----------------------------------------------------------
+# Boxplot with values ---------------------------------------------------------
 #xxxxxxxxxxxxxxxxxx
 
-E_tab %>% 
-    ggplot(aes(x = isolate, y = mean, color = phage)) +
-    # add a line to 0
-    geom_hline(aes(yintercept = 0), linetype = "dashed") + 
-    # add vertical lines between isolates
-    geom_vline(xintercept = c(1.5, 2.5, 3.5), colour = "gray50") +
-    geom_point(size = 2, position = position_dodge(width = 0.5)) +
-    geom_errorbar(aes(ymin = lower, ymax = higher),
-                  width = 0.5, position = position_dodge(width = 0.5)) +
-    # colouring scheme
-    scale_color_brewer(palette = "Set1") +
-    theme_bw()
+p_E <- E_tab %>% 
+    ggplot(aes(x = phage, y = log10_FC, colour = phage)) +
+    # mean bars
+    stat_summary(aes(ymax = ..y.., ymin = ..y..),
+                 fun = mean, geom = "errorbar", width = 0.5, linewidth = 1) +
+    # geom_jitter(color = "black", width = 0.3) +
+    geom_point(position = position_jitterdodge(jitter.width = 1, 
+                                               dodge.width = 1), size = 2) +
+    facet_wrap(~isolate, nrow = 1) +
+    # change y axis label to "log10 fold change in free phages"
+    labs(x = "", y = expression(paste("log"[10], " fold change"))) +
+    theme_bw() +
+    # remove x axis values and ticks
+    theme(axis.text.x = element_blank(),
+          axis.ticks.x = element_blank(),
+          legend.position = "top",
+          # remove the vertical grid lines
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          # remove the horizontal grid lines
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          # no background for facet headers
+          strip.background = element_rect(fill = NA, color = NA),
+          strip.text = element_text(face = "bold"))
 
-# TODO: colouring isolates x axis label, the same colouring scheme as on Fig6F and Fig7
-# rotate x axis label
-# change y axis label to "log10 fold change in free phages"
-# remove lines from plot
+#xxxxxxxxxxx
+## Change facet header background colour -------
+#xxxxxxxxxxx
+p_E <- ggplot_gtable(ggplot_build(p_E))
 
-    
+strips <- which(grepl('strip-', p_E$layout$name))
+
+for (i in seq_along(strips)) {
+    k <- which(grepl('rect', p_E$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
+    l <- which(grepl('titleGrob', p_E$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
+    # background colour
+    p_E$grobs[[strips[i]]]$grobs[[1]]$children[[k]]$gp$fill <- Colour_list$Aci110_x_axis[i]
+    # text colour
+    # p_E$grobs[[strips[i]]]$grobs[[1]]$children[[l]]$children[[1]]$gp$col <- Colour_list$Aci110_x_axis[i]
+}
+
+rm(strips, k, l, i)
+
+# convert back to ggplot object
+p_E <- ggplotify::as.ggplot(p_E)
+
+
+

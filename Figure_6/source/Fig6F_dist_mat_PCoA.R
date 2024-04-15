@@ -60,20 +60,9 @@ F_meta <- read_tsv(
                                                "HSFPh<sup>R</sup>", 
                                                "wt")))
 
-# Colours for scale colour manual
-F_colour_vect <- F_meta %>% 
-  select(`Phage resistant`, Colour) %>%
-  distinct() %>% 
-  arrange(`Phage resistant`) %>%
-  deframe()
-
-# grayscale
-F_colour_vect_gr <- c("black", "gray15", "gray30", "gray45", "gray60")
-names(F_colour_vect_gr) <- names(F_colour_vect)
-
 # shapes for grayscale figure
 F_shape_vect <- c(15, 17, 18, 19, 20)
-names(F_shape_vect) <- names(F_colour_vect)
+names(F_shape_vect) <- names(Colour_list$page_resistance)
 
 # relative Eigen values for axis names
 F_axis_labs <- c("Axis.1" = paste0("PC1: ", 
@@ -87,7 +76,7 @@ F_axis_labs <- c("Axis.1" = paste0("PC1: ",
 
 # converting for ggplot
 # 1st and 2nd axis
-F_pcoa$vectors[,1:2] %>% 
+p_F <- F_pcoa$vectors[,1:2] %>% 
   as.data.frame() %>% 
   tibble() %>% 
   # add rownames
@@ -99,7 +88,7 @@ F_pcoa$vectors[,1:2] %>%
   geom_point(size = 3) +
   geom_text_repel(size = 4, show.legend = FALSE) +
   # no title for legend
-  scale_color_manual(name = NULL, values = F_colour_vect) +
+  scale_color_manual(name = NULL, values = Colour_list$phage_resistance) +
   # rename axes
   labs(x = F_axis_labs[1], y = F_axis_labs[2]) +
   theme_linedraw() +
@@ -118,10 +107,10 @@ F_pcoa$vectors[,1:2] %>%
         # add margin to y-axis title
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
-ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements.png", 
-       width = 5, height = 5)
-ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements.pdf", 
-       width = 5, height = 5)
+# ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements.png", 
+#        width = 5, height = 5)
+# ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements.pdf", 
+#        width = 5, height = 5)
 
 #xxxxxxxxxx
 # Plot - grayscale ------------------------------------------------------------
@@ -141,7 +130,7 @@ F_pcoa$vectors[,1:2] %>%
   geom_point(size = 3) +
   geom_text_repel(size = 4, show.legend = FALSE) +
   # colour scale, no title for legend
-  scale_color_manual(name = NULL, values = F_colour_vect_gr) +
+  scale_color_manual(name = NULL, values = Colour_list$phage_resistance_gray) +
   # shape scale, no title for legend
   scale_shape_manual(name = NULL, values = F_shape_vect) +
   # rename axes
@@ -166,6 +155,8 @@ ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_gray
        width = 5, height = 5)
 ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_grayscale.pdf", 
        width = 5, height = 5)
+
+rm(F_shape_vect)
 
 sessionInfo() %>% 
   capture.output() %>% 
