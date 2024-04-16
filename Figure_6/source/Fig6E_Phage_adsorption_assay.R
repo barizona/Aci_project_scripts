@@ -35,25 +35,32 @@ E_tab %<>%
            phage = factor(phage, levels = c("H", "S", "F", "Ph")))
 
 #xxxxxxxxxxxxxxxxxx
-# Boxplot with values ---------------------------------------------------------
+# Mean line with values -------------------------------------------------------
 #xxxxxxxxxxxxxxxxxx
 
 p_E <- E_tab %>% 
     ggplot(aes(x = phage, y = log10_FC, colour = phage)) +
+    geom_point(position = position_jitterdodge(jitter.width = 1, 
+                                               dodge.width = 1), size = 1.2) +
     # mean bars
     stat_summary(aes(ymax = ..y.., ymin = ..y..),
-                 fun = mean, geom = "errorbar", width = 0.5, linewidth = 1) +
-    # geom_jitter(color = "black", width = 0.3) +
-    geom_point(position = position_jitterdodge(jitter.width = 1, 
-                                               dodge.width = 1), size = 2) +
+                 fun = mean, geom = "errorbar", width = 0.8, linewidth = 0.8,
+                 colour = "gray40") +
     facet_wrap(~isolate, nrow = 1) +
     # change y axis label to "log10 fold change in free phages"
     labs(x = "", y = expression(paste("log"[10], " fold change"))) +
-    theme_bw() +
-    # remove x axis values and ticks
-    theme(axis.text.x = element_blank(),
-          axis.ticks.x = element_blank(),
+    theme_linedraw(base_size = 14) +
+    # colour the x axis values and ticks to transparent
+    theme(axis.text.x = element_text(color = "transparent"),
+          axis.ticks.x = element_line(color = "transparent"),
+          # legend
           legend.position = "top",
+          legend.title = element_text(size = 8),
+          legend.text = element_text(size = 8),
+          legend.key.size = unit(0, "cm"),
+          # axis font size
+          axis.title = element_text(size = 9),
+          axis.text = element_text(size = 8),
           # remove the vertical grid lines
           panel.grid.major.x = element_blank(),
           panel.grid.minor.x = element_blank(),
@@ -62,7 +69,9 @@ p_E <- E_tab %>%
           panel.grid.minor.y = element_blank(),
           # no background for facet headers
           strip.background = element_rect(fill = NA, color = NA),
-          strip.text = element_text(face = "bold"))
+          strip.text = element_text(size = 8, color = "black", face = "bold"),
+          # reduce spacing between facets
+          panel.spacing = unit(0, "lines"))
 
 #xxxxxxxxxxx
 ## Change facet header background colour -------
@@ -87,3 +96,4 @@ p_E <- ggplotify::as.ggplot(p_E)
 
 
 
+ 

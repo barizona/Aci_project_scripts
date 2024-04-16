@@ -85,32 +85,26 @@ p_F <- F_pcoa$vectors[,1:2] %>%
   left_join(., F_meta) %>% 
   ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, 
              colour = `Phage resistant`)) +
-  geom_point(size = 3) +
-  geom_text_repel(size = 4, show.legend = FALSE) +
+  geom_point(size = 1.2) +
+  geom_text_repel(show.legend = FALSE, size = 2.5) +
   # no title for legend
   scale_color_manual(name = NULL, values = Colour_list$phage_resistance) +
   # rename axes
   labs(x = F_axis_labs[1], y = F_axis_labs[2]) +
-  theme_linedraw() +
-         # axis numbers
-  theme(axis.text = element_text(size = 12),
-        legend.position = "top",
-        legend.text = element_markdown(size = 12),
+  theme_linedraw(base_size = 14) +
+        # legend
+  theme(legend.position = "top",
+        legend.text = element_markdown(size = 8),
+        legend.key.size = unit(0, "cm"),
+        # axis font size
+        axis.title = element_text(size = 9),
+        axis.text = element_text(size = 8),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         # remove the horizontal grid lines
         panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        # add margin to x-axis title
-        axis.title.x = element_text(size = 14, margin = margin(t = 10)), 
-        # add margin to y-axis title
-        axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
-
-# ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements.png", 
-#        width = 5, height = 5)
-# ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements.pdf", 
-#        width = 5, height = 5)
+        panel.grid.minor.y = element_blank()) 
 
 #xxxxxxxxxx
 # Plot - grayscale ------------------------------------------------------------

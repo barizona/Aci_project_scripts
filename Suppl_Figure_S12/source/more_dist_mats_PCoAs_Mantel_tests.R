@@ -466,7 +466,7 @@ plot_E <- pcoa_E$vectors[,1:2] %>%
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
 #xxxxxxxxxxxxxxxxxxxxxxxxxxx
-# Creating the complex figure: putting the 3 PCoA plots together --------------
+# Creating the complex figure: putting the 5 PCoA plots together --------------
 #xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 # legend title PAM cluster of infrared signal
