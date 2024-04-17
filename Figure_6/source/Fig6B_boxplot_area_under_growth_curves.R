@@ -82,7 +82,7 @@ B_kruskal_results %>%
 #xxxxxxxxxx
 ## Boxplots ----
 #xxxxxxxxxx
-B_tab %>% 
+p_B <- B_tab %>% 
     ggplot() +
     geom_boxplot(aes(x = Phage, y = Area, fill = Phage, color = Phage), outliers = FALSE) +
     geom_jitter(aes(x = Phage, y = Area, fill = Phage, color = Phage), width = 0.2) +
@@ -90,10 +90,11 @@ B_tab %>%
     scale_color_manual(values = Colour_list$Fig6B) +
     scale_y_continuous(labels = scales::comma) +
     # significant Kruskal-Wallis tests
-    stat_pvalue_manual(B_kruskal_results, label = "p.adj.signif", hide.ns = TRUE,
-                       y.position = 80, tip.length = 0.01, step.increase = 0.05,
-                       vjust = 1) +
-    labs(x = NULL, y = expression(paste("Area under bacterial growth curve OD"[600], " (a.u.)"))) +
+    # stat_pvalue_manual(B_kruskal_results, label = "p.adj.signif", hide.ns = TRUE,
+    #                    y.position = 80, tip.length = 0.01, step.increase = 0.05,
+    #                    vjust = 1) +
+    # 2 lines
+    labs(x = NULL, y = expression(atop("Area under growth curve", paste("OD"[600], " (a.u.)")))) +
     theme_linedraw() +
     theme(legend.position = "none",
           # axis font size

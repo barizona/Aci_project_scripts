@@ -73,12 +73,13 @@ p_A <- A_tab %>%
     labs(x = "Time (hours)", y = expression(paste("OD"[600]))) +
     theme_linedraw(base_size = 14) +
     theme(# legend
-          legend.position = c(0.1, 0.8),
+          legend.position = c(0.2, 0.7),
           legend.text = element_text(size = 8),
           legend.key.size = unit(0.5, "cm"),
           # axis font size
           axis.title = element_text(size = 9),
           axis.text = element_text(size = 8),
+          axis.text.x = element_text(angle = 45, hjust = 1),
           # remove the vertical grid lines
           panel.grid.major.x = element_blank(),
           panel.grid.minor.x = element_blank(),
