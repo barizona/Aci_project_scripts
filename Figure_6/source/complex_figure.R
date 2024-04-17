@@ -1,5 +1,6 @@
 library(tidyverse)
 library(cowplot)
+library(ggtext) # for superscripts: theme(... element_markdown())
 
 set.seed(1)
 #xxxxxxxxxxxxxxxxxxxxxxxxxxx
