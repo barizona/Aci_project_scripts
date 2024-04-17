@@ -60,10 +60,6 @@ F_meta <- read_tsv(
                                                "HSFPh<sup>R</sup>", 
                                                "wt")))
 
-# shapes for grayscale figure
-F_shape_vect <- c(15, 17, 18, 19, 20)
-names(F_shape_vect) <- names(Colour_list$page_resistance)
-
 # relative Eigen values for axis names
 F_axis_labs <- c("Axis.1" = paste0("PC1: ", 
                                    round(F_pcoa$values$Relative_eig[1], 3)),
@@ -88,7 +84,7 @@ p_F <- F_pcoa$vectors[,1:2] %>%
   geom_point(size = 1.2) +
   geom_text_repel(show.legend = FALSE, size = 2.5) +
   # no title for legend
-  scale_color_manual(name = NULL, values = Colour_list$phage_resistance) +
+  scale_color_manual(name = NULL, values = Colour_list$Fig6F) +
   # rename axes
   labs(x = F_axis_labs[1], y = F_axis_labs[2]) +
   theme_linedraw(base_size = 14) +
@@ -110,6 +106,10 @@ p_F <- F_pcoa$vectors[,1:2] %>%
 # Plot - grayscale ------------------------------------------------------------
 #xxxxxxxxxx
 
+# shapes for grayscale figure
+F_shape_vect <- c(15, 17, 18, 19, 20)
+names(F_shape_vect) <- names(Colour_list$page_resistance)
+
 # converting for ggplot
 # 1st and 2nd axis
 F_pcoa$vectors[,1:2] %>% 
@@ -124,7 +124,7 @@ F_pcoa$vectors[,1:2] %>%
   geom_point(size = 3) +
   geom_text_repel(size = 4, show.legend = FALSE) +
   # colour scale, no title for legend
-  scale_color_manual(name = NULL, values = Colour_list$phage_resistance_gray) +
+  scale_color_manual(name = NULL, values = Colour_list$Fig6F_gray) +
   # shape scale, no title for legend
   scale_shape_manual(name = NULL, values = F_shape_vect) +
   # rename axes
@@ -152,8 +152,8 @@ ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_gray
 
 rm(F_shape_vect)
 
-sessionInfo() %>% 
-  capture.output() %>% 
-  writeLines("output/Fig6F_sessionInfo.txt")
+# sessionInfo() %>% 
+#   capture.output() %>% 
+#   writeLines("output/Fig6F_sessionInfo.txt")
 
 rm(list = ls())

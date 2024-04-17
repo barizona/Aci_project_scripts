@@ -43,9 +43,10 @@ p_E <- E_tab %>%
     geom_point(position = position_jitterdodge(jitter.width = 1, 
                                                dodge.width = 1), size = 1.2) +
     # mean bars
-    stat_summary(aes(ymax = ..y.., ymin = ..y..),
+    stat_summary(aes(ymax = after_stat(y), ymin = after_stat(y)),
                  fun = mean, geom = "errorbar", width = 0.8, linewidth = 0.8,
                  colour = "gray40") +
+    scale_colour_manual(values = Colour_list$Fig6E, name = "Phage:") +
     facet_wrap(~isolate, nrow = 1) +
     # change y axis label to "log10 fold change in free phages"
     labs(x = "", y = expression(paste("log"[10], " fold change"))) +
@@ -84,7 +85,7 @@ for (i in seq_along(strips)) {
     k <- which(grepl('rect', p_E$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
     l <- which(grepl('titleGrob', p_E$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
     # background colour
-    p_E$grobs[[strips[i]]]$grobs[[1]]$children[[k]]$gp$fill <- Colour_list$Aci110_x_axis[i]
+    p_E$grobs[[strips[i]]]$grobs[[1]]$children[[k]]$gp$fill <- Colour_list$Fig6Eaxis[i]
     # text colour
     # p_E$grobs[[strips[i]]]$grobs[[1]]$children[[l]]$children[[1]]$gp$col <- Colour_list$Aci110_x_axis[i]
 }
