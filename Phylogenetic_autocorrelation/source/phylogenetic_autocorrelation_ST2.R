@@ -34,11 +34,12 @@ metadata <- readRDS("input/aci_study.rds") %>%
 all.equal(dated_tree$tip.label, metadata$assembly)
 # [1] TRUE
 
-geodate_tab <- read_tsv("input/aci_collapse_geodate2.tsv")
+geodate_tab <- read_tsv("input/Rate_1.tsv") %>% 
+  filter(filtered == TRUE & downsampled == TRUE)
 
 # check if the geodate_tab contain all tips of the tree
-setdiff(dated_tree$tip.label, geodate_tab$assembly)
-# character(0)
+setdiff(geodate_tab$assembly, dated_tree$tip.label) %>% length()
+# 398
 
 #xxxxxxxxxx
 ## Keep only those genomes where the city column is filled in the metadata ----
@@ -47,7 +48,6 @@ setdiff(dated_tree$tip.label, geodate_tab$assembly)
 
 # keep only those filtered == TRUE and downsampled == TRUE in geodate_tab
 to_keep <- geodate_tab %>%
-  filter(filtered == TRUE & downsampled == TRUE) %>% 
   select(assembly) %>%
   pull()
 
@@ -100,16 +100,16 @@ p <- autocorr_result_tab %>%
   scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
   # regression
   geom_smooth(method = "loess", formula = y ~ x,
-              span = 0.3, color = "gray30", se = FALSE) +
+              span = 0.5, color = "gray30", se = FALSE) +
   scale_y_continuous(limits = c(-1, 1)) +
   stat_cor(method = "spearman", cor.coef.name = "rho",
            label.x.npc = "left", label.y.npc = "bottom", show.legend = FALSE) +
   labs(x = "MRCA (years)", y = "Autocorrelation") +
   theme_minimal()
 
-ggsave("output/autocorr_result_with_city.png", p, 
+ggsave("output/Rate_1/autocorr_result_with_city.png", p, 
        width = 7, height = 5, dpi = 300)
-ggsave("output/autocorr_result_with_city.pdf", p, 
+ggsave("output/Rate_1/autocorr_result_with_city.pdf", p, 
        width = 7, height = 5)
 
 #xxxxxxxxxx
@@ -130,7 +130,7 @@ p2 <- autocorr_result_tab %>%
   labs(x = "MRCA (years)", y = "Autocorrelation") +
   theme_minimal()
 
-ggsave("output/autocorr_result_with_city_20years.png", p2, 
+ggsave("output/no_pop_ds/autocorr_result_with_city_20years.png", p2, 
        width = 7, height = 5, dpi = 300)
-ggsave("output/autocorr_result_with_city_20years.pdf", p2, 
+ggsave("output/no_pop_ds/autocorr_result_with_city_20years.pdf", p2, 
        width = 7, height = 5)
