@@ -27,7 +27,7 @@ for(i in Loop_var){
   names(Colour_list[[i]]) <- pull(x[, paste0(i, "_name")])
 }
 
-rm(i, Loop_var)
+rm(i, Loop_var, x, Colouring_tab)
 
 # Figure 6B change alpha
 Colour_list$Fig6B_alpha <- adjustcolor(Colour_list$Fig6B, alpha.f = 0.5)

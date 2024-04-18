@@ -80,5 +80,5 @@ p_A <- A_tab %>%
           # remove the horizontal grid lines
           panel.grid.major.y = element_blank(),
           panel.grid.minor.y = element_blank(),
-          # reduce spacing between facets
-          panel.spacing = unit(0, "lines"))
+          # legend background to transparent
+          legend.background = element_rect(fill = "transparent"))

@@ -47,14 +47,13 @@ max_time <- max(C_tab$time)
 C_x_limits <- as.POSIXct(c("1970-01-01 00:00:00", "1970-01-04 00:00:00"), format = "%Y-%m-%d %H:%M:%S")
 
 # Define breaks and labels for the x-axis
-C_x_breaks <- seq(min_time, max_time, by = "6 hours")
+C_x_breaks <- seq(min_time, max_time, by = "12 hours")
 C_x_labels <- format(C_x_breaks, "%H:%M")
 C_x_labels
-# [1] "00:00" "06:00" "12:00" "18:00" "00:00" "06:00" "12:00" "18:00" "00:00" "06:00" "12:00"
-# [12] "18:00" "00:00"
+# [1] "00:00" "12:00" "00:00" "12:00" "00:00" "12:00" "00:00"
 
 # Replace 
-C_x_labels = c("00:00", "06:00", "12:00", "18:00", "24:00", "30:00", "36:00", "42:00", "48:00", "54:00", "60:00", "66:00", "72:00")
+C_x_labels = c("00:00", "12:00", "24:00", "36:00", "48:00", "60:00", "72:00")
 
 rm(min_time, max_time)
 
@@ -70,7 +69,7 @@ p_C <- C_tab %>%
     labs(x = "Time (hours)", y = expression(paste("OD"[600]))) +
     theme_linedraw(base_size = 14) +
     theme(# legend
-        legend.position = c(0.2, 0.7),
+        legend.position = c(0.8, 0.7),
         legend.text = element_text(size = 8),
         legend.key.size = unit(0.5, "cm"),
         # axis font size
@@ -83,5 +82,5 @@ p_C <- C_tab %>%
         # remove the horizontal grid lines
         panel.grid.major.y = element_blank(),
         panel.grid.minor.y = element_blank(),
-        # reduce spacing between facets
-        panel.spacing = unit(0, "lines"))
+        # legend background to transparent
+        legend.background = element_rect(fill = "transparent"))

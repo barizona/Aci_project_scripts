@@ -112,7 +112,7 @@ names(F_shape_vect) <- names(Colour_list$page_resistance)
 
 # converting for ggplot
 # 1st and 2nd axis
-F_pcoa$vectors[,1:2] %>% 
+p_Fg <- F_pcoa$vectors[,1:2] %>% 
   as.data.frame() %>% 
   tibble() %>% 
   # add rownames
@@ -146,14 +146,10 @@ F_pcoa$vectors[,1:2] %>%
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
 ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_grayscale.png", 
-       width = 5, height = 5)
+       p_Fg, width = 5, height = 5)
 ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_grayscale.pdf", 
-       width = 5, height = 5)
+       p_Fg, width = 5, height = 5)
 
-rm(F_shape_vect)
+rm(F_shape_vect, p_Fg)
 
-# sessionInfo() %>% 
-#   capture.output() %>% 
-#   writeLines("output/Fig6F_sessionInfo.txt")
 
-rm(list = ls())

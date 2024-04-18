@@ -30,8 +30,8 @@ E_tab %<>%
     # create a new column for phage
     separate(value_type, into = c("phage", "replicate"), sep = "_") %>%
     # mutate isolate and phage to factors
-    mutate(isolate = factor(isolate, levels = c("Aci110", "Aci110-1", 
-                                                "Aci110-2", "Aci110-G1")),
+    mutate(isolate = factor(isolate, levels = c("Aci 110", "A110-1", 
+                                                "A110-2", "A110-G1")),
            phage = factor(phage, levels = c("H", "S", "F", "Ph")))
 
 #xxxxxxxxxxxxxxxxxx
