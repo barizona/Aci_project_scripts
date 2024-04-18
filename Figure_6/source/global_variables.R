@@ -4,7 +4,7 @@ library(tidyverse)
 #xxxxxxxxxxxxxxxxxxxx
 
 # read table with colouring information
-Colouring_tab <- read_tsv("input/Colouring_tab.tsv")
+Colouring_tab <- read_tsv("../Colouring_tab.tsv")
 
 # convert the table to a list
 Colour_list <- list()

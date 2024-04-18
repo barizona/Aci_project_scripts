@@ -16,7 +16,7 @@ p_D <- grImport2::readPicture("input/Fig6D_cairo.svg")
 # E: p_E
 # F: P_F
 # G: 
-p_G <- png::readPNG("input/Fig6G_cells_tem_white_bg_v2.png", native = TRUE) %>% 
+p_G <- png::readPNG("input/Fig6G_cells_tem_white_bg.png", native = TRUE) %>% 
     grid::rasterGrob()
 
 composit_ABC <- plot_grid(p_A, p_B, p_C,
@@ -31,8 +31,12 @@ p <- plot_grid(composit_ABC, grImport2::pictureGrob(p_D), composit_EFG,
                labels = c("", "D", ""), label_fontface = "plain", label_size = 12,
                ncol = 1)
 
+
 # Each figure should fit on a single 8.5” x 11” page
 ggsave("output/Figure6.pdf", p, units = "in", height = 9, width = 8.5)
+ggsave("output/Figure6.png", p, units = "in", height = 9, width = 8.5, dpi = 300)
+
+# TODO: play with p_D to fit better to the EF parts
 
 sessionInfo() %>%
   capture.output() %>%

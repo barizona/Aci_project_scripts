@@ -92,6 +92,8 @@ p_F <- F_pcoa$vectors[,1:2] %>%
   theme(legend.position = "top",
         legend.text = element_markdown(size = 8),
         legend.key.size = unit(0, "cm"),
+        # move the legend closer to the plot
+        legend.margin = margin(t = 0, r = 0, b = -8, l = 0),
         # axis font size
         axis.title = element_text(size = 9),
         axis.text = element_text(size = 8),
