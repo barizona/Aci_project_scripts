@@ -100,16 +100,16 @@ p <- autocorr_result_tab %>%
   scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
   # regression
   geom_smooth(method = "loess", formula = y ~ x,
-              span = 0.5, color = "gray30", se = FALSE) +
+              span = 0.9, color = "gray30", se = FALSE) +
   scale_y_continuous(limits = c(-1, 1)) +
   stat_cor(method = "spearman", cor.coef.name = "rho",
            label.x.npc = "left", label.y.npc = "bottom", show.legend = FALSE) +
   labs(x = "MRCA (years)", y = "Autocorrelation") +
   theme_minimal()
 
-ggsave("output/Rate_1/autocorr_result_with_city.png", p, 
+ggsave("output/Rate_1/autocorr_result_with_city_span_0.9.png", p, 
        width = 7, height = 5, dpi = 300)
-ggsave("output/Rate_1/autocorr_result_with_city.pdf", p, 
+ggsave("output/Rate_1/autocorr_result_with_city_span_0.9.pdf", p, 
        width = 7, height = 5)
 
 #xxxxxxxxxx

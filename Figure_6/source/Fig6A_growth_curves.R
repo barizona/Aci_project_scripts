@@ -28,12 +28,6 @@ A_tab %<>%
     # calculate means and 95% confidence intervals by time and Replicates
     summarise(mean = mean(Growth), CI = 1.96 * sd(Growth)/sqrt(n()))
 
-A_tab %>% 
-    select(time) %>% 
-    unique() %>% 
-    mutate(time = as.POSIXct(time, format = "%H:%M")) %>% 
-    print(n = 100)
-
 # time to hh:00
 A_tab %<>% 
     mutate(time = as.POSIXct(time, format = "%H:%M"))
@@ -63,7 +57,7 @@ rm(min_time, max_time)
 
 p_A <- A_tab %>% 
     ggplot(aes(x = time, group = Treatment)) + 
-    geom_line(aes(y = mean, color = Treatment), size = 1) + 
+    geom_line(aes(y = mean, color = Treatment), linewidth = 1) + 
     geom_ribbon(aes(y = mean, ymin = mean - CI, ymax = mean + CI, fill = Treatment), 
                 alpha = 0.2) +
     scale_color_manual(values = Colour_list$Fig6A, name = NULL) +

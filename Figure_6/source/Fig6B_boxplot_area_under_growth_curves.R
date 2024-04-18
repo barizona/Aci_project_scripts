@@ -79,6 +79,18 @@ rm(Combinations, x)
 B_kruskal_results %>% 
     write_tsv("output/Fig6B_kruskal_results.tsv")
 
+### select only specific cases to plot ----
+B_kruskal_results %<>% 
+    filter((group1 == "untreated" & group2 == "H") |
+           (group1 == "untreated" & group2 == "HS") |
+           (group1 == "HS" & group2 == "HSPh") |
+           (group1 == "HS" & group2 == "HSN") |
+           (group1 == "HS" & group2 == "HSF") |
+           (group1 == "HS" & group2 == "HSFPh") |
+           (group1 == "HS" & group2 == "HSFPo")) %>% 
+    # order
+    slice(3, 5, 6, 7, 4, 1, 2)
+
 #xxxxxxxxxx
 ## Boxplots ----
 #xxxxxxxxxx
@@ -90,9 +102,9 @@ p_B <- B_tab %>%
     scale_color_manual(values = Colour_list$Fig6B) +
     scale_y_continuous(labels = scales::comma) +
     # significant Kruskal-Wallis tests
-    # stat_pvalue_manual(B_kruskal_results, label = "p.adj.signif", hide.ns = TRUE,
-    #                    y.position = 80, tip.length = 0.01, step.increase = 0.05,
-    #                    vjust = 1) +
+    stat_pvalue_manual(B_kruskal_results, label = "p.adj.signif", hide.ns = TRUE,
+                       y.position = 80, tip.length = 0.01, step.increase = 0.05,
+                       vjust = 1) +
     # 2 lines
     labs(x = NULL, y = expression(atop("Area under growth curve", paste("OD"[600], " (a.u.)")))) +
     theme_linedraw() +
