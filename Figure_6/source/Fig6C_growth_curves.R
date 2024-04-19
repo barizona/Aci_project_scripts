@@ -44,7 +44,7 @@ min_time <- min(C_tab$time)
 max_time <- max(C_tab$time)
 
 # Define the limits for the x-axis
-C_x_limits <- as.POSIXct(c("1970-01-01 00:00:00", "1970-01-04 00:00:00"), format = "%Y-%m-%d %H:%M:%S")
+C_x_limits <- as.POSIXct(c(min_time, max_time), format = "%Y-%m-%d %H:%M:%S")
 
 # Define breaks and labels for the x-axis
 C_x_breaks <- seq(min_time, max_time, by = "12 hours")
@@ -66,6 +66,8 @@ p_C <- C_tab %>%
     scale_fill_manual(values = Colour_list$Fig6C, name = NULL) +
     # x axis with hours only
     scale_x_datetime(limits = C_x_limits, breaks = C_x_breaks, labels = C_x_labels) +
+    # y axis
+    scale_y_continuous(limits = c(0, 1.40), breaks = seq(0, 1.40, by = 0.25)) +
     labs(x = "Time (hours)", y = expression(paste("OD"[600]))) +
     theme_linedraw(base_size = 14) +
     theme(# legend

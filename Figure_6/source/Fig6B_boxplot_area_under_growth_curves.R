@@ -104,9 +104,9 @@ p_B <- B_tab %>%
     # significant Kruskal-Wallis tests
     stat_pvalue_manual(B_kruskal_results, label = "p.adj.signif", hide.ns = TRUE,
                        y.position = max(B_tab$Area)+3, tip.length = 0.02, step.increase = 0.07,
-                       vjust = 0.8) +
+                       vjust = 0.8, size = 3) +
     # 2 lines
-    labs(x = NULL, y = expression(atop("Area under bacterial growth curve", paste("OD"[600], " (a.u.)")))) +
+    labs(x = NULL, y = expression(atop("Area under bacterial", paste("growth curve OD"[600], " (a.u.)")))) +
     # labs(x = NULL, y = expression(paste("Area under growth curve OD"[600], " (a.u.)"))) +
     theme_linedraw() +
     theme(legend.position = "none",
