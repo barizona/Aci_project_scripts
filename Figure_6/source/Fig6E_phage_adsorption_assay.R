@@ -71,13 +71,13 @@ p_E <- E_tab %>%
           panel.grid.major.y = element_blank(),
           panel.grid.minor.y = element_blank(),
           # no background for facet headers
-          strip.background = element_rect(fill = NA, color = NA),
+          strip.background = element_rect(fill = NA, color = "black"),
           strip.text = element_text(size = 8, color = "black", face = "bold"),
           # reduce spacing between facets
           panel.spacing = unit(0, "lines"))
 
 #xxxxxxxxxxx
-## Change facet header background colour -------
+## Change facet header text colour -------
 #xxxxxxxxxxx
 p_E <- ggplot_gtable(ggplot_build(p_E))
 
@@ -87,9 +87,9 @@ for (i in seq_along(strips)) {
     k <- which(grepl('rect', p_E$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
     l <- which(grepl('titleGrob', p_E$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
     # background colour
-    p_E$grobs[[strips[i]]]$grobs[[1]]$children[[k]]$gp$fill <- Colour_list$Fig6Eaxis[i]
+    # p_E$grobs[[strips[i]]]$grobs[[1]]$children[[k]]$gp$fill <- Colour_list$Fig6Eaxis[i]
     # text colour
-    # p_E$grobs[[strips[i]]]$grobs[[1]]$children[[l]]$children[[1]]$gp$col <- Colour_list$Aci110_x_axis[i]
+    p_E$grobs[[strips[i]]]$grobs[[1]]$children[[l]]$children[[1]]$gp$col <- Colour_list$Fig6Eaxis[i]
 }
 
 rm(strips, k, l, i)

@@ -1,0 +1,66 @@
+Id	Time	Event	Replicate	Treatment	Strain	Exp	Phage MOI	Phages
+Aci15_1	1	1	1	10_9 	Aci 15	20240402	NO	NO
+Aci15_2	1	1	1	10_9	Aci 15	20240402	NO	NO
+Aci15_3	1	1	1	10_9	Aci 15	20240402	NO	NO
+Aci15_4	1	1	1	10_9	Aci 15	20240402	NO	NO
+Aci15_5	1	1	1	10_9	Aci 15	20240402	NO	NO
+cocktail control_1	7	0	1	10_9	cocktail control	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail control_2	7	0	1	10_9	cocktail control	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail control_3	7	0	1	10_9	cocktail control	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail control_4	7	0	1	10_9	cocktail control	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail control_5	7	0	1	10_9	cocktail control	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+HWM_10min_1	7	0	1	10_9	Aci 15 + H_10min	20240402	6	HWM
+HWM_10min_2	7	0	1	10_9	Aci 15 + H_10min	20240402	6	HWM
+HWM_10min_3	7	0	1	10_9	Aci 15 + H_10min	20240402	6	HWM
+HWM_10min_4	7	0	1	10_9	Aci 15 + H_10min	20240402	6	HWM
+HWM_10min_5	7	0	1	10_9	Aci 15 + H_10min	20240402	6	HWM
+HWM_30min_1	7	0	1	10_9	Aci 15 + H_30min	20240402	6	HWM
+HWM_30min_2	7	0	1	10_9	Aci 15 + H_30min	20240402	6	HWM
+HWM_30min_3	7	0	1	10_9	Aci 15 + H_30min	20240402	6	HWM
+HWM_30min_4	7	0	1	10_9	Aci 15 + H_30min	20240402	6	HWM
+HWM_30min_5	7	0	1	10_9	Aci 15 + H_30min	20240402	6	HWM
+HWM_60min_1	1	1	1	10_9	Aci 15 + H_60min	20240402	6	HWM
+HWM_60min_2	7	0	1	10_9	Aci 15 + H_60min	20240402	6	HWM
+HWM_60min_3	7	0	1	10_9	Aci 15 + H_60min	20240402	6	HWM
+HWM_60min_4	7	0	1	10_9	Aci 15 + H_60min	20240402	6	HWM
+HWM_60min_5	7	0	1	10_9	Aci 15 + H_60min	20240402	6	HWM
+cocktail_30min_1	2	1	1	10_9	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_30min_2	7	0	1	10_9	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_30min_3	7	0	1	10_9	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_30min_4	7	0	1	10_9	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_30min_5	7	0	1	10_9	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_1	7	0	1	10_9	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_2	7	0	1	10_9	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_3	7	0	1	10_9	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_4	7	0	1	10_9	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_5	7	0	1	10_9	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+Aci15_1	1	1	1	10_8	Aci 15	20240402	NO	NO
+Aci15_2	1	1	1	10_8	Aci 15	20240402	NO	NO
+Aci15_3	1	1	1	10_8	Aci 15	20240402	NO	NO
+Aci15_4	7	0	1	10_8	Aci 15	20240402	NO	NO
+Aci15_5	7	0	1	10_8	Aci 15	20240402	NO	NO
+HWM_10min_1	7	0	1	10_8	Aci 15 + H_10min	20240402	6	HWM
+HWM_10min_2	7	0	1	10_8	Aci 15 + H_10min	20240402	6	HWM
+HWM_10min_3	7	0	1	10_8	Aci 15 + H_10min	20240402	6	HWM
+HWM_10min_4	7	0	1	10_8	Aci 15 + H_10min	20240402	6	HWM
+HWM_10min_5	7	0	1	10_8	Aci 15 + H_10min	20240402	6	HWM
+HWM_30min_1	7	0	1	10_8	Aci 15 + H_30min	20240402	6	HWM
+HWM_30min_2	7	0	1	10_8	Aci 15 + H_30min	20240402	6	HWM
+HWM_30min_3	7	0	1	10_8	Aci 15 + H_30min	20240402	6	HWM
+HWM_30min_4	7	0	1	10_8	Aci 15 + H_30min	20240402	6	HWM
+HWM_30min_5	7	0	1	10_8	Aci 15 + H_30min	20240402	6	HWM
+HWM_60min_1	7	0	1	10_8	Aci 15 + H_60min	20240402	6	HWM
+HWM_60min_2	7	0	1	10_8	Aci 15 + H_60min	20240402	6	HWM
+HWM_60min_3	7	0	1	10_8	Aci 15 + H_60min	20240402	6	HWM
+HWM_60min_4	7	0	1	10_8	Aci 15 + H_60min	20240402	6	HWM
+HWM_60min_5	7	0	1	10_8	Aci 15 + H_60min	20240402	6	HWM
+cocktail_30min_1	7	0	1	10_8	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_30min_2	7	0	1	10_8	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_30min_3	7	0	1	10_8	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_30min_4	7	0	1	10_8	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_30min_5	7	0	1	10_8	Aci 15 + cocktail_30min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_1	7	0	1	10_8	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_2	7	0	1	10_8	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_3	7	0	1	10_8	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_4	7	0	1	10_8	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2
+cocktail_60min_5	7	0	1	10_8	Aci 15 + cocktail_60min	20240402	6:1:1:1	HWM:SG:Fanak:PhT2

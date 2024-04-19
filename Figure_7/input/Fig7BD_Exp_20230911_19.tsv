@@ -1,0 +1,791 @@
+Id	Time	Event	Replicate	Strain	Exp	Note
+PBS1	24	1	1	PBS	20230911	
+PBS2	48	0	1	PBS	20230911	
+PBS3	48	0	1	PBS	20230911	
+PBS4	48	0	1	PBS	20230911	
+PBS5	48	0	1	PBS	20230911	
+PBS6	48	0	1	PBS	20230911	
+PBS7	48	0	1	PBS	20230911	
+PBS8	48	0	1	PBS	20230911	
+PBS9	48	0	1	PBS	20230911	
+PBS10	48	0	1	PBS	20230911	
+PBS11	18	1	2	PBS	20230912	
+PBS12	24	1	2	PBS	20230912	
+PBS13	48	0	2	PBS	20230912	
+PBS14	48	0	2	PBS	20230912	
+PBS15	48	0	2	PBS	20230912	
+PBS16	48	0	2	PBS	20230912	
+PBS17	48	0	2	PBS	20230912	
+PBS18	48	0	2	PBS	20230912	
+PBS19	48	0	2	PBS	20230912	
+PBS20	48	0	2	PBS	20230912	
+PBS21	48	0	3	PBS	20230913	
+PBS22	48	0	3	PBS	20230913	
+PBS23	48	0	3	PBS	20230913	
+PBS24	48	0	3	PBS	20230913	
+PBS25	48	0	3	PBS	20230913	
+PBS26	48	0	3	PBS	20230913	
+PBS27	48	0	3	PBS	20230913	
+PBS28	48	0	3	PBS	20230913	
+PBS29	48	0	3	PBS	20230913	
+PBS30	48	0	3	PBS	20230913	
+PBS31	48	0	4	PBS	20230207	
+PBS32	48	0	4	PBS	20230207	
+PBS33	48	0	4	PBS	20230207	
+PBS34	48	0	4	PBS	20230207	
+PBS35	48	0	4	PBS	20230207	
+PBS36	48	0	4	PBS	20230207	
+PBS37	48	0	4	PBS	20230207	
+PBS38	48	0	4	PBS	20230207	
+PBS39	48	0	4	PBS	20230207	
+PBS40	48	0	4	PBS	20230207	
+PBS41	30	1	5	PBS	20230208	
+PBS42	48	0	5	PBS	20230208	
+PBS43	48	0	5	PBS	20230208	
+PBS44	48	0	5	PBS	20230208	
+PBS45	48	0	5	PBS	20230208	
+PBS46	48	0	5	PBS	20230208	
+PBS47	48	0	5	PBS	20230208	
+PBS48	48	0	5	PBS	20230208	
+PBS49	48	0	5	PBS	20230208	
+PBS50	48	0	5	PBS	20230208	
+PBS51	12	1	6	PBS	20230209	
+PBS52	18	1	6	PBS	20230209	
+PBS53	48	0	6	PBS	20230209	
+PBS54	48	0	6	PBS	20230209	
+PBS55	48	0	6	PBS	20230209	
+PBS56	48	0	6	PBS	20230209	
+PBS57	48	0	6	PBS	20230209	
+PBS58	48	0	6	PBS	20230209	
+PBS59	48	0	6	PBS	20230209	
+PBS60	48	0	6	PBS	20230209	
+Aci110_1	12	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_2	18	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_3	18	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_4	18	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_5	18	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_6	24	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_7	24	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_8	24	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_9	42	1	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_10	48	0	1	Aci 110	20230911	"wild type	 untreated"
+Aci110_11	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_12	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_13	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_14	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_15	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_16	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_17	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_18	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_19	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_20	18	1	2	Aci 110	20230207	"wild type	 untreated"
+Aci110_21	6	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_22	12	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_23	12	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_24	18	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_25	18	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_26	18	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_27	18	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_28	18	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_29	18	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_30	24	1	3	Aci 110	20230208	"wild type	 untreated"
+Aci110_31	12	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_32	12	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_33	12	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_34	12	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_35	12	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_36	12	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_37	12	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_38	18	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_39	24	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_40	30	1	4	Aci 110	20230209	"wild type	 untreated"
+Aci110_41	12	1	5	Aci 110	20230912	
+Aci110_42	12	1	5	Aci 110	20230912	
+Aci110_43	12	1	5	Aci 110	20230912	
+Aci110_44	12	1	5	Aci 110	20230912	
+Aci110_45	18	1	5	Aci 110	20230912	
+Aci110_46	18	1	5	Aci 110	20230912	
+Aci110_47	18	1	5	Aci 110	20230912	
+Aci110_48	18	1	5	Aci 110	20230912	
+Aci110_49	18	1	5	Aci 110	20230912	
+Aci110_50	30	1	5	Aci 110	20230912	
+Aci110 + HWM10 SFP 0.1_1	12	1	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_2	18	1	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_3	48	0	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_4	48	0	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_5	48	0	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_6	48	0	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_7	48	0	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_8	48	0	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_9	48	0	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_10	48	0	1	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_11	12	1	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_12	18	1	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_13	24	1	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_14	24	1	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_15	48	0	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_16	48	0	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_17	48	0	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_18	48	0	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_19	48	0	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_20	48	0	2	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_21	12	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_22	12	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_23	18	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_24	18	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_25	24	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_26	24	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_27	24	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_28	24	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_29	30	1	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci110 + HWM10 SFP 0.1_30	48	0	3	Aci 110 + H10 + SFP 0.1	20230911	wild type + cocktail 3
+Aci107_1	12	1	1	Aci 107	20230911	wild type
+Aci107_2	12	1	1	Aci 107	20230911	wild type
+Aci107_3	12	1	1	Aci 107	20230911	wild type
+Aci107_4	12	1	1	Aci 107	20230911	wild type
+Aci107_5	18	1	1	Aci 107	20230911	wild type
+Aci107_6	18	1	1	Aci 107	20230911	wild type
+Aci107_7	30	1	1	Aci 107	20230911	wild type
+Aci107_8	30	1	1	Aci 107	20230911	wild type
+Aci107_9	48	0	1	Aci 107	20230911	wild type
+Aci107_10	48	0	1	Aci 107	20230911	wild type
+Aci107_11	18	1	2	Aci 107	20230911	wild type
+Aci107_12	18	1	2	Aci 107	20230911	wild type
+Aci107_13	18	1	2	Aci 107	20230911	wild type
+Aci107_14	18	1	2	Aci 107	20230911	wild type
+Aci107_15	18	1	2	Aci 107	20230911	wild type
+Aci107_16	24	1	2	Aci 107	20230911	wild type
+Aci107_17	36	1	2	Aci 107	20230911	wild type
+Aci107_18	48	0	2	Aci 107	20230911	wild type
+Aci107_19	48	0	2	Aci 107	20230911	wild type
+Aci107_20	48	0	2	Aci 107	20230911	wild type
+Aci107_21	12	1	3	Aci 107	20230911	wild type
+Aci107_22	12	1	3	Aci 107	20230911	wild type
+Aci107_23	18	1	3	Aci 107	20230911	wild type
+Aci107_24	18	1	3	Aci 107	20230911	wild type
+Aci107_25	18	1	3	Aci 107	20230911	wild type
+Aci107_26	18	1	3	Aci 107	20230911	wild type
+Aci107_27	24	1	3	Aci 107	20230911	wild type
+Aci107_28	24	1	3	Aci 107	20230911	wild type
+Aci107_29	24	1	3	Aci 107	20230911	wild type
+Aci107_30	42	1	3	Aci 107	20230911	wild type
+Aci107-E1_1	42	1	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_2	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_3	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_4	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_5	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_6	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_7	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_8	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_9	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_10	48	0	1	A107-E1	20230911	4-phage resistant
+Aci107-E1_11	24	1	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_12	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_13	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_14	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_15	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_16	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_17	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_18	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_19	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_20	48	0	2	A107-E1	20230911	4-phage resistant
+Aci107-E1_21	36	1	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_22	42	1	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_23	48	0	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_24	48	0	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_25	48	0	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_26	48	0	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_27	48	0	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_28	48	0	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_29	48	0	3	A107-E1	20230911	4-phage resistant
+Aci107-E1_30	48	0	3	A107-E1	20230911	4-phage resistant
+Aci110-G1_1	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_2	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_3	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_4	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_5	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_6	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_7	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_8	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_9	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_10	48	0	1	A110-G1	20230207	4-phage resistant
+Aci110-G1_11	42	1	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_12	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_13	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_14	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_15	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_16	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_17	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_18	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_19	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_20	48	0	2	A110-G1	20230208	4-phage resistant
+Aci110-G1_21	24	1	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_22	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_23	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_24	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_25	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_26	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_27	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_28	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_29	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110-G1_30	48	0	3	A110-G1	20230209	4-phage resistant
+Aci110 + HWM1_1	12	1	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_2	18	1	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_3	18	1	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_4	18	1	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_5	18	1	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_6	18	1	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_7	18	1	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_8	30	1	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_9	48	0	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_10	48	0	1	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_11	12	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_12	12	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_13	12	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_14	18	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_15	18	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_16	18	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_17	24	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_18	30	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_19	30	1	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_20	48	0	2	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_21	12	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_22	18	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_23	18	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_24	18	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_25	18	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_26	18	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_27	18	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_28	18	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_29	24	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1_30	24	1	3	Aci 110 + H1	20230912	wild type + HWM1
+Aci110 + HWM1 + SFP 0.1_1	12	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_2	12	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_3	12	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_4	18	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_5	18	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_6	18	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_7	18	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_8	18	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_9	18	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_10	24	1	1	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_11	12	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_12	12	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_13	12	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_14	12	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_15	12	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_16	18	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_17	18	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_18	18	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_19	18	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_20	18	1	2	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_21	12	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_22	12	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_23	12	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_24	18	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_25	18	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_26	18	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_27	18	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_28	18	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_29	18	1	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci110 + HWM1 + SFP 0.1_30	48	0	3	Aci 110 + H1 + SFP 0.1	20230912	wild type + cocktail 4
+Aci108_1	6	1	1	Aci 108	20230913	wild type
+Aci108_2	12	1	1	Aci 108	20230913	wild type
+Aci108_3	12	1	1	Aci 108	20230913	wild type
+Aci108_4	12	1	1	Aci 108	20230913	wild type
+Aci108_5	18	1	1	Aci 108	20230913	wild type
+Aci108_6	18	1	1	Aci 108	20230913	wild type
+Aci108_7	18	1	1	Aci 108	20230913	wild type
+Aci108_8	18	1	1	Aci 108	20230913	wild type
+Aci108_9	18	1	1	Aci 108	20230913	wild type
+Aci108_10	24	1	1	Aci 108	20230913	wild type
+Aci108_11	6	1	2	Aci 108	20230913	wild type
+Aci108_12	12	1	2	Aci 108	20230913	wild type
+Aci108_13	18	1	2	Aci 108	20230913	wild type
+Aci108_14	18	1	2	Aci 108	20230913	wild type
+Aci108_15	18	1	2	Aci 108	20230913	wild type
+Aci108_16	18	1	2	Aci 108	20230913	wild type
+Aci108_17	18	1	2	Aci 108	20230913	wild type
+Aci108_18	18	1	2	Aci 108	20230913	wild type
+Aci108_19	24	1	2	Aci 108	20230913	wild type
+Aci108_20	24	1	2	Aci 108	20230913	wild type
+Aci108_21	6	1	3	Aci 108	20230913	wild type
+Aci108_22	12	1	3	Aci 108	20230913	wild type
+Aci108_23	12	1	3	Aci 108	20230913	wild type
+Aci108_24	18	1	3	Aci 108	20230913	wild type
+Aci108_25	18	1	3	Aci 108	20230913	wild type
+Aci108_26	18	1	3	Aci 108	20230913	wild type
+Aci108_27	18	1	3	Aci 108	20230913	wild type
+Aci108_28	18	1	3	Aci 108	20230913	wild type
+Aci108_29	18	1	3	Aci 108	20230913	wild type
+Aci108_30	48	0	3	Aci 108	20230913	wild type
+Aci108-9_1	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_2	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_3	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_4	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_5	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_6	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_7	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_8	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_9	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_10	48	0	1	A108-9	20230913	HWM + SG resistant
+Aci108-9_11	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_12	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_13	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_14	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_15	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_16	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_17	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_18	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_19	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_20	48	0	2	A108-9	20230913	HWM + SG resistant
+Aci108-9_21	18	1	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_22	36	1	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_23	48	1	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_24	48	0	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_25	48	0	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_26	48	0	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_27	48	0	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_28	48	0	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_29	48	0	3	A108-9	20230913	HWM + SG resistant
+Aci108-9_30	48	0	3	A108-9	20230913	HWM + SG resistant
+Aci71-1_1	12	1	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_2	36	1	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_3	48	0	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_4	48	0	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_5	48	0	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_6	48	0	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_7	48	0	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_8	48	0	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_9	48	0	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_10	48	0	1	A71-1	20230913	HWM + SG resistant
+Aci71-1_11	24	1	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_12	30	1	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_13	48	0	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_14	48	0	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_15	48	0	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_16	48	0	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_17	48	0	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_18	48	0	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_19	48	0	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_20	48	0	2	A71-1	20230913	HWM + SG resistant
+Aci71-1_21	18	1	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_22	18	1	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_23	18	1	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_24	24	1	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_25	30	1	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_26	48	0	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_27	48	0	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_28	48	0	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_29	48	0	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_30	48	0	3	A71-1	20230913	HWM + SG resistant
+Aci71-1_31	18	1	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_32	30	1	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_33	36	1	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_34	48	0	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_35	48	0	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_36	48	0	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_37	48	0	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_38	48	0	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_39	48	0	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_40	48	0	4	A71-1	20230607	HWM + SG resistant
+Aci71-1_41	30	1	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_42	36	1	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_43	48	0	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_44	48	0	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_45	48	0	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_46	48	0	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_47	48	0	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_48	48	0	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_49	48	0	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_50	48	0	5	A71-1	20230607	HWM + SG resistant
+Aci71-1_51	12	1	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_52	18	1	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_53	18	1	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_54	36	1	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_55	36	1	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_56	48	0	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_57	48	0	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_58	48	0	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_59	48	0	6	A71-1	20230607	HWM + SG resistant
+Aci71-1_60	48	0	6	A71-1	20230607	HWM + SG resistant
+A71-1 + FP 0.1_1	12	1	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_2	18	1	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_3	18	1	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_4	24	1	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_5	30	1	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_6	36	1	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_7	48	0	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_8	48	0	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_9	48	0	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_10	48	0	1	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_11	12	1	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_12	18	1	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_13	18	1	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_14	18	1	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_15	18	1	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_16	30	1	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_17	30	1	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_18	36	1	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_19	48	0	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_20	48	0	2	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_21	12	1	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_22	18	1	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_23	18	1	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_24	18	1	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_25	30	1	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_26	48	0	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_27	48	0	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_28	48	0	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_29	48	0	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+A71-1 + FP 0.1_30	48	0	3	A71-1 + FP	20230913	HWM + SG resistant + FP
+Aci110_HWMSG_10_5min_1	24	1	1	Aci 110 + HS 10 	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_2	48	0	1	Aci 110 + HS 10 	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_3	48	0	1	Aci 110 + HS 10	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_4	48	0	1	Aci 110 + HS 10	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_5	48	0	1	Aci 110 + HS 10	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_6	48	0	1	Aci 110 + HS 10	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_7	48	0	1	Aci 110 + HS 10	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_8	48	0	1	Aci 110 + HS 10	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_9	48	0	1	Aci 110 + HS 10	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_10	48	0	1	Aci 110 + HS 10	20230207	wild type + cocktail 2
+Aci110_HWMSG_10_5min_11	18	1	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_12	18	1	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_13	18	1	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_14	30	1	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_15	30	1	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_16	48	1	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_17	48	0	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_18	48	0	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_19	48	0	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_20	48	0	2	Aci 110 + HS 10	20230208	wild type + cocktail 2
+Aci110_HWMSG_10_5min_21	12	1	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_22	12	1	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_23	18	1	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_24	24	1	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_25	30	1	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_26	36	1	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_27	48	0	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_28	48	0	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_29	48	0	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_30	48	0	3	Aci 110 + HS 10	20230209	wild type + cocktail 2
+Aci110_HWMSG_10_5min_31	12	1	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_32	18	1	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_33	24	1	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_34	48	1	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_35	48	0	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_36	48	0	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_37	48	0	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_38	48	0	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_39	48	0	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110_HWMSG_10_5min_40	48	0	4	Aci 110 + HS 10	20230214	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_1	18	1	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_2	18	1	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_3	18	1	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_4	18	1	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_5	24	1	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_6	48	1	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_7	48	1	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_8	48	0	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_9	48	0	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_10	48	0	1	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_11	24	1	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_12	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_13	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_14	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_15	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_16	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_17	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_18	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_19	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_20	48	0	2	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_21	12	1	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_22	12	1	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_23	18	1	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_24	18	1	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_25	24	1	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_26	24	1	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_27	30	1	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_28	48	0	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_29	48	0	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_30	48	0	3	Aci 110 + H10 + S1 + FP 0.1	20230619	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_31	12	1	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_32	18	1	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_33	18	1	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_34	24	1	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_35	48	0	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_36	48	0	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_37	48	0	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_38	48	0	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_39	48	0	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_40	48	0	4	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_41	18	1	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_42	18	1	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_43	24	1	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_44	36	1	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_45	36	1	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_46	48	0	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_47	48	0	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_48	48	0	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_49	48	0	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_50	48	0	5	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_51	18	1	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_52	18	1	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_53	18	1	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_54	18	1	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_55	24	1	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_56	30	1	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_57	48	0	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_58	48	0	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_59	48	0	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Aci110 + HWM10 + S1 FP 0.1_60	48	0	6	Aci 110 + H10 + S1 + FP 0.1	20230620	wild type + cocktail 2
+Cocktail1_1	48	1	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_2	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_3	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_4	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_5	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_6	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_7	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_8	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_9	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_10	48	0	1	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_11	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_12	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_13	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_14	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_15	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_16	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_17	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_18	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_19	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Cocktail1_20	48	0	2	H100 + S1 + FP 0.1	20260619	Phage toxicity control
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_1	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_2	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_3	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_4	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_5	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_6	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_7	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_8	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_9	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_10	48	0	1	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_11	18	1	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_12	36	1	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_13	48	1	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_14	48	0	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_15	48	0	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_16	48	0	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_17	48	0	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_18	48	0	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_19	48	0	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_20	48	0	2	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_21	30	1	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_22	42	1	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_23	48	0	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_24	48	0	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_25	48	0	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_26	48	0	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_27	48	0	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_28	48	0	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_29	48	0	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci110_SGr_HWMr_Silvergun_MOI-1_9/3_30	48	0	3	A110-S1/9-3	20230523	HWM + SG resistant
+Aci71_1	18	1	1	Aci 71	20230116	
+Aci71_2	18	1	1	Aci 71	20230116	
+Aci71_3	18	1	1	Aci 71	20230116	
+Aci71_4	18	1	1	Aci 71	20230116	
+Aci71_5	18	1	1	Aci 71	20230116	
+Aci71_6	18	1	1	Aci 71	20230116	
+Aci71_7	18	1	1	Aci 71	20230116	
+Aci71_8	18	1	1	Aci 71	20230116	
+Aci71_9	48	0	1	Aci 71	20230116	
+Aci71_10	48	0	1	Aci 71	20230116	
+Aci71_11	18	1	2	Aci 71	20230116	
+Aci71_12	18	1	2	Aci 71	20230116	
+Aci71_13	18	1	2	Aci 71	20230116	
+Aci71_14	42	1	2	Aci 71	20230116	
+Aci71_15	42	1	2	Aci 71	20230116	
+Aci71_16	42	1	2	Aci 71	20230116	
+Aci71_17	42	1	2	Aci 71	20230116	
+Aci71_18	48	0	2	Aci 71	20230116	
+Aci71_19	48	0	2	Aci 71	20230116	
+Aci71_20	48	0	2	Aci 71	20230116	
+A110-2_1	48	0	1	A110-2	20230918	
+A110-2_2	48	0	1	A110-2	20230918	
+A110-2_3	48	0	1	A110-2	20230918	
+A110-2_4	48	0	1	A110-2	20230918	
+A110-2_5	48	0	1	A110-2	20230918	
+A110-2_6	48	0	1	A110-2	20230918	
+A110-2_7	48	0	1	A110-2	20230918	
+A110-2_8	48	0	1	A110-2	20230918	
+A110-2_9	48	0	1	A110-2	20230918	
+A110-2_10	48	0	1	A110-2	20230918	
+A110-2_11	18	1	2	A110-2	20230918	
+A110-2_12	48	0	2	A110-2	20230918	
+A110-2_13	48	0	2	A110-2	20230918	
+A110-2_14	48	0	2	A110-2	20230918	
+A110-2_15	48	0	2	A110-2	20230918	
+A110-2_16	48	0	2	A110-2	20230918	
+A110-2_17	48	0	2	A110-2	20230918	
+A110-2_18	48	0	2	A110-2	20230918	
+A110-2_19	48	0	2	A110-2	20230918	
+A110-2_20	48	0	2	A110-2	20230918	
+A110-2_21	12	1	3	A110-2	20230918	
+A110-2_22	18	1	3	A110-2	20230918	
+A110-2_23	18	1	3	A110-2	20230918	
+A110-2_24	18	1	3	A110-2	20230918	
+A110-2_25	48	0	3	A110-2	20230918	
+A110-2_26	48	0	3	A110-2	20230918	
+A110-2_27	48	0	3	A110-2	20230918	
+A110-2_28	48	0	3	A110-2	20230918	
+A110-2_29	48	0	3	A110-2	20230918	
+A110-2_30	48	0	3	A110-2	20230918	
+A110-2_31	48	0	4	A110-2	20230919	
+A110-2_32	48	0	4	A110-2	20230919	
+A110-2_33	48	0	4	A110-2	20230919	
+A110-2_34	48	0	4	A110-2	20230919	
+A110-2_35	48	0	4	A110-2	20230919	
+A110-2_36	48	0	4	A110-2	20230919	
+A110-2_37	48	0	4	A110-2	20230919	
+A110-2_38	48	0	4	A110-2	20230919	
+A110-2_39	48	0	4	A110-2	20230919	
+A110-2_40	48	0	4	A110-2	20230919	
+A110-2_41	24	1	5	A110-2	20230919	
+A110-2_42	36	1	5	A110-2	20230919	
+A110-2_43	48	0	5	A110-2	20230919	
+A110-2_44	48	0	5	A110-2	20230919	
+A110-2_45	48	0	5	A110-2	20230919	
+A110-2_46	48	0	5	A110-2	20230919	
+A110-2_47	48	0	5	A110-2	20230919	
+A110-2_48	48	0	5	A110-2	20230919	
+A110-2_49	48	0	5	A110-2	20230919	
+A110-2_50	48	0	5	A110-2	20230919	
+A110-2_51	24	1	6	A110-2	20230919	
+A110-2_52	24	1	6	A110-2	20230919	
+A110-2_53	48	0	6	A110-2	20230919	
+A110-2_54	48	0	6	A110-2	20230919	
+A110-2_55	48	0	6	A110-2	20230919	
+A110-2_56	48	0	6	A110-2	20230919	
+A110-2_57	48	0	6	A110-2	20230919	
+A110-2_58	48	0	6	A110-2	20230919	
+A110-2_59	48	0	6	A110-2	20230919	
+A110-2_60	48	0	6	A110-2	20230919	
+A71-16_1	12	1	1	A71-16	20230919	
+A71-16_2	24	1	1	A71-16	20230919	
+A71-16_3	48	0	1	A71-16	20230919	
+A71-16_4	48	0	1	A71-16	20230919	
+A71-16_5	48	0	1	A71-16	20230919	
+A71-16_6	48	0	1	A71-16	20230919	
+A71-16_7	48	0	1	A71-16	20230919	
+A71-16_8	48	0	1	A71-16	20230919	
+A71-16_9	48	0	1	A71-16	20230919	
+A71-16_10	48	0	1	A71-16	20230919	
+A71-16_11	36	1	2	A71-16	20230919	
+A71-16_12	36	1	2	A71-16	20230919	
+A71-16_13	48	0	2	A71-16	20230919	
+A71-16_14	48	0	2	A71-16	20230919	
+A71-16_15	48	0	2	A71-16	20230919	
+A71-16_16	48	0	2	A71-16	20230919	
+A71-16_17	48	0	2	A71-16	20230919	
+A71-16_18	48	0	2	A71-16	20230919	
+A71-16_19	48	0	2	A71-16	20230919	
+A71-16_20	48	0	2	A71-16	20230919	
+A71-16_21	36	1	3	A71-16	20230919	
+A71-16_22	48	0	3	A71-16	20230919	
+A71-16_23	48	0	3	A71-16	20230919	
+A71-16_24	48	0	3	A71-16	20230919	
+A71-16_25	48	0	3	A71-16	20230919	
+A71-16_26	48	0	3	A71-16	20230919	
+A71-16_27	48	0	3	A71-16	20230919	
+A71-16_28	48	0	3	A71-16	20230919	
+A71-16_29	48	0	3	A71-16	20230919	
+A71-16_30	48	0	3	A71-16	20230919	
+A110-1_1	12	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_2	12	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_3	18	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_4	18	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_5	18	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_6	18	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_7	18	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_8	36	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_9	36	1	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_10	48	0	1	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_11	18	1	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_12	18	1	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_13	18	1	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_14	18	1	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_15	18	1	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_16	30	1	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_17	36	1	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_18	48	0	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_19	48	0	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_20	48	0	2	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_21	12	1	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_22	12	1	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_23	18	1	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_24	18	1	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_25	18	1	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_26	18	1	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_27	18	1	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_28	18	1	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_29	48	0	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-1_30	48	0	3	A110-1	20230607	HWMr_SGs_PhT2r_FANr
+A110-H100/9-9_1	6	1	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_2	12	1	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_3	12	1	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_4	12	1	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_5	18	1	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_6	18	1	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_7	18	1	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_8	24	1	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_9	48	0	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_10	48	0	1	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_11	12	1	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_12	12	1	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_13	18	1	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_14	18	1	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_15	18	1	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_16	18	1	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_17	24	1	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_18	48	0	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_19	48	0	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_20	48	0	2	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_21	6	1	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_22	12	1	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_23	12	1	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_24	12	1	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_25	12	1	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_26	18	1	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_27	18	1	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_28	18	1	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_29	48	0	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_30	48	0	3	A110-H100/9-9	20230523	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_31	12	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_32	12	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_33	12	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_34	12	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_35	12	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_36	12	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_37	18	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_38	18	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_39	18	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_40	24	1	4	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_41	12	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_42	12	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_43	12	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_44	18	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_45	18	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_46	18	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_47	18	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_48	24	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_49	48	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_50	48	1	5	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_51	12	1	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_52	12	1	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_53	18	1	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_54	18	1	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_55	18	1	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_56	18	1	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_57	24	1	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_58	24	1	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_59	48	0	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
+A110-H100/9-9_60	48	0	6	A110-H100/9-9	20230525	"HWM_res	 SG_sens	 Fanak_tox	 PhT2_tox"
