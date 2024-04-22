@@ -59,7 +59,7 @@ rm(min_time, max_time)
 
 p_C <- C_tab %>% 
     ggplot(aes(x = time, group = Treatment)) + 
-    geom_line(aes(y = mean, color = Treatment), linewidth = 1) + 
+    geom_line(aes(y = mean, color = Treatment), linewidth = 0.6) + 
     geom_ribbon(aes(y = mean, ymin = mean - CI, ymax = mean + CI, fill = Treatment), 
                 alpha = 0.2) +
     scale_color_manual(values = Colour_list$Fig6C, name = NULL) +

@@ -34,7 +34,7 @@ Colour_list$Fig6B_alpha <- adjustcolor(Colour_list$Fig6B, alpha.f = 0.5)
 names(Colour_list$Fig6B_alpha) <- names(Colour_list$Fig6B)
 
 # add colour for Figure 6E
-Colour_list$Fig6E <- c("0" = "white", "1" = "darkorange3")
+Colour_list$Fig6E <- c("0" = "white", "1" = "gray70")
 
 # Figure 6G grayscale version
 Colour_list$Fig6G_gray <- c("black", "gray15", "gray30", "gray45", "gray60")

@@ -25,35 +25,6 @@ E_tab %<>%
     # convert Sample and Sensitivity to factor
     mutate(Sample = factor(Sample, levels = E_tab$Sample[1:4]), 
            Sensitivity = factor(Sensitivity, levels = c(1, 0)))
-# 
-#     
-#     
-#     levels = c("<span style='color: #EF3E54 '> Ph </span>",
-#                "<span style='color: #CAE084 '> F </span>",
-#                "<span style='color: #234AA6 '> S </span>",
-#                "<span style='color: #E6A4B5 '> H </span>"))
-    
-# E_tab %<>% 
-#     # convert Sample and Sensitivity to factor
-#     mutate(Sample = factor(Sample, levels = E_tab$Sample[1:4]), 
-#            Sensitivity = factor(Sensitivity, levels = c(1, 0)))
-    
-    
-# E_tab %>% 
-# # colouring and factor
-#     mutate(Phage = factor(paste("<span style='color:", Colour_list$Fig6Ephage_axis, "'>", unique(E_tab$Phage), "</span>")))
-#     # convert to factor
-#     mutate(Sensitivity = factor(Sensitivity, levels = c(1, 0)),
-#            Phage = factor(Phage, levels = c("Ph", "F", "S", "H")),
-#            Sample = factor(Sample, levels = c("Aci 110", "A110-1", "A110-2",
-#                                               "A110-G1")))
-#     # 
-# 
-# factor(paste("<span style='color:", Colour_list$Fig6Ephage_axis, "'>", unique(E_tab$Phage), "</span>"), 
-#        levels = c("<span style='color: #E6A4B5 '> Ph </span>",
-#                   "<span style='color: #234AA6 '> F </span>",
-#                   "<span style='color: #CAE084 '> S </span>",
-#                   ))
 
 #xxxxxxxxxxxxxx
 # Plot heatmap ----
@@ -62,7 +33,7 @@ p_E <- E_tab %>%
     ggplot(aes(x = Sample, y = Phage, fill = factor(Sensitivity))) +
     geom_tile(color = "black") +
     scale_fill_manual(name = NULL, values = Colour_list$Fig6E, 
-                      labels = c("1" = "sensitive", "0" = "non-sensitive")) +
+                      labels = c("1" = "sensitive", "0" = "resistant")) +
     # legend to 2 rows
     guides(fill = guide_legend(nrow = 2)) +
     theme_void() +
@@ -72,5 +43,5 @@ p_E <- E_tab %>%
           legend.key.size = unit(0.4, "cm"),
           # axis font
           axis.text.x = element_markdown(size = 8, angle = 45, vjust = 1, hjust = 1),
-          axis.text.y = element_markdown(size = 8, angle = 0, vjust = 0, hjust = 1))
+          axis.text.y = element_markdown(size = 8))
 

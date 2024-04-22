@@ -44,7 +44,7 @@ p_F <- F_tab %>%
                                                dodge.width = 1), size = 1.2) +
     # mean bars
     stat_summary(aes(ymax = after_stat(y), ymin = after_stat(y)),
-                 fun = mean, geom = "errorbar", width = 0.8, linewidth = 0.8,
+                 fun = mean, geom = "errorbar", width = 0.8, linewidth = 0.6,
                  colour = "gray40") +
     scale_colour_manual(values = Colour_list$Fig6F, name = "Phage:") +
     facet_wrap(~isolate, nrow = 1) +
