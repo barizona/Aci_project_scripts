@@ -15,20 +15,25 @@ grConvert::convertPicture("input/Fig6D.pdf", "input/Fig6D_cairo.svg")
 p_D <- grImport2::readPicture("input/Fig6D_cairo.svg")
 # E: p_E
 # F: P_F
-# G: 
-p_G <- png::readPNG("input/Fig6G_cells_tem_white_bg.png", native = TRUE) %>% 
+# G: p_G
+# H: 
+p_H <- png::readPNG("input/Fig6H_cells_tem_white_bg.png", native = TRUE) %>% 
     grid::rasterGrob(height = unit(2.54, "in"), y = 0.53)
 
 composit_ABC <- plot_grid(p_A, p_B, p_C,
                           labels = c("A", "B", "C"), label_fontface = "plain", label_size = 12,
                           nrow = 1, align = "h")
 
-composit_EFG <- plot_grid(p_E, p_F, p_G, 
-                          labels = c("E", "F", "G"), label_fontface = "plain", label_size = 12,
+
+composit_DE <- plot_grid(grImport2::pictureGrob(p_D), plot_grid(NULL, p_E, NULL, ncol = 1, align = "h", rel_heights = c(0.2, 1, 0.2)), 
+                          labels = c("D", "E"), label_fontface = "plain", label_size = 12,
+                          nrow = 1, rel_widths = c(1, 0.15))
+
+composit_FGH <- plot_grid(p_F, p_G, p_H, 
+                          labels = c("F", "G", "H"), label_fontface = "plain", label_size = 12,
                           nrow = 1, align = "h")
 
-p <- plot_grid(composit_ABC, grImport2::pictureGrob(p_D), composit_EFG, 
-               labels = c("", "D", ""), label_fontface = "plain", label_size = 12,
+p <- plot_grid(composit_ABC, composit_DE, composit_FGH, 
                ncol = 1)
 
 

@@ -29,10 +29,10 @@ for(i in Loop_var){
 
 rm(i, Loop_var, x, Colouring_tab)
 
-# add colour for Figure 7A
-Colour_list$Fig7A <- c("0" = "white", "1" = "darkorange3")
-
-# Figure 7B change alpha
+# TODO: szetszedni 1st, 2nd 3rd
+# Figure 7A change alpha
 Colour_list$Fig7B_alpha <- adjustcolor(Colour_list$Fig7B, alpha.f = 0.5)
 names(Colour_list$Fig7B_alpha) <- names(Colour_list$Fig7B)
 
+# TODO: chagne the names of aci on A
+# Aci 110 H^R

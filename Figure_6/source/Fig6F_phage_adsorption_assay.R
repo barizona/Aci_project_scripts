@@ -4,7 +4,7 @@ library(ggtext) # for superscripts: theme(... element_markdown())
 
 set.seed(1)
 #xxxxxxxxxxxxxxxxxxxx
-# AIM: mean-variance plot of phage absorption for Figure 6 E -------------------
+# AIM: mean-variance plot of phage absorption for Figure 6 F -------------------
 #xxxxxxxxxxxxxxxxxxxx
 
 # Description: 
@@ -21,10 +21,10 @@ set.seed(1)
 ## Input ----
 #xxxxxxxxxx
 # read the wide table
-E_tab <- read_tsv("input/Fig6E_Phage_adsorption_assay.tsv")
+F_tab <- read_tsv("input/Fig6F_Phage_adsorption_assay.tsv")
 
 # format the table for plotting
-E_tab %<>% 
+F_tab %<>% 
     # convert it to long format
     pivot_longer(!isolate, names_to = "value_type", values_to = "log10_FC") %>% 
     # create a new column for phage
@@ -38,7 +38,7 @@ E_tab %<>%
 # Mean line with values -------------------------------------------------------
 #xxxxxxxxxxxxxxxxxx
 
-p_E <- E_tab %>% 
+p_F <- F_tab %>% 
     ggplot(aes(x = phage, y = log10_FC, colour = phage)) +
     geom_point(position = position_jitterdodge(jitter.width = 1, 
                                                dodge.width = 1), size = 1.2) +
@@ -46,7 +46,7 @@ p_E <- E_tab %>%
     stat_summary(aes(ymax = after_stat(y), ymin = after_stat(y)),
                  fun = mean, geom = "errorbar", width = 0.8, linewidth = 0.8,
                  colour = "gray40") +
-    scale_colour_manual(values = Colour_list$Fig6E, name = "Phage:") +
+    scale_colour_manual(values = Colour_list$Fig6F, name = "Phage:") +
     facet_wrap(~isolate, nrow = 1) +
     # change y axis label to "log10 fold change in free phages"
     labs(x = "", y = expression(paste("log"[10], " fold change"))) +
@@ -79,23 +79,23 @@ p_E <- E_tab %>%
 #xxxxxxxxxxx
 ## Change facet header text colour -------
 #xxxxxxxxxxx
-p_E <- ggplot_gtable(ggplot_build(p_E))
+p_F <- ggplot_gtable(ggplot_build(p_F))
 
-strips <- which(grepl('strip-', p_E$layout$name))
+strips <- which(grepl('strip-', p_F$layout$name))
 
 for (i in seq_along(strips)) {
-    k <- which(grepl('rect', p_E$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
-    l <- which(grepl('titleGrob', p_E$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
+    k <- which(grepl('rect', p_F$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
+    l <- which(grepl('titleGrob', p_F$grobs[[strips[i]]]$grobs[[1]]$childrenOrder))
     # background colour
-    # p_E$grobs[[strips[i]]]$grobs[[1]]$children[[k]]$gp$fill <- Colour_list$Fig6Eaxis[i]
+    # p_F$grobs[[strips[i]]]$grobs[[1]]$children[[k]]$gp$fill <- Colour_list$Fig6Faxis[i]
     # text colour
-    p_E$grobs[[strips[i]]]$grobs[[1]]$children[[l]]$children[[1]]$gp$col <- Colour_list$Fig6Eaxis[i]
+    p_F$grobs[[strips[i]]]$grobs[[1]]$children[[l]]$children[[1]]$gp$col <- Colour_list$Fig6Faxis[i]
 }
 
 rm(strips, k, l, i)
 
 # convert back to ggplot object
-p_E <- ggplotify::as.ggplot(p_E)
+p_F <- ggplotify::as.ggplot(p_F)
 
 
 

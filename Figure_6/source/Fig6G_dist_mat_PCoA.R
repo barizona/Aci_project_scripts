@@ -3,7 +3,7 @@ library(ggrepel) # for geom_text_repel
 library(ggtext) # for superscripts: theme(... element_markdown())
 library(ggpubr)
 #xxxxxxxxxxxxxxxxxxxx
-# AIM: Plot PCoA to of distance matrix for Figure 6 F ---------------------------
+# AIM: Plot PCoA to of distance matrix for Figure 6 G ---------------------------
 #xxxxxxxxxxxxxxxxxxxx
 
 # Description:
@@ -19,32 +19,32 @@ library(ggpubr)
 # read the large distance matrix from lower tsv
 # header only, the first column contains no names but distances, 0 diagonal is 
 # needed
-F_distance_matrix <- read.table(
-  "input/Fig6F_ST2_KL3_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv", 
+G_distance_matrix <- read.table(
+  "input/Fig6G_ST2_KL3_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv", 
   header = TRUE, sep = "\t") %>% 
   as.matrix() %>% 
   as.dist(., upper = TRUE)
 
 # row names for the PCoA
-F_row_names <- file(
-  "input/Fig6F_ST2_KL3_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv") %>% 
+G_row_names <- file(
+  "input/Fig6G_ST2_KL3_Fourier_transformed_infrared_measurements_lower_distance_matrix.tsv") %>% 
   scan(., what = "", nlines = 1, sep="\t", quote = "\"") 
 
 # change "." in labels to space
-dendextend::labels(F_distance_matrix) <- F_row_names
-rm(F_row_names)
+dendextend::labels(G_distance_matrix) <- G_row_names
+rm(G_row_names)
 
 #xxxxxxxxxx
 ## PCoA ----
 #xxxxxxxxxx
-F_pcoa <- ape::pcoa(F_distance_matrix, correction = "none")
+G_pcoa <- ape::pcoa(G_distance_matrix, correction = "none")
 
 #xxxxxxxxxx
 ## Variables for plotting ----
 #xxxxxxxxxx
 # colouring table
-F_meta <- read_tsv(
-  "input/Fig6F_ST2_KL3_Fourier_transformed_infrared_measurements_metadata.tsv") %>% 
+G_meta <- read_tsv(
+  "input/Fig6G_ST2_KL3_Fourier_transformed_infrared_measurements_metadata.tsv") %>% 
   # convert `Phage resistant` to markdown
   mutate(`Phage resistant` = case_match(`Phage resistant`, 
                                         "H" ~ "H<sup>R</sup>",
@@ -61,32 +61,40 @@ F_meta <- read_tsv(
                                                "wt")))
 
 # relative Eigen values for axis names
-F_axis_labs <- c("Axis.1" = paste0("PC1: ", 
-                                   round(F_pcoa$values$Relative_eig[1], 3)),
+G_axis_labs <- c("Axis.1" = paste0("PC1: ", 
+                                   round(G_pcoa$values$Relative_eig[1], 3)),
                  "Axis.2" = paste0("PC2: ", 
-                                   round(F_pcoa$values$Relative_eig[2], 3)))
+                                   round(G_pcoa$values$Relative_eig[2], 3)))
+
+# converting for ggplot
+# 1st and 2nd axis
+G_tab <- G_pcoa$vectors[,1:2] %>% 
+  as.data.frame() %>% 
+  tibble() %>% 
+  # add rownames
+  bind_cols(Sample = rownames(G_pcoa$vectors), .) %>% 
+  # add metadata
+  left_join(., G_meta)
+
+rm(G_distance_matrix)
 
 #xxxxxxxxxx
 # Plot - coloured ------------------------------------------------------------
 #xxxxxxxxxx
-
-# converting for ggplot
-# 1st and 2nd axis
-p_F <- F_pcoa$vectors[,1:2] %>% 
-  as.data.frame() %>% 
-  tibble() %>% 
-  # add rownames
-  bind_cols(Sample = rownames(F_pcoa$vectors), .) %>% 
-  # add metadata
-  left_join(., F_meta) %>% 
+p_G <- G_tab %>% 
   ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, 
              colour = `Phage resistant`)) +
   geom_point(size = 1.2) +
   geom_text_repel(show.legend = FALSE, size = 2.5) +
   # no title for legend
-  scale_color_manual(name = NULL, values = Colour_list$Fig6F) +
+  scale_color_manual(name = NULL, values = Colour_list$Fig6G,
+                     labels = paste("<span style='color:",
+                                    Colour_list$Fig6G,
+                                    "'>",
+                                    unique(G_tab$`Phage resistant`),
+                                    "</span>")) +
   # rename axes
-  labs(x = F_axis_labs[1], y = F_axis_labs[2]) +
+  labs(x = G_axis_labs[1], y = G_axis_labs[2]) +
   theme_linedraw(base_size = 14) +
         # legend
   theme(legend.position = "top",
@@ -109,28 +117,28 @@ p_F <- F_pcoa$vectors[,1:2] %>%
 #xxxxxxxxxx
 
 # shapes for grayscale figure
-F_shape_vect <- c(15, 17, 18, 19, 20)
-names(F_shape_vect) <- names(Colour_list$page_resistance)
+G_shape_vect <- c(15, 17, 18, 19, 20)
+names(G_shape_vect) <- names(Colour_list$Fig6G_gray)
 
 # converting for ggplot
 # 1st and 2nd axis
-p_Fg <- F_pcoa$vectors[,1:2] %>% 
+p_Gg <- G_pcoa$vectors[,1:2] %>% 
   as.data.frame() %>% 
   tibble() %>% 
   # add rownames
-  bind_cols(Sample = rownames(F_pcoa$vectors), .) %>% 
+  bind_cols(Sample = rownames(G_pcoa$vectors), .) %>% 
   # add metadata
-  left_join(., F_meta) %>% 
+  left_join(., G_meta) %>% 
   ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, 
              colour = `Phage resistant`, shape = `Phage resistant`)) +
   geom_point(size = 3) +
   geom_text_repel(size = 4, show.legend = FALSE) +
   # colour scale, no title for legend
-  scale_color_manual(name = NULL, values = Colour_list$Fig6F_gray) +
+  scale_color_manual(name = NULL, values = Colour_list$Fig6G_gray) +
   # shape scale, no title for legend
-  scale_shape_manual(name = NULL, values = F_shape_vect) +
+  scale_shape_manual(name = NULL, values = G_shape_vect) +
   # rename axes
-  labs(x = F_axis_labs[1], y = F_axis_labs[2]) +
+  labs(x = G_axis_labs[1], y = G_axis_labs[2]) +
   theme_linedraw() +
   # axis numbers
   theme(axis.text = element_text(size = 12),
@@ -147,11 +155,11 @@ p_Fg <- F_pcoa$vectors[,1:2] %>%
         # add margin to y-axis title
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
-ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_grayscale.png", 
-       p_Fg, width = 5, height = 5)
-ggsave("output/Fig6F_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_grayscale.pdf", 
-       p_Fg, width = 5, height = 5)
+ggsave("output/Fig6G_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_grayscale.png", 
+       p_Gg, width = 5, height = 5)
+ggsave("output/Fig6G_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_grayscale.pdf", 
+       p_Gg, width = 5, height = 5)
 
-rm(F_shape_vect, p_Fg)
+rm(G_shape_vect, p_Gg)
 
 
