@@ -15,10 +15,10 @@ set.seed(1)
 dated_tree <- readRDS("input/dated_tree.rds")
 
 # write out as newick tree
-treeio::write.tree(dated_tree, "output/dated_tree.nwk")
+treeio::write.tree(dated_tree, "input/dated_tree.nwk")
 
 # read the newick tree
-dated_tree <- treeio::read.tree("output/dated_tree.nwk")
+dated_tree <- treeio::read.tree("input/dated_tree.nwk")
 
 #xxxxxxxxxxx
 ## Metadata ----
@@ -34,12 +34,11 @@ metadata <- readRDS("input/aci_study.rds") %>%
 all.equal(dated_tree$tip.label, metadata$assembly)
 # [1] TRUE
 
-geodate_tab <- read_tsv("input/Rate_1.tsv") %>% 
-  filter(filtered == TRUE & downsampled == TRUE)
+geodate_tab <- read_tsv("input/aci_crab_ds_geodate2.tsv") %>% 
+  filter(filtered == TRUE & downsampled == TRUE & mlst == "ST2")
 
 # check if the geodate_tab contain all tips of the tree
-setdiff(geodate_tab$assembly, dated_tree$tip.label) %>% length()
-# 398
+setdiff(geodate_tab$assembly, dated_tree$tip.label)
 
 #xxxxxxxxxx
 ## Keep only those genomes where the city column is filled in the metadata ----
@@ -107,30 +106,8 @@ p <- autocorr_result_tab %>%
   labs(x = "MRCA (years)", y = "Autocorrelation") +
   theme_minimal()
 
-ggsave("output/Rate_1/autocorr_result_with_city_span_0.9.png", p, 
-       width = 7, height = 5, dpi = 300)
-ggsave("output/Rate_1/autocorr_result_with_city_span_0.9.pdf", p, 
-       width = 7, height = 5)
+ggsave("output/aci_crab_ds_geodate2/autocorr_result_with_city_span_0.9.png", 
+       p, width = 7, height = 5, dpi = 300)
+ggsave("output/aci_crab_ds_geodate2/autocorr_result_with_city_span_0.9.pdf", 
+       p, width = 7, height = 5)
 
-#xxxxxxxxxx
-## Plot of the first 20 years -----
-#xxxxxxxxxx
-
-p2 <- autocorr_result_tab %>%
-  ggplot(aes(x = Year, y = autocorrelations)) +
-  geom_pointdensity(size = 0.5) +
-  scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
-  # regression
-  geom_smooth(method = "loess", formula = y ~ x,
-              span = 0.5, color = "gray30", se = TRUE) +
-  scale_x_continuous(limits = c(0, 20)) +
-  scale_y_continuous(limits = c(-1, 1)) +
-  stat_cor(method = "spearman", cor.coef.name = "rho",
-           label.x.npc = "left", label.y.npc = "bottom", show.legend = FALSE) +
-  labs(x = "MRCA (years)", y = "Autocorrelation") +
-  theme_minimal()
-
-ggsave("output/no_pop_ds/autocorr_result_with_city_20years.png", p2, 
-       width = 7, height = 5, dpi = 300)
-ggsave("output/no_pop_ds/autocorr_result_with_city_20years.pdf", p2, 
-       width = 7, height = 5)

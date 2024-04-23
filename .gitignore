@@ -12,5 +12,6 @@
 *.Rproj
 
 *rest.R
+*Rest.R
 
 .~lock.Colouring_tab.xlsx#
