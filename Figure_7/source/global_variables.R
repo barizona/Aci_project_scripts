@@ -39,3 +39,6 @@ names(Colour_list$Fig7A2nd_alpha) <- names(Colour_list$Fig7A2nd)
 # 3rd
 Colour_list$Fig7A3rd_alpha <- adjustcolor(Colour_list$Fig7A3rd, alpha.f = 0.5)
 names(Colour_list$Fig7A3rd_alpha) <- names(Colour_list$Fig7A3rd)
+# legend
+Colour_list$Fig7Alegend_alpha <- adjustcolor(Colour_list$Fig7Alegend, alpha.f = 0.5)
+names(Colour_list$Fig7Alegend_alpha) <- names(Colour_list$Fig7Alegend)

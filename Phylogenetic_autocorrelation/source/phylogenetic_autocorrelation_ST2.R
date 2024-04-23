@@ -96,7 +96,7 @@ p <- autocorr_result_tab %>%
   # slice_sample(n = 30000) %>%
   ggplot(aes(x = Year, y = autocorrelations)) +
   geom_pointdensity(size = 0.5) +
-  scale_colour_distiller(palette = "Spectral", name = "Nr. of\nneighbours") +
+  scale_colour_distiller(palette = "Spectral", name = "Number of\nneighbouring points") +
   # regression
   geom_smooth(method = "loess", formula = y ~ x,
               span = 0.9, color = "gray30", se = FALSE) +

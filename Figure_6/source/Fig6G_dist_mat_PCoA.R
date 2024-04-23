@@ -163,3 +163,4 @@ ggsave("output/Fig6G_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_gray
 rm(G_shape_vect, p_Gg)
 
 
+# TODO: G ábrán fel van cserélve az ábra fölötti magyarázatban a HSFPh és HS. A HSFPh a világoskék.

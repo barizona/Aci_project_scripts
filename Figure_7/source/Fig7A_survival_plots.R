@@ -3,6 +3,7 @@ library(survival) # survfit
 library(survminer) # ggsurvplot
 library(ggpubr) # stat_pvalue_manual
 library(ggtext) # for superscripts: theme(... element_markdown())
+
 #xxxxxxxxxxxxxxxxxxxxx
 # AIM: Survival plot Figure 7A (1st, 2nd, 3rd) -------------------------------
 #xxxxxxxxxxxxxxxxxxxxx
@@ -18,22 +19,17 @@ library(ggtext) # for superscripts: theme(... element_markdown())
 #xxxxxxxxxxxxxxxxxxxxxxx
 # 1st A110-1 ------------------------------------------------------------------
 #xxxxxxxxxxxxxxxxxxxxxxx
+# changing the strain names
+A_var_aci <- "A110-1"
 
 A1st_tab <- read_tsv("input/Fig7BD_Exp_20230911_19.tsv") %>% 
-    filter(Strain %in% c("PBS", "Aci 110", "A110-1")) %>% 
-    # change Strain names
-    mutate(Strain = case_match(Strain,
-                               "Aci 110" ~ "Aci 110 wt",
-                               "A110-1" ~ "A110-1 H<sup>R</sup>",
-                                .default = Strain)) %>%
+    filter(Strain %in% c("PBS", "Aci 110", A_var_aci)) %>%
     # convert to factor
-    mutate(Strain = factor(Strain, levels = c("PBS", "Aci 110 wt", 
-                                              "A110-1 H<sup>R</sup>")))
+    mutate(Strain = factor(Strain, levels = c("PBS", "Aci 110", A_var_aci)))
 
 # fit
 A1st_fit_data <- survfit(Surv(time = Time, event = Event) ~ Strain,
                          data = A1st_tab)
-
 #xxxxxxx
 ## pairwise two-sided Log-rank test ----
 #xxxxxxx
@@ -41,78 +37,99 @@ A1st_log_rank_test <- pairwise_survdiff(Surv(
     time = Time, event = Event) ~ Strain, data = A1st_tab, 
     rho = 0, p.adjust.method = "none")
 
-# create a tibble with a single row to compare to Aci 110 wt
-A1st_log_rank_test_tab <- 
-    A1st_log_rank_test$p.value["A110-1 H<sup>R</sup>","Aci 110 wt"] %>% 
+# convert to stars indicating the level of significance
+A_signif <- A1st_log_rank_test$p.value[A_var_aci,] %>% 
     as_tibble() %>% 
-    # rename column
-    rename(p.adj = value) %>%
     # create p.adj.signif column
-    mutate(p.adj.signif = ifelse(p.adj < 0.0001, "****",
-                          ifelse(p.adj < 0.001, "***",
-                          ifelse(p.adj < 0.01, "**",
-                          ifelse(p.adj < 0.05, "*", "ns"))))) %>% 
-    # add group1 group2
-    mutate(group1 = "A110-1 H<sup>R</sup>",
-           group2 = "Aci 110 wt")
-    
-
-
-# TODO: create a table and plot like here:
-# https://rpkgs.datanovia.com/ggpubr/reference/stat_pvalue_manual.html
-# library(ggsurvplot)
-# library(ggpubr)
-# 
-# # Example data and plot
-# fit <- survfit(Surv(time, status) ~ sex, data = lung)
-# ggsurv <- ggsurvplot(fit)
-# 
-# # Vertical positioning of p-values
-# ggsurv + stat_pvalue_manual(pval = 0.05, geom = "text", aes(label = paste("p =", ..p.value.format..)),
-#                             position = "identity", vjust = 1, hjust = 0.5, size = 3, direction = "vertical")
-
-# https://www.datanovia.com/en/blog/how-to-add-p-values-onto-horizontal-ggplots/
+    mutate(p_signif = ifelse(value < 0.0001, "****",
+                             ifelse(value < 0.001, "***",
+                                    ifelse(value < 0.01, "**",
+                                           ifelse(value < 0.05, "*", "ns"))))) %>% 
+    select(p_signif) %>% 
+    pull()
+names(A_signif) <- c("PBS", "Aci 110")
 
 #xxxxxxxxxx
-## plot ----
+## Plot data ----
 #xxxxxxxxxx
-p_A1st <- A1st_fit_data %>% 
+p_A1st_v1 <- A1st_fit_data %>% 
     ggsurvplot(data = A1st_tab, 
                axes.offset = FALSE,
                pval = FALSE, 
                conf.int = 0.95, 
                risk.table = FALSE, 
                title = NULL,
-               xlim = c(0, 48), break.time.by = 6, 
+               xlim = c(0, 53), break.time.by = 6, 
                ylim = c(0, 1), break.y.by = 0.2,
                conf.int.alpha = 0.2,
                xlab = "Time (h)",
                ylab = "Survival probability",
-               font.x = 9,
-               font.y = 9, 
-               font.tickslab = 8,
                legend = "top",
-               legend.labs = c("PBS", "Aci 110 wt", "A110-1 H<sup>R</sup>"),
+               legend.labs = c("PBS", "Aci 110", A_var_aci),
                legend.title = "",
                font.legend = list(size = 10),
                ggtheme = theme_linedraw())
 
-p_A1st$plot +
+# start and end points for segment
+A_start_end <- p_A1st_v1$data.survplot %>% 
+    filter(time == 48 & (Strain == "PBS")) %>% 
+    select(surv) %>% 
+    pull()
+
+A_start_end <- p_A1st_v1$data.survplot %>% 
+    filter(time == 48 & (Strain == "Aci 110")) %>% 
+    select(surv) %>% 
+    pull() %>% 
+    c(A_start_end, .)
+
+A_start_end <- p_A1st_v1$data.survplot %>% 
+    filter(time == 48 & (Strain == A_var_aci)) %>% 
+    select(surv) %>% 
+    pull() %>% 
+    c(A_start_end, .)
+
+names(A_start_end) <- c("PBS", "Aci 110", A_var_aci)
+
+#xxxxxxxxxx
+## Plot ----
+#xxxxxxxxxx
+
+p_A1st <- p_A1st_v1$plot +
     # colour
     scale_color_manual(values = Colour_list$Fig7A1st) +
     scale_fill_manual(values = Colour_list$Fig7A1st_alpha) +
-    # add space to x axis for indicating the significance
-    xlim(0, 50) +
-    # indicate the p-value
-    # stat_pvalue_manual(A1st_log_rank_test_tab, label = "p.adj.signif", 
-    #                    hide.ns = TRUE, tip.length = 0.02, step.increase = 0.07,
-    #                    vjust = 0.8, size = 3, 
-    #                    x.position = 1, y.position = 1, coord.flip = TRUE) + 
-    annotate("segment", x = 48, xend = 48, y = 0.2, yend = 0.8,  # Adjust these values for positioning
-             color = "black", size = 1) +
-    annotate("text", x = 49, y = 0.8, label = "****", size = 3) +
+    # indicate significance
+    # from Aci 110 wt
+    annotate("segment", x = 50, xend = 50, 
+             y = A_start_end["Aci 110"], yend = A_start_end[3], 
+             color = "black", size = 0.6) +
+    annotate("segment", x = 49, xend = 50, 
+             y = A_start_end["Aci 110"], yend = A_start_end["Aci 110"], 
+             color = "black", size = 0.6) +
+    annotate("segment", x = 49, xend = 50, 
+             y = A_start_end[3], yend = A_start_end[3], 
+             color = "black", size = 0.6) +
+    annotate("text", x = 51, y = mean(c(A_start_end["Aci 110"], A_start_end[3])), 
+             angle = 90, label = A_signif["Aci 110"], size = 5, 
+             hjust = 0.5, vjust = 0.5) +
+    # from PBS wt
+    annotate("segment", x = 51.5, xend = 51.5, 
+             y = A_start_end["PBS"], yend = A_start_end[3], 
+             color = "black", size = 0.6) +
+    annotate("segment", x = 50.5, xend = 51.5, 
+             y = A_start_end["PBS"], yend = A_start_end["PBS"], 
+             color = "black", size = 0.6) +
+    annotate("segment", x = 50.5, xend = 51.5, 
+             y = A_start_end[3], yend = A_start_end[3], 
+             color = "black", size = 0.6) +
+    annotate("text", x = 52.5, y = mean(c(A_start_end["PBS"], A_start_end[3])), 
+             angle = 90, label = A_signif["PBS"], size = 5, 
+             hjust = 0.5, vjust = 0.5) +
     theme(# legend
-        legend.text = element_markdown(size = 8),
+        legend.position = "none",
+        # axis font size
+        axis.title = element_text(size = 9),
+        axis.text = element_text(size = 8),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
@@ -121,7 +138,45 @@ p_A1st$plot +
         panel.grid.minor.y = element_blank())
 
 
+rm(A_var_aci, A_signif, A_start, A_end)
 
-# TODO: continue with annotate
-# change the tick labs on x axis (48)
-# delete the p-val tab
+
+
+#xxxxxxxxxxxxxxxxxxxxxxxx
+# A single legend for all plots -------------------------------------------
+#xxxxxxxxxxxxxxxxxxxxxxxx
+Alegend_tab <- read_tsv("input/Fig7BD_Exp_20230911_19.tsv") %>% 
+    filter(Strain %in% c("PBS", "Aci 110", "A110-1", "A110-2", "A110-G1")) %>%
+    # change Strain names
+    mutate(Strain = case_match(Strain,
+                               "Aci 110" ~ "Aci 110 wt",
+                               "A110-1" ~ "A110-1 H<sup>R</sup>",
+                               "A110-2" ~ "A110-2 HS<sup>R</sup>",
+                               "A110-G1" ~ "A110-G1 HSFPh<sup>R</sup>",
+                               .default = Strain)) %>%
+    # convert to factor
+    mutate(Strain = factor(Strain, levels = c("PBS", "Aci 110 wt", 
+                                              "A110-1 H<sup>R</sup>",
+                                              "A110-2 HS<sup>R</sup>",
+                                              "A110-G1 HSFPh<sup>R</sup>")))
+
+# fit
+Alegend_fit_data <- survfit(Surv(time = Time, event = Event) ~ Strain,
+                         data = Alegend_tab)
+
+# TODO: create a sinple plot like growt plot and get its legend
+
+# extract the table to plot
+A1st_tab_plot <- p_A1st_v1$data.survplot %>% 
+    tibble()
+rm(p_A1st_v1)
+
+
+p_Alegend <- p_Alegend_v1$plot +
+    # colour
+    scale_color_manual(values = Colour_list$Fig7Alegend) +
+    scale_fill_manual(values = Colour_list$Fig7Alegend_alpha) +
+    theme(# legend
+        legend.text = element_markdown(size = 8))
+
+
