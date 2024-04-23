@@ -91,7 +91,7 @@ p_G <- G_tab %>%
                      labels = paste("<span style='color:",
                                     Colour_list$Fig6G,
                                     "'>",
-                                    unique(G_tab$`Phage resistant`),
+                                    levels(G_tab$`Phage resistant`),
                                     "</span>")) +
   # rename axes
   labs(x = G_axis_labs[1], y = G_axis_labs[2]) +
@@ -161,6 +161,3 @@ ggsave("output/Fig6G_pcoa_ST2_KL3_Fourier_transformed_infrared_measurements_gray
        p_Gg, width = 5, height = 5)
 
 rm(G_shape_vect, p_Gg)
-
-
-# TODO: G ábrán fel van cserélve az ábra fölötti magyarázatban a HSFPh és HS. A HSFPh a világoskék.

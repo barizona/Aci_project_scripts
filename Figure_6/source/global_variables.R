@@ -38,5 +38,5 @@ Colour_list$Fig6E <- c("0" = "white", "1" = "gray70")
 
 # Figure 6G grayscale version
 Colour_list$Fig6G_gray <- c("black", "gray15", "gray30", "gray45", "gray60")
-names(Colour_list$Fig6G_gray) <- names(Colour_list$Fig6F)
+names(Colour_list$Fig6G_gray) <- names(Colour_list$Fig6G)
 
