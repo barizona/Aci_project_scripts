@@ -1,7 +1,7 @@
 library(tidyverse)
 library(survival) # survfit
 library(survminer) # ggsurvplot
-library(ggpubr) # stat_pvalue_manual
+library(ggpubr) # get_legend
 library(ggtext) # for superscripts: theme(... element_markdown())
 
 #xxxxxxxxxxxxxxxxxxxxx
@@ -58,15 +58,14 @@ p_A1st_v1 <- A1st_fit_data %>%
                pval = FALSE, 
                conf.int = 0.95, 
                risk.table = FALSE, 
+               size = 0.6,
                title = NULL,
-               xlim = c(0, 53), break.time.by = 6, 
-               ylim = c(0, 1), break.y.by = 0.2,
+               xlim = c(0, 54), break.time.by = 6, 
+               ylim = c(-0.05, 1.05), break.y.by = 0.2,
                conf.int.alpha = 0.2,
                xlab = "Time (h)",
                ylab = "Survival probability",
-               legend = "top",
                legend.labs = c("PBS", "Aci 110", A_var_aci),
-               legend.title = "",
                font.legend = list(size = 10),
                ggtheme = theme_linedraw())
 
@@ -100,34 +99,36 @@ p_A1st <- p_A1st_v1$plot +
     scale_fill_manual(values = Colour_list$Fig7A1st_alpha) +
     # indicate significance
     # from Aci 110 wt
-    annotate("segment", x = 50, xend = 50, 
+    annotate("segment", x = 51, xend = 51, 
              y = A_start_end["Aci 110"], yend = A_start_end[3], 
-             color = "black", size = 0.6) +
-    annotate("segment", x = 49, xend = 50, 
+             color = "black", linewidth = 0.3, lineend = "round") +
+    annotate("segment", x = 50, xend = 51, 
              y = A_start_end["Aci 110"], yend = A_start_end["Aci 110"], 
-             color = "black", size = 0.6) +
-    annotate("segment", x = 49, xend = 50, 
+             color = "black", linewidth = 0.3, lineend = "round") +
+    annotate("segment", x = 50, xend = 51, 
              y = A_start_end[3], yend = A_start_end[3], 
-             color = "black", size = 0.6) +
-    annotate("text", x = 51, y = mean(c(A_start_end["Aci 110"], A_start_end[3])), 
+             color = "black", linewidth = 0.3, lineend = "round") +
+    annotate("text", x = 53, y = mean(c(A_start_end["Aci 110"], A_start_end[3])), 
              angle = 90, label = A_signif["Aci 110"], size = 5, 
              hjust = 0.5, vjust = 0.5) +
     # from PBS wt
-    annotate("segment", x = 51.5, xend = 51.5, 
+    annotate("segment", x = 53, xend = 53, 
              y = A_start_end["PBS"], yend = A_start_end[3], 
-             color = "black", size = 0.6) +
-    annotate("segment", x = 50.5, xend = 51.5, 
+             color = "black", linewidth = 0.3, lineend = "round") +
+    annotate("segment", x = 52, xend = 53, 
              y = A_start_end["PBS"], yend = A_start_end["PBS"], 
-             color = "black", size = 0.6) +
-    annotate("segment", x = 50.5, xend = 51.5, 
+             color = "black", linewidth = 0.3, lineend = "round") +
+    annotate("segment", x = 52, xend = 53, 
              y = A_start_end[3], yend = A_start_end[3], 
-             color = "black", size = 0.6) +
-    annotate("text", x = 52.5, y = mean(c(A_start_end["PBS"], A_start_end[3])), 
+             color = "black", linewidth = 0.3, lineend = "round") +
+    annotate("text", x = 55, y = mean(c(A_start_end["PBS"], A_start_end[3])), 
              angle = 90, label = A_signif["PBS"], size = 5, 
              hjust = 0.5, vjust = 0.5) +
     theme(# legend
         legend.position = "none",
         # axis font size
+        # axis.text.x = element_text(),
+        # axis.ticks.x = element_line(),
         axis.title = element_text(size = 9),
         axis.text = element_text(size = 8),
         # remove the vertical grid lines
@@ -137,10 +138,14 @@ p_A1st <- p_A1st_v1$plot +
         panel.grid.major.y = element_blank(),
         panel.grid.minor.y = element_blank())
 
+# new scale for x-axis
+p_A1st <- p_A1st + 
+    scale_x_continuous(breaks = seq(0, 48, 6), labels = seq(0, 48, 6))
 
-rm(A_var_aci, A_signif, A_start, A_end)
+rm(A_var_aci, A_signif, A_start_end)
 
-
+# TODO: remove y lab from 2nd, 3rd
+# ylab(NULL)
 
 #xxxxxxxxxxxxxxxxxxxxxxxx
 # A single legend for all plots -------------------------------------------
@@ -164,19 +169,47 @@ Alegend_tab <- read_tsv("input/Fig7BD_Exp_20230911_19.tsv") %>%
 Alegend_fit_data <- survfit(Surv(time = Time, event = Event) ~ Strain,
                          data = Alegend_tab)
 
-# TODO: create a sinple plot like growt plot and get its legend
+#xxxxxxxxxx
+## Plot data ----
+#xxxxxxxxxx
+p_Alegend_v1 <- Alegend_fit_data %>% 
+    ggsurvplot(data = A1st_tab, 
+               axes.offset = FALSE,
+               pval = FALSE, 
+               conf.int = 0.95, 
+               risk.table = FALSE, 
+               title = NULL,
+               xlim = c(0, 53), break.time.by = 6, 
+               ylim = c(0, 1), break.y.by = 0.2,
+               conf.int.alpha = 0.2,
+               xlab = "Time (h)",
+               ylab = "Survival probability",
+               legend = "top",
+               legend.labs = levels(Alegend_tab$Strain),
+               legend.title = "",
+               font.legend = list(size = 10),
+               ggtheme = theme_linedraw())
 
 # extract the table to plot
-A1st_tab_plot <- p_A1st_v1$data.survplot %>% 
-    tibble()
-rm(p_A1st_v1)
+Alegend_tab_plot <- p_Alegend_v1$data.survplot %>% 
+    tibble() %>% 
+    # factorize Strain
+    mutate(Strain = factor(Strain, levels = levels(Alegend_tab$Strain)))
+    
+rm(p_Alegend_v1)
 
 
-p_Alegend <- p_Alegend_v1$plot +
+p_Alegend <- Alegend_tab_plot %>% 
+    ggplot(aes(x = time, group = Strain)) + 
+    geom_line(aes(y = surv, color = Strain), linewidth = 0.6) + 
+    geom_ribbon(aes(y = surv, ymin = lower, ymax = upper, fill = Strain), 
+                alpha = 0.2) +
     # colour
-    scale_color_manual(values = Colour_list$Fig7Alegend) +
-    scale_fill_manual(values = Colour_list$Fig7Alegend_alpha) +
+    scale_color_manual(name = NULL, values = Colour_list$Fig7Alegend) +
+    scale_fill_manual(name = NULL, values = Colour_list$Fig7Alegend_alpha) +
     theme(# legend
+        legend.position = "top",
         legend.text = element_markdown(size = 8))
 
+p_Alegend <- get_legend(p_Alegend)
 
