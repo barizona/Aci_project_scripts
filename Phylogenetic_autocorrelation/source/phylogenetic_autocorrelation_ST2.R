@@ -34,11 +34,11 @@ metadata <- readRDS("input/aci_study.rds") %>%
 all.equal(dated_tree$tip.label, metadata$assembly)
 # [1] TRUE
 
-geodate_tab <- read_tsv("input/aci_crab_ds_geodate2.tsv") %>% 
+geodate_tab <- read_tsv("input/aci_crab_ds_geodate2_no_pop.tsv") %>% 
   filter(filtered == TRUE & downsampled == TRUE & mlst == "ST2")
 
 # check if the geodate_tab contain all tips of the tree
-setdiff(geodate_tab$assembly, dated_tree$tip.label)
+# setdiff(geodate_tab$assembly, dated_tree$tip.label)
 
 #xxxxxxxxxx
 ## Keep only those genomes where the city column is filled in the metadata ----
@@ -96,7 +96,7 @@ p <- autocorr_result_tab %>%
   # slice_sample(n = 30000) %>%
   ggplot(aes(x = Year, y = autocorrelations)) +
   geom_pointdensity(size = 0.5) +
-  scale_colour_distiller(palette = "Spectral", name = "Number of\nneighbouring points") +
+  scale_colour_distiller(palette = "Spectral", name = "Number of\nneighbouring\npoints") +
   # regression
   geom_smooth(method = "loess", formula = y ~ x,
               span = 0.9, color = "gray30", se = FALSE) +
@@ -104,10 +104,10 @@ p <- autocorr_result_tab %>%
   stat_cor(method = "spearman", cor.coef.name = "rho",
            label.x.npc = "left", label.y.npc = "bottom", show.legend = FALSE) +
   labs(x = "MRCA (years)", y = "Autocorrelation") +
-  theme_minimal()
+  theme_linedraw()
 
-ggsave("output/aci_crab_ds_geodate2/autocorr_result_with_city_span_0.9.png", 
-       p, width = 7, height = 5, dpi = 300)
-ggsave("output/aci_crab_ds_geodate2/autocorr_result_with_city_span_0.9.pdf", 
-       p, width = 7, height = 5)
+ggsave("output/autocorr_result_with_city_span_0.9.png", 
+       p, width = 7.5, height = 5, dpi = 300)
+ggsave("output/autocorr_result_with_city_span_0.9.pdf", 
+       p, width = 7.5, height = 5)
 
