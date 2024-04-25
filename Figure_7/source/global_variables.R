@@ -31,14 +31,14 @@ rm(i, Loop_var, x, Colouring_tab)
 
 # Figure 7A change alpha
 # 1st
-Colour_list$Fig7A1st_alpha <- adjustcolor(Colour_list$Fig7A1st, alpha.f = 0.5)
-names(Colour_list$Fig7A1st_alpha) <- names(Colour_list$Fig7A1st)
+Colour_list$Fig7A_alpha <- adjustcolor(Colour_list$Fig7A, alpha.f = 0.5)
+names(Colour_list$Fig7A_alpha) <- names(Colour_list$Fig7A)
 # 2nd
-Colour_list$Fig7A2nd_alpha <- adjustcolor(Colour_list$Fig7A2nd, alpha.f = 0.5)
-names(Colour_list$Fig7A2nd_alpha) <- names(Colour_list$Fig7A2nd)
+Colour_list$Fig7B_alpha <- adjustcolor(Colour_list$Fig7B, alpha.f = 0.5)
+names(Colour_list$Fig7B_alpha) <- names(Colour_list$Fig7B)
 # 3rd
-Colour_list$Fig7A3rd_alpha <- adjustcolor(Colour_list$Fig7A3rd, alpha.f = 0.5)
-names(Colour_list$Fig7A3rd_alpha) <- names(Colour_list$Fig7A3rd)
+Colour_list$Fig7C_alpha <- adjustcolor(Colour_list$Fig7C, alpha.f = 0.5)
+names(Colour_list$Fig7C_alpha) <- names(Colour_list$Fig7C)
 # legend
-Colour_list$Fig7Alegend_alpha <- adjustcolor(Colour_list$Fig7Alegend, alpha.f = 0.5)
-names(Colour_list$Fig7Alegend_alpha) <- names(Colour_list$Fig7Alegend)
+Colour_list$Fig7ABClegend_alpha <- adjustcolor(Colour_list$Fig7ABClegend, alpha.f = 0.5)
+names(Colour_list$Fig7ABClegend_alpha) <- names(Colour_list$Fig7ABClegend)
