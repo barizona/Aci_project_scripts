@@ -85,14 +85,18 @@ plot_A <- pcoa_A$vectors[,1:2] %>%
   scale_color_brewer(palette = "Set1") +
   # rename axes and legend title
   labs(x = axis_labs_A[1], y = axis_labs_A[2],
-       color = "PAM cluster of phage\nsusceptibility profile") +
+       color = "PAM cluster of phage susceptibility profile") +
   # add title
   ggtitle("Phage susceptibility profile") +
   theme_linedraw() +
   theme(axis.text = element_text(size = 12),
         # legend
+        legend.position = "top",
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 14),
+        # add extra margin to fit legend title
+        # legend.margin=margin(l = 10, r = 10, unit = "cm"),
+        legend.box.margin = margin(r = 20),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
@@ -104,8 +108,9 @@ plot_A <- pcoa_A$vectors[,1:2] %>%
         # add margin to y-axis title
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
-# saving legend to a variable
-legend <- get_plot_component(plot_A, "guide-box-right", return_all = TRUE)
+### saving legend to a variable ----
+# get_legend(plot_A)
+legend <- get_plot_component(plot_A, "guide-box-top", return_all = FALSE)
 # removing legend from the plot
 plot_A <- plot_A + theme(legend.position = "none")
 
@@ -197,7 +202,7 @@ plot_B <- pcoa_B$vectors[,1:2] %>%
 #xxxxxxxxxxxxxxxxxxxxxxxx
 
 # Description: 
-# PCoA plot of the genetic distances for the isolates. Principal
+# PCoA plot of the phylogenetic distances for the isolates. Principal
 # coordinates 1 and 2 explain 53% and 25% of the variation. The isolates are
 # coloured based on the PAM clustering into four clusters of the samples in Fig
 # S12A. Correlation cannot be observed between the Fourier-transformed infrared
@@ -279,7 +284,7 @@ plot_C <- pcoa_C$vectors[,1:2] %>%
   # rename axes
   labs(x = axis_labs_C[1], y = axis_labs_C[2]) +
   # add title
-  ggtitle("Genetic distance") +
+  ggtitle("Phylogenetic distance") +
   theme_linedraw() +
   theme(axis.text = element_text(size = 12),
         legend.position = "none",
@@ -294,202 +299,26 @@ plot_C <- pcoa_C$vectors[,1:2] %>%
         # add margin to y-axis title
         axis.title.y = element_text(size = 14, margin = margin(r = 10)))
 
-#xxxxxxxxxxxxxxxxxxxxxxx
-# D --------------------------------------------------------------------------
-#xxxxxxxxxxxxxxxxxxxxxxx
-
-# Description: 
-# Plasmid distance
-
-#xxxxxxxxxx
-## Input ----
-#xxxxxxxxxx
-# read data
-distance_matrix_D <- read.table("input/st636plasmidvegdist.tsv", 
-                                header = TRUE, sep = "\t")
-
-# rename samples to match the pam_A_tab
-# add a space after "Aci" in the sample names
-# column names
-colnames(distance_matrix_D) <- colnames(distance_matrix_D) %>% 
-  str_replace_all("Aci", "Aci ") %>% 
-  str_replace_all("Aci 126_Belgrade5", "Aci 126")
-
-# row names
-distance_matrix_D$X <- distance_matrix_D$X %>% 
-  str_replace_all("Aci", "Aci ") %>% 
-  str_replace_all("Aci 126_Belgrade5", "Aci 126")
-
-# filter only those samples that are in the pam_A_tab
-# order pam_A_tab$Sample numerically and create a vector of sample names
-Names <- pam_A_tab$Sample %>% 
-  str_replace_all("Aci ", "") %>% 
-  as.numeric() %>% 
-  sort() %>% 
-  paste0("Aci ", .)
-
-# create the distance matrix
-distance_matrix_D <- distance_matrix_D %>% 
-  filter(X %in% Names) %>% 
-  select(all_of(Names)) %>% 
-  as.matrix() %>% 
-  as.dist(., upper = TRUE)
-
-#xxxxxxxxxx
-## PCoA ----
-#xxxxxxxxxx
-pcoa_D <- ape::pcoa(distance_matrix_D, correction = "none")
-
-# relative eigen values for axis names
-axis_labs_D <- c("Axis.1" = paste0("PC1: ", round(pcoa_D$values$Relative_eig[1], 
-                                                  3)),
-                 "Axis.2" = paste0("PC2: ", round(pcoa_D$values$Relative_eig[2], 
-                                                  3)))
-
-#xxxxxxxxxx
-## Plot ----
-#xxxxxxxxxx
-# converting for ggplot
-# 1st and 2nd axis
-plot_D <- pcoa_D$vectors[,1:2] %>% 
-  as.data.frame() %>% 
-  tibble() %>% 
-  # add rownames
-  bind_cols(Sample = rownames(pcoa_D$vectors), .) %>% 
-  # add pam clusters
-  left_join(., pam_A_tab) %>%
-  ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
-  geom_point(size = 3) +
-  geom_text_repel(size = 4, show.legend = FALSE, 
-                  box.padding = 0.5, max.overlaps = 100) +
-  # colouring scheme
-  scale_color_brewer(palette = "Set1") +
-  # rename axes
-  labs(x = axis_labs_D[1], y = axis_labs_D[2]) +
-  # add title
-  ggtitle("Plasmid profile") +
-  theme_linedraw() +
-  theme(axis.text = element_text(size = 12),
-        legend.position = "none",
-        # remove the vertical grid lines
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.x = element_blank(),
-        # remove the horizontal grid lines
-        panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        # add margin to x-axis title
-        axis.title.x = element_text(size = 14, margin = margin(t = 10)), 
-        # add margin to y-axis title
-        axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
-
-#xxxxxxxxxxxxxxxxxxxxxxx
-# E --------------------------------------------------------------------------
-#xxxxxxxxxxxxxxxxxxxxxxx
-
-# Description: 
-# Prophage distance
-
-#xxxxxxxxxx
-## Input ----
-#xxxxxxxxxx
-# read data
-distance_matrix_E <- read.table("input/st636prophagevegdist.tsv", 
-                                header = TRUE, sep = "\t")
-
-# rename samples to match the pam_A_tab
-# add a space after "Aci" in the sample names
-# column names
-colnames(distance_matrix_E) <- colnames(distance_matrix_E) %>% 
-  str_replace_all("Aci", "Aci ") %>% 
-  str_replace_all("Aci 126_Belgrade5", "Aci 126")
-
-# row names
-distance_matrix_E$X <- distance_matrix_E$X %>% 
-  str_replace_all("Aci", "Aci ") %>% 
-  str_replace_all("Aci 126_Belgrade5", "Aci 126")
-
-# filter only those samples that are in the pam_A_tab (Names)
-# create the distance matrix
-distance_matrix_E <- distance_matrix_E %>% 
-  filter(X %in% Names) %>% 
-  select(Names) %>% 
-  as.matrix() %>% 
-  as.dist(., upper = TRUE)
-
-rm(Names)
-
-#xxxxxxxxxx
-## PCoA ----
-#xxxxxxxxxx
-pcoa_E <- ape::pcoa(distance_matrix_E, correction = "none")
-
-# relative eigen values for axis names
-axis_labs_E <- c("Axis.1" = paste0("PC1: ", round(pcoa_E$values$Relative_eig[1], 
-                                                  3)),
-                 "Axis.2" = paste0("PC2: ", round(pcoa_E$values$Relative_eig[2], 
-                                                  3)))
-
-#xxxxxxxxxx
-## Plot ----
-#xxxxxxxxxx
-# converting for ggplot
-# 1st and 2nd axis
-plot_E <- pcoa_E$vectors[,1:2] %>% 
-  as.data.frame() %>% 
-  tibble() %>% 
-  # add rownames
-  bind_cols(Sample = rownames(pcoa_E$vectors), .) %>% 
-  # add pam clusters
-  left_join(., pam_A_tab) %>%
-  ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, color = cluster)) +
-  geom_point(size = 3) +
-  geom_text_repel(size = 4, show.legend = FALSE, 
-                  box.padding = 0.25) +
-  # colouring scheme
-  scale_color_brewer(palette = "Set1") +
-  # rename axes
-  labs(x = axis_labs_E[1], y = axis_labs_E[2]) +
-  # add title
-  ggtitle("Prophage profile") +
-  theme_linedraw() +
-  theme(axis.text = element_text(size = 12),
-        legend.position = "none",
-        # remove the vertical grid lines
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.x = element_blank(),
-        # remove the horizontal grid lines
-        panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        # add margin to x-axis title
-        axis.title.x = element_text(size = 14, margin = margin(t = 10)), 
-        # add margin to y-axis title
-        axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
 #xxxxxxxxxxxxxxxxxxxxxxxxxxx
-# Creating the complex figure: putting the 5 PCoA plots together --------------
+# Creating the complex figure: putting the 3 PCoA plots together --------------
 #xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 # legend title PAM cluster of infrared signal
-# A: infrared signal
-# B: phage susceptibility profile
-# C: genetic distance
-# D: Plasmid profile
-# E: Prophage profile
+# A: phage susceptibility profile
+# B: infrared signal
+# C: phylogenetic distance
 
-plot_grid(plot_A, NULL, plot_B, NULL, plot_C, 
-          NULL, NULL, NULL, NULL, NULL,
-          plot_D, NULL, plot_E, NULL, legend,
-          nrow = 3,
-          align = "hv",
-          axis = "l",
-          rel_heights = c(1, 0.05, 1),
-          rel_widths = c(1, 0.05, 1, 0.05, 1),
-          labels = c("A", "", "B", "", "C", 
-                     "", "", "", "", "",
-                     "D", "",  "E"))
+p <- plot_grid(plot_A, NULL, plot_B, NULL, plot_C, nrow = 1,
+               labels = c("A", "", "B", "", "C"),
+               rel_widths = c(1, 0.05, 1, 0.05, 1))
+# add legend
+p <- plot_grid(legend, NULL, p, 
+               ncol = 1, rel_heights = c(0.1, 0.05, 1))
 
-ggsave("output/5_pcoas_ST636_KL40.png", width = 13, height = 8.5)
-ggsave("output/5_pcoas_ST636_KL40.pdf", width = 13, height = 8.5)
+ggsave("output/Fig_S12_pcoas.pdf", p, width = 13, height = 4.5)
+# to convert the pdf to good resolution png:
+# convert -density 300 -trim output/Fig_S12_pcoas.pdf -quality 100 output/Fig_S12_pcoas.png
 
 
 
@@ -504,9 +333,7 @@ ggsave("output/5_pcoas_ST636_KL40.pdf", width = 13, height = 8.5)
 # a list of all distance matrices
 distance_matrices_list <- list("A" = distance_matrix_A, 
                                "B" = distance_matrix_B, 
-                               "C" = distance_matrix_C, 
-                               "D" = distance_matrix_D, 
-                               "E" = distance_matrix_E)
+                               "C" = distance_matrix_C)
 
 # all combinations of distance matrices
 Mantel_test_results <- combn(names(distance_matrices_list), 2) %>% 
