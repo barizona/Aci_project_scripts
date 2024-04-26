@@ -18,9 +18,9 @@ ABClegend_tab <- read_tsv("input/Fig7_Exp_20230911_19.tsv") %>%
                                .default = Strain)) %>%
     # convert to factor
     mutate(Strain = factor(Strain, levels = c("PBS", "Aci 110 (wt)", 
-                                              "A110-1 (H<sup>R</sup>)",
+                                              "A110-G1 (HSFPh<sup>R</sup>)",
                                               "A110-2 (HS<sup>R</sup>)",
-                                              "A110-G1 (HSFPh<sup>R</sup>)")))
+                                              "A110-1 (H<sup>R</sup>)")))
 
 # fit
 ABClegend_fit_data <- survfit(Surv(time = Time, event = Event) ~ Strain,
@@ -47,27 +47,20 @@ p_ABClegend_v1 <- ABClegend_fit_data %>%
                font.legend = list(size = 10),
                ggtheme = theme_linedraw())
 
-# extract the table to plot
-ABClegend_tab_plot <- p_ABClegend_v1$data.survplot %>% 
-    tibble() %>% 
-    # factorize Strain
-    mutate(Strain = factor(Strain, levels = levels(ABClegend_tab$Strain)))
+#xxxxxxxxxx
+## Plot ----
+#xxxxxxxxxx
+
+p_ABClegend <- p_ABClegend_v1$plot +
+    # colour
+    scale_color_manual(values = Colour_list$Fig7ABClegend) +
+    scale_fill_manual(values = Colour_list$Fig7ABClegend_alpha) +
+    theme(# legend
+          legend.position = "top",
+          legend.text = element_markdown(size = 8))
+
+
+### saving legend to a variable ----
+p_ABClegend <- cowplot::get_plot_component(p_ABClegend, "guide-box-top", return_all = FALSE)
 
 rm(p_ABClegend_v1)
-
-
-p_ABClegend <- ABClegend_tab_plot %>% 
-    ggplot(aes(x = time, group = Strain)) + 
-    geom_line(aes(y = surv, color = Strain), linewidth = 0.6) + 
-    geom_ribbon(aes(y = surv, ymin = lower, ymax = upper, fill = Strain), 
-                alpha = 0.2) +
-    # colour
-    scale_color_manual(name = NULL, values = Colour_list$Fig7ABClegend) +
-    scale_fill_manual(name = NULL, values = Colour_list$Fig7ABClegend_alpha) +
-    theme_linedraw() +
-    theme(# legend
-        legend.position = "top",
-        legend.text = element_markdown(size = 8))
-
-p_ABClegend <- get_legend(p_ABClegend)
-

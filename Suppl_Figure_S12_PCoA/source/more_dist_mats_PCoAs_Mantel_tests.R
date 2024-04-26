@@ -109,7 +109,6 @@ plot_A <- pcoa_A$vectors[,1:2] %>%
         axis.title.y = element_text(size = 14, margin = margin(r = 10))) 
 
 ### saving legend to a variable ----
-# get_legend(plot_A)
 legend <- get_plot_component(plot_A, "guide-box-top", return_all = FALSE)
 # removing legend from the plot
 plot_A <- plot_A + theme(legend.position = "none")

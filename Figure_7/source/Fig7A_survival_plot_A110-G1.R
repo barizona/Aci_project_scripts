@@ -91,8 +91,6 @@ p_A <- p_A_v1$plot +
     # colour
     scale_color_manual(values = Colour_list$Fig7A) +
     scale_fill_manual(values = Colour_list$Fig7A_alpha) +
-    # remove y lab
-    ylab(NULL) +
     # indicate significance
     # from Aci 110
     annotate("segment", x = 51, xend = 51, 
