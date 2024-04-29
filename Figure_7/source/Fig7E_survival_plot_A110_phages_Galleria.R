@@ -106,7 +106,7 @@ names(E_start_end) <- c("Aci 110 (wt)", "Aci 110 (wt) + HS", "Aci 110 (wt) + HSF
 
 # read image
 logo <- png::readPNG("input/Galleria_mellonella.png", native = TRUE) %>% 
-    grid::rasterGrob(height = unit(0.4, "in"), y = 0.2, x = 0.05, just = "left")
+    grid::rasterGrob(height = unit(0.4, "in"), y = 0.35, x = 0.02, just = "left")
 
 p_E <- p_E_v1$plot +
     # colour

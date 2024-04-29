@@ -21,7 +21,8 @@ library(ggtext) # for superscripts: theme(... element_markdown())
 
 F_tab <- read_tsv("input/Fig7F_mouse_exp_20240402.tsv") %>% 
     filter(Strain %in% c("Aci 15", "Aci 15 + H_60min", 
-                         "Aci 15 + cocktail_60min")) %>%
+                         "Aci 15 + cocktail_60min")) %>% 
+    filter(Treatment == "10_9") %>%
     # change the strain names
     mutate(Strain = case_match(Strain, 
                                "Aci 15 + H_60min" ~ "Aci 15 + H",
@@ -63,7 +64,7 @@ p_F_v1 <- F_fit_data %>%
 
 # read image
 logo <- png::readPNG("input/Mouse.png", native = TRUE) %>% 
-    grid::rasterGrob(height = unit(0.4, "in"), y = 0.4, x = 0.5, just = "left")
+    grid::rasterGrob(height = unit(0.4, "in"), y = 0.35, x = 0.4, just = "left")
 
 p_F <- p_F_v1$plot +
     # colour

@@ -34,9 +34,10 @@ p_D <- D_tab %>%
     ggplot(aes(x = Strain, y = AB, fill = Value)) +
     geom_tile(color = "black") +
     # grayscale
-    scale_fill_distiller(type = "seq", direction = -1, palette = "Greys") +
+    scale_fill_distiller(type = "seq", direction = -1) +
     # add stars to the 5th row
-    geom_text(data = D_tab %>% filter(AB == "MER"), aes(label = "*"), 
+    geom_text(data = filter(D_tab, AB == "MER", , Strain == "A110-G1"), 
+              aes(label = "*"), 
               size = 8, vjust = 0.7, color = "white") +
     labs(x = NULL, y = NULL, fill = "log<sup>2</sup> fold change in MIC") +
     guides(fill = guide_colorbar(title.position = "top")) +
@@ -47,5 +48,4 @@ p_D <- D_tab %>%
           # axis font
           axis.text.x = element_text(size = 8, angle = 45, vjust = 1, hjust = 1),
           axis.text.y = element_text(size = 8))
-
 

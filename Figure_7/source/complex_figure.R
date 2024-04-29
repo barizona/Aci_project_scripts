@@ -15,7 +15,7 @@ composit_DEF <- plot_grid(p_D, NULL, p_E, NULL, p_F,
                           labels = c("D", "", "E", "", "F"), label_fontface = "plain", label_size = 12,
                           nrow = 1, 
                           align = "h", axis = "t",
-                          rel_widths = c(0.5, 0.05, 1, 0.1, 1))
+                          rel_widths = c(0.45, 0.05, 1, 0.05, 1))
 
 
 p <- plot_grid(composit_ABC, composit_DEF, ncol = 1, rel_heights = c(0.8, 1))
