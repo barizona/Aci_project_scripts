@@ -1,0 +1,50 @@
+closest_sc_node	city	city_aggregated	country	longest_chain	from_geo	domestic	between_focal	non_focal	group
+7764	belgrade (RS)	capital (RS)	Serbia	4.35	other_country_outside_europe	0	0	1	Non-focal
+7827	city10 (HU)	not_capital (HU)	Hungary	8.2	other_country_outside_europe	0	0	1	Non-focal
+7833	city21 (HU)	not_capital (HU)	Hungary	4.438	city10 (HU)	1	0	0	Domestic
+7838	city13 (HU)	not_capital (HU)	Hungary	0.646	city21 (HU)	1	0	0	Domestic
+8345	bucharest (RO)	capital (RO)	Romania	13.541	other_country_outside_europe	0	0	1	Non-focal
+8349	targu_mures (RO)	not_capital (RO)	Romania	1.525	bucharest (RO)	1	0	0	Domestic
+8360	targu_mures (RO)	not_capital (RO)	Romania	3.617	bucharest (RO)	1	0	0	Domestic
+8366	targu_mures (RO)	not_capital (RO)	Romania	5.383	bucharest (RO)	1	0	0	Domestic
+8370	cluj_napoca (RO)	not_capital (RO)	Romania	8.512	bucharest (RO)	1	0	0	Domestic
+8375	timisoara (RO)	not_capital (RO)	Romania	2.998	cluj_napoca (RO)	1	0	0	Domestic
+8380	city1 (HU)	not_capital (HU)	Hungary	1.081	cluj_napoca (RO)	0	1	0	Between focal
+8387	targu_mures (RO)	not_capital (RO)	Romania	0.969	cluj_napoca (RO)	1	0	0	Domestic
+8389	cluj_napoca (RO)	not_capital (RO)	Romania	0.487	targu_mures (RO)	1	0	0	Domestic
+8394	timisoara (RO)	not_capital (RO)	Romania	4.356	cluj_napoca (RO)	1	0	0	Domestic
+8399	novi_sad (RS)	not_capital (RS)	Serbia	6.127	other_country_outside_europe	0	0	1	Non-focal
+8401	belgrade (RS)	capital (RS)	Serbia	4.578	novi_sad (RS)	1	0	0	Domestic
+8406	targu_mures (RO)	not_capital (RO)	Romania	5.366	other_country_outside_europe	0	0	1	Non-focal
+8415	satu_mare (RO)	not_capital (RO)	Romania	0.704	targu_mures (RO)	1	0	0	Domestic
+8416	odorheiu_secuiesc (RO)	not_capital (RO)	Romania	0.383	targu_mures (RO)	1	0	0	Domestic
+8419	bucharest (RO)	capital (RO)	Romania	2.201	targu_mures (RO)	1	0	0	Domestic
+8529	belgrade (RS)	capital (RS)	Serbia	12.134	other_country_outside_europe	0	0	1	Non-focal
+8536	podgorica (ME)	capital (ME)	Montenegro	3.105	belgrade (RS)	0	1	0	Between focal
+8561	novi_sad (RS)	not_capital (RS)	Serbia	4.975	belgrade (RS)	1	0	0	Domestic
+8570	pozarevac (RS)	not_capital (RS)	Serbia	2.114	belgrade (RS)	1	0	0	Domestic
+8572	belgrade (RS)	capital (RS)	Serbia	0.304	pozarevac (RS)	1	0	0	Domestic
+8575	novi_sad (RS)	not_capital (RS)	Serbia	5.133	belgrade (RS)	1	0	0	Domestic
+8578	novi_sad (RS)	not_capital (RS)	Serbia	9.322	other_country_outside_europe	0	0	1	Non-focal
+8586	prijedor (BA)	not_capital (BA)	Bosnia and Herzegovina	5.692	novi_sad (RS)	0	1	0	Between focal
+8591	kragujevac (RS)	not_capital (RS)	Serbia	3.31	novi_sad (RS)	1	0	0	Domestic
+8597	belgrade (RS)	capital (RS)	Serbia	4.783	novi_sad (RS)	1	0	0	Domestic
+8601	sremska_kamenica (RS)	not_capital (RS)	Serbia	0.255	novi_sad (RS)	1	0	0	Domestic
+8604	banja_luka (BA)	not_capital (BA)	Bosnia and Herzegovina	1.977	other_country_outside_europe	0	0	1	Non-focal
+8609	city11 (HU)	capital (HU)	Hungary	6.251	other_country_outside_europe	0	0	1	Non-focal
+8703	city18 (HU)	not_capital (HU)	Hungary	2.938	city11 (HU)	1	0	0	Domestic
+8735	city1 (HU)	not_capital (HU)	Hungary	0.583	city18 (HU)	1	0	0	Domestic
+8757	city21 (HU)	not_capital (HU)	Hungary	6.867	other_country_outside_europe	0	0	1	Non-focal
+8760	city8 (HU)	not_capital (HU)	Hungary	1.826	other_country_outside_europe	0	0	1	Non-focal
+14222	city11 (HU)	capital (HU)	Hungary	3.576	other_country_outside_europe	0	0	1	Non-focal
+14227	odorheiu_secuiesc (RO)	not_capital (RO)	Romania	4.2	city11 (HU)	0	1	0	Between focal
+14229	miercurea_ciuc (RO)	not_capital (RO)	Romania	1.955	odorheiu_secuiesc (RO)	1	0	0	Domestic
+14232	targu_mures (RO)	not_capital (RO)	Romania	0.263	city11 (HU)	0	1	0	Between focal
+14233	bucharest (RO)	capital (RO)	Romania	4.586	city11 (HU)	0	1	0	Between focal
+14237	city5 (HU)	not_capital (HU)	Hungary	0.036	city11 (HU)	1	0	0	Domestic
+14278	belgrade (RS)	capital (RS)	Serbia	4.997	other_country_outside_europe	0	0	1	Non-focal
+14281	novi_sad (RS)	not_capital (RS)	Serbia	3.962	belgrade (RS)	1	0	0	Domestic
+14285	city17 (HU)	not_capital (HU)	Hungary	7.973	other_country_outside_europe	0	0	1	Non-focal
+14287	city18 (HU)	not_capital (HU)	Hungary	8.851	city17 (HU)	1	0	0	Domestic
+15051	novi_sad (RS)	not_capital (RS)	Serbia	5.492	other_country_outside_europe	0	0	1	Non-focal
+15058	targu_mures (RO)	not_capital (RO)	Romania	6.125	other_country_outside_europe	0	0	1	Non-focal
