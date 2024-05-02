@@ -4,17 +4,14 @@ library(ggtree)
 library(ggnewscale)
 source("source/get_colors.R")
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-set.seed(0)
 
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 # AIM: Plot 16 clades of dated_tree_with_state_changes.pdf ----------------
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-args <- list(
-  project_dir = "aci/prophyl",
-  tree_tbl = "data/global_ST2_tree/tree_tbl.rds",
-  target = "city_pooled",
-  heatmap_vars = c("city_pooled", "country", "continent", "k_serotype"))
+args <- list(target = "city_pooled",
+             heatmap_vars = c("city_pooled", "country", "continent", 
+                              "k_serotype"))
 
 #xxxxxxxxxxxx
 # Input ---------------------------------------------------------------------
@@ -31,7 +28,7 @@ geo_cols <- get_colors(tree_tbl[1:(index-1), ], args$target)
 
 tree_tbl <- left_join(tree_tbl, geo_cols, by = args$target)
 
-tree <-  treeio::as.treedata(tree_tbl)
+tree <-  as.treedata(tree_tbl)
 
 min_date <- min(tree_tbl$collection_day, na.rm = TRUE)
 max_date <- max(tree_tbl$collection_day, na.rm = TRUE)
@@ -138,100 +135,29 @@ nodes <- read_tsv("input/longest_chain_from_closest_transmission_no_singletons.t
   arrange(closest_sc_node) %>%
   pull()
 
-for(i in 1:length(nodes)) {
-  # Nr. of tips of each node
-  tip_nr <- offspring(tree, nodes[i], type = "tips")
-  # plot
-  p_clade <- viewClade(p2, nodes[i])
-  ggsave(file = paste0("output/dated_tree_with_state_changes_clade_", nodes[i], ".pdf"), 
-         p_clade, height = 0.5*tip_nr, width = 0.5*tip_nr, units = "cm", 
-         limitsize = FALSE)
-}
-
-#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-tree_clade <- tree_subset(tree, node = nodes[1], levels_back = 0)
+# Plot clades one-by-one to be able to save it with proper size
+# change from 1 to 16
+n <- 16
+tree_clade <- tree_subset(tree, node = nodes[n], levels_back = 0)
 tree_tbl_clade <- as_tibble(tree_clade)
 
-
-#xxxxxxxxxxxx
-# Prepare heatmap matrices and colors -----------------------------------------
-#xxxxxxxxxxxx
-mats_clade <- list()
-cls_clade <- list()
-for (i in 1:length(args$heatmap_vars)) {
-  mats_clade[[i]] <- as.matrix(tree_tbl_clade[, args$heatmap_vars[i]])
-  rownames(mats_clade[[i]]) <- tree_tbl_clade$label
-  colnames(mats_clade[[i]]) <- args$heatmap_vars[i]
-  if (args$heatmap_vars[i] == args$target) {
-    cls_clade[[i]] <- geo_cols$color
-    names(cls_clade[[i]]) <- geo_cols$city_pooled
-  } else {
-    set.seed(0)
-    coldf_clade <- get_colors(tree_tbl_clade[1:(index-1), ], args$heatmap_vars[i])
-    cls_clade[[i]] <- coldf_clade$color
-    names(cls_clade[[i]]) <- coldf_clade[[args$heatmap_vars[i]]]
-  }
-}
-rm(i)
-
-index_trnodes <- which(tree_tbl$node %in% index_transmission_nodes)
-
-trlabel <- vector()
-for (i in 1:nrow(tree_tbl)) {
-  if (tree_tbl$node[i] %in% index_trnodes) {
-    trlabel <- c(trlabel, paste0(
-      "INTRO?\n",
-      tree_tbl$collection_day[which(tree_tbl$node == tree_tbl$parent[i])],
-      "/",
-      tree_tbl$collection_day[i]
-    ))
-  } else {
-    trlabel <- c(trlabel, NA_character_)
-  }
-}
-rm(i)
-
 ## basic tree ----
-p_clade <- ggtree(tree_clade, aes(color = get(args$target)), mrsd = max_date) +
+p_clade <- ggtree(tree_clade, aes(color = get(args$target)), mrsd = max_date, size = 1) +
   theme_tree2() +
   scale_x_ggtree(breaks = seq(from = year(min_date), to = year(max_date)+1, by = 1)) +
   scale_color_manual(values = geo_cols$color, limits = geo_cols[[args$target]]) +
-  geom_label(aes(label = city_pooled), size = 4, alpha = 0.5, vjust = -1, hjust = 0) +
-  geom_tiplab(align = TRUE, size = 4, alpha = 1, hjust = 0) +
+  geom_label(aes(label = city_pooled), size = 4, alpha = 0.5, vjust = -0.5, hjust = 0) +
+  geom_tiplab(align = TRUE, size = 4, alpha = 1, hjust = 0, offset = 2) +
   # add space to tiplab
-  hexpand(0.1) +
-  theme(legend.position = "none")
+  hexpand(0.3) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(size = 14, angle = 90, vjust = 0.5, hjust = 1))
 
-# TODO: good till now but the heatmap creates a too big p (9.3 Mb)
-## heatmap to tree ----
-p2_clade <- p_clade
-for (i in 1:length(mats)) {
-  p2_clade <- gheatmap(p2_clade, mats[[i]], offset = 1 + (i-1) * 1, width = 0.02,
-                 colnames_offset_y = 0, colnames_position = "top",
-                 legend_title = args$heatmap_vars) +
-    labs(fill = args$heatmap_vars[i]) +
-    scale_fill_manual(values = cls[[i]])
-  if (i < length(mats)) {
-    p2 <- p2 + new_scale_fill()
-  }
-}
-p2_clade <- p2_clade + theme(legend.position = "none")
-rm(i)
+h = c(4, 14, 30, 5, 16, 20, 16, 4, 60, 4, 5, 14, 5, 7, 4, 5)
+w = c(7, 12, 20, 7, 10, 15, 12, 4, 20, 7, 6, 10, 7, 7, 4, 7)
+ggsave(file = paste0("output/dated_tree_with_state_changes_clade_", nodes[n], ".png"), 
+       p_clade, height = h[n], width = w[n], limitsize = FALSE)
 
+ggsave(file = paste0("output/dated_tree_with_state_changes_clade_", nodes[n], ".pdf"), 
+       p_clade, height = h[n], width = w[n], limitsize = FALSE)
 
-
-
-p2_clade <- p_clade
-for (i in 1:length(mats_clade)) {
-  p2_clade <- gheatmap(p2_clade, mats_clade[[i]], offset = 1 + (i-1) * 1, width = 0.02,
-                 colnames_offset_y = 0, colnames_position = "top",
-                 legend_title = args$heatmap_vars) +
-    labs(fill = args$heatmap_vars[i]) +
-    scale_fill_manual(values = cls_clade[[i]])
-  if (i < length(mats_clade)) {
-    p2 <- p2 + new_scale_fill()
-  }
-}
-p2_clade <- p2_clade + theme(legend.position = "none")
-rm(i)
