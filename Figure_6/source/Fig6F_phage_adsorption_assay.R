@@ -40,6 +40,8 @@ F_tab %<>%
 
 p_F <- F_tab %>% 
     ggplot(aes(x = phage, y = log10_FC, colour = phage)) +
+    # add a line at y = 0
+    geom_hline(yintercept = 0, linetype = "solid", colour = "gray70") +
     geom_point(position = position_jitterdodge(jitter.width = 1, 
                                                dodge.width = 1), size = 1.2) +
     # mean bars

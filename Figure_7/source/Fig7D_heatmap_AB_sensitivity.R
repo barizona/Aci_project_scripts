@@ -36,7 +36,7 @@ p_D <- D_tab %>%
     # grayscale
     scale_fill_distiller(type = "seq", direction = -1) +
     # add stars to the 5th row
-    geom_text(data = filter(D_tab, AB == "MER", , Strain == "A110-G1"), 
+    geom_text(data = filter(D_tab, AB == "MER"), 
               aes(label = "*"), 
               size = 8, vjust = 0.7, color = "white") +
     labs(x = NULL, y = NULL, fill = "log<sup>2</sup> fold change in MIC") +
