@@ -24,6 +24,9 @@ all_clade_tips$Node_1 %>% head()
 length(all_clade_tips)
 # 7719
 
+# lengths
+all_clade_tips_lengths <- lapply(all_clade_tips, length)
+
 nodes_monophyletic_same_city <- c()
 nodes_monophyletic_same_city_names <- c()
 nodes_monophyletic_diff_city <- c()
@@ -124,8 +127,10 @@ tree_tbl_collapsed <- as_tibble(tree_collapsed) %>%
   # add a new column indicating if the tip belongs to a collapsed monophyletic clade
   mutate(collapsed = ifelse(label %in% tips_to_keep, TRUE, FALSE))
   
-# for the collapsed clades, change the label to Clade_1, Clade_2, etc.
+# for the collapsed clades, change the label to Clade_1: nr. of tips, Clade_2: nr. of tips, etc.
 tips_to_keep_clade_names <- paste("Clade", 1:length(tips_to_keep), sep = " ")
+# paste the number of tips in the clade
+tips_to_keep_clade_names <- paste0(tips_to_keep_clade_names, " - ", map_int(all_clade_tips[nodes_monophyletic_same_city_v2], length))
 names(tips_to_keep_clade_names) <- tips_to_keep
 
 tree_tbl_collapsed <- tips_to_keep_clade_names %>% 
@@ -135,6 +140,7 @@ tree_tbl_collapsed <- tips_to_keep_clade_names %>%
 # overwrite the label column with the clade_label column when collapsed == TRUE
 tree_tbl_collapsed$label <- ifelse(tree_tbl_collapsed$collapsed, tree_tbl_collapsed$clade_label, tree_tbl_collapsed$label)
 
+# convert to tree data
 tree_data_collapsed <-  as.treedata(tree_tbl_collapsed)
 
 min_date <- min(tree_tbl_collapsed$collection_day, na.rm = TRUE)
@@ -148,11 +154,11 @@ max_date <- max(tree_tbl_collapsed$collection_day, na.rm = TRUE)
 ## basic tree ----
 #xxxxxxxx
 p_collapsed <- tree_data_collapsed %>% 
-  ggtree(aes(color = get(args$target)), mrsd = max_date) +
+  ggtree(aes(color = city_pooled_new), mrsd = max_date) +
   theme_tree2(text = element_text(size = 10),
               axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_x_ggtree(breaks = seq(from = year(min_date), to = year(max_date), by = 2)) +
-  scale_color_manual(values = geo_cols$color, limits = geo_cols[[args$target]]) +
+  scale_color_manual(values = tbl_factors$color_new, limits = tbl_factors$city_pooled_new) +
   geom_label(aes(label = city_pooled_new), size = 2, alpha = 0.5) +
   # add "normal" tip names
   geom_tiplab(aes(subset = collapsed == FALSE), align = TRUE, size = 2, alpha = 1, offset = 3) +
@@ -166,33 +172,56 @@ ggsave(file = "output/dated_tree_with_state_changes_collapsed.pdf", p_collapsed,
        units = "cm", limitsize = FALSE)
 
 #xxxxxxxx
-## fan tree ----
+## fan tree using different colours with legend without labels ----
 #xxxxxxxx
-p_collapsed_fan <- tree_data_collapsed %>% 
-  ggtree(aes(color = get(args$target)), mrsd = max_date, layout = "fan", open.angle = 10) +
+p_collapsed_fan_v2 <- tree_data_collapsed %>% 
+  ggtree(aes(color = city_pooled_new), mrsd = max_date, layout = "fan", open.angle = 7) +
   theme_tree2(text = element_text(size = 10),
               axis.text.x = element_text(angle = 45, hjust = 1)) +
-  # scale_x_ggtree(breaks = seq(from = year(min_date), to = year(max_date), by = 2)) +
-  scale_color_manual(values = geo_cols$color, limits = geo_cols[[args$target]]) +
-  geom_label(aes(label = city_pooled_new), size = 2, alpha = 0.5) +
-  # add "normal" tip names
-  geom_tiplab(aes(subset = collapsed == FALSE), align = TRUE, size = 2, alpha = 1, offset = 3) +
+  scale_color_manual(values = tbl_factors$color_new, limits = tbl_factors$city_pooled_new) +
+    # add "normal" tip names
+  geom_tiplab(aes(subset = collapsed == FALSE), align = TRUE, size = 2, alpha = 1, offset = 12) +
   # add "collapsed" tip names
-  geom_tiplab(aes(subset = collapsed == TRUE), align = TRUE, size = 2, alpha = 1, offset = 1, fontface = "bold.italic") +
-  theme(legend.position = "none",
+  geom_tiplab(aes(subset = collapsed == TRUE), align = TRUE, size = 2, alpha = 1, offset = 0, fontface = "italic") +
+  scale_x_ggtree(breaks = seq(from = year(min_date), to = year(max_date), by = 5)) +
+  # remove "a"-s from legend (change them to space \U00A0)
+  guides(color = guide_legend(override.aes = list(label = "\U00A0", size = 0, linewidth = 2), ncol = 8)) +
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 6),
         # add dotted line to dates
         panel.grid.major.x = element_line(color = "grey20", 
                                           linetype = "dotted", linewidth = 0.3))
 
-ggsave(file = "output/dated_tree_with_state_changes_collapsed_fan.pdf", p_collapsed_fan,
-       height = 0.07*nrow(tree_tbl_collapsed),
-       width = 0.07*nrow(tree_tbl_collapsed),
+ggsave(file = "output/dated_tree_with_state_changes_collapsed_fan.pdf", p_collapsed_fan_v2,
+       height = 0.05*nrow(tree_tbl_collapsed),
+       width = 0.04*nrow(tree_tbl_collapsed),
        units = "cm", limitsize = FALSE)
-
-
 
 
 rm(all_clade_tips)
 
 
+# # HU colours
+# interpolated_palette <- c("darkred", "darkorange", "khaki3", "orchid1", "orchid4") %>% 
+#   colorRampPalette()
+# interpolated_palette(15)
+# [1] "#8B0000" "#AC2800" "#CD5000" "#EE7800" "#F79410" "#E9A431" "#DBB552" "#CDC673"
+# [9] "#DBB299" "#E99FC0" "#F78CE6" "#EE7AE9" "#CD69C9" "#AC58A9" "#8B4789"
+# 
+# # RO colours
+# interpolated_palette <- c("midnightblue", "mediumblue", "skyblue", "turquoise3", "steelblue4") %>% 
+#   colorRampPalette()
+# interpolated_palette(11)
+# [1] "#191970" "#0F0F95" "#0505BA" "#1B29D3" "#517BDF" "#87CEEB" "#50CADE" "#1AC6D3"
+# [9] "#0AB1BF" "#208AA5" "#36648B"
+# 
+# # RS colours
+# interpolated_palette <- c("#00441B", "darkgreen", "olivedrab1", "seagreen") %>% 
+#   colorRampPalette()
+# interpolated_palette(7)
+# [1] "#00441B" "#00540D" "#006400" "#60B11F" "#C0FF3E" "#77C54A" "#2E8B57"
+# 
+# # BA colours
+# "peru", "saddlebrown"
 

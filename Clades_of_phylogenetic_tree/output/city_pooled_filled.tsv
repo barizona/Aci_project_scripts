@@ -1,38 +1,38 @@
-city_pooled	city_pooled_new
-bacau (RO)	Bacau (RO)
-banja_luka (BA)	Banja Luka (BA)
-belgrade (RS)	Belgrade (RS)
-bucharest (RO)	Bucharest (RO)
-city1 (HU)	City1 (HU)
-city10 (HU)	City10 (HU)
-city11 (HU)	City11 (HU)
-city13 (HU)	City13 (HU)
-city14 (HU)	City14 (HU)
-city16 (HU)	city16 (HU)
-city17 (HU)	City17 (HU)
-city18 (HU)	City18 (HU)
-city20 (HU)	City20 (HU)
-city21 (HU)	City21 (HU)
-city5 (HU)	City5 (HU)
-city7 (HU)	City7 (HU)
-city8 (HU)	City8 (HU)
-city9 (HU)	City9 (HU)
-cluj_napoca (RO)	Cluj-Napoca (RO)
-kragujevac (RS)	Kragujevac (RS)
-lasi (RO)	Lasi (RO)
-miercurea_ciuc (RO)	Miercurea Ciuc (RO)
-nis (RS)	Nis (RS)
-novi_sad (RS)	Novi Sad (RS)
-odorheiu_secuiesc (RO)	Odorheiu Secuiesc (RO)
-other_country_outside_europe	non-focal
-podgorica (ME)	Podgorica (ME)
-pozarevac (RS)	Pozarevac (RS)
-prijedor (BA)	Prijedor (BA)
-satu_mare (RO)	Satu Mare (RO)
-sremska_kamenica (RS)	Sremska Kamenica (RS)
-targoviste (RO)	Targoviste (RO)
-targu_mures (RO)	Targu Mures (RO)
-timisoara (RO)	Timisoara (RO)
-unknown (HU)	unknown (HU)
-unknown (RO)	unknown (RO)
-uzice (RS)	Uzice (RS)
+city_pooled	city_pooled_new	country_abbr	color_new
+banja_luka (BA)	Banja Luka (BA)	BA	saddlebrown
+prijedor (BA)	Prijedor (BA)	BA	peru
+city1 (HU)	City1 (HU)	HU	#8B0000
+city10 (HU)	City10 (HU)	HU	#AC2800
+city11 (HU)	City11 (HU)	HU	#CD5000
+city13 (HU)	City13 (HU)	HU	#EE7800
+city14 (HU)	City14 (HU)	HU	#F79410
+city16 (HU)	City16 (HU)	HU	#E9A431
+city17 (HU)	City17 (HU)	HU	#DBB552
+city18 (HU)	City18 (HU)	HU	#CDC673
+city20 (HU)	City20 (HU)	HU	#DBB299
+city21 (HU)	City21 (HU)	HU	#E99FC0
+city5 (HU)	City5 (HU)	HU	#F78CE6
+city7 (HU)	City7 (HU)	HU	#EE7AE9
+city8 (HU)	City8 (HU)	HU	#CD69C9
+city9 (HU)	City9 (HU)	HU	#AC58A9
+unknown (HU)	unknown (HU)	HU	#8B4789
+podgorica (ME)	Podgorica (ME)	ME	black
+bacau (RO)	Bacau (RO)	RO	#191970
+bucharest (RO)	Bucharest (RO)	RO	#0F0F95
+cluj_napoca (RO)	Cluj-Napoca (RO)	RO	#0505BA
+lasi (RO)	Lasi (RO)	RO	#1B29D3
+miercurea_ciuc (RO)	Miercurea Ciuc (RO)	RO	#517BDF
+odorheiu_secuiesc (RO)	Odorheiu Secuiesc (RO)	RO	#87CEEB
+satu_mare (RO)	Satu Mare (RO)	RO	#50CADE
+targoviste (RO)	Targoviste (RO)	RO	#1AC6D3
+targu_mures (RO)	Targu Mures (RO)	RO	#0AB1BF
+timisoara (RO)	Timisoara (RO)	RO	#208AA5
+unknown (RO)	unknown (RO)	RO	#36648B
+belgrade (RS)	Belgrade (RS)	RS	#00441B
+kragujevac (RS)	Kragujevac (RS)	RS	#00540D
+nis (RS)	Nis (RS)	RS	#006400
+novi_sad (RS)	Novi Sad (RS)	RS	#60B11F
+pozarevac (RS)	Pozarevac (RS)	RS	#C0FF3E
+sremska_kamenica (RS)	Sremska Kamenica (RS)	RS	#77C54A
+uzice (RS)	Uzice (RS)	RS	#2E8B57
+other_country_outside_europe	non-focal	-	grey40

@@ -2,7 +2,6 @@ library(tidyverse)
 library(tidytree)
 library(ggtree)
 library(ggnewscale)
-source("source/get_colors.R")
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -32,10 +31,10 @@ for(n in 1:length(nodes)) {
   tree_tbl_clade <- as_tibble(tree_clade)
   
   ## basic tree ----
-  p_clade <- ggtree(tree_clade, aes(color = get(args$target)), mrsd = max_date, size = 1) +
+  p_clade <- ggtree(tree_clade, aes(color = city_pooled_new), mrsd = max_date, size = 1) +
     theme_tree2() +
     scale_x_ggtree(breaks = seq(from = year(min_date), to = year(max_date)+1, by = 1)) +
-    scale_color_manual(values = geo_cols$color, limits = geo_cols[[args$target]]) +
+    scale_color_manual(values = tbl_factors$color_new, limits = tbl_factors$city_pooled_new) +
     geom_label(aes(label = city_pooled), size = 4, alpha = 0.5, vjust = -0.5, hjust = 0) +
     geom_tiplab(align = TRUE, size = 4, alpha = 1, hjust = 0, offset = 2) +
     # add space to tiplab
