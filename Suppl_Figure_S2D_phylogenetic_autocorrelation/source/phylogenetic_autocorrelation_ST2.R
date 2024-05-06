@@ -5,6 +5,10 @@ library(ggpubr)
 
 set.seed(1)
 
+#xxxxxxxxxxxxxxxxxxxxxxxxx
+# AIM: Figure S2D: Calculating phylogenetic autocorrelation plot ----------------------
+#xxxxxxxxxxxxxxxxxxxxxxxxx
+
 #xxxxxxxxxxxxxxxxxxxxxxx
 # Inputs ------------------------------------------------------------------
 #xxxxxxxxxxxxxxxxxxxxxxx
@@ -111,3 +115,6 @@ ggsave("output/autocorr_result_with_city_span_0.9.png",
 ggsave("output/autocorr_result_with_city_span_0.9.pdf", 
        p, width = 7.5, height = 5)
 
+sessionInfo() %>%
+  capture.output() %>%
+  writeLines("output/sessionInfo.txt")

@@ -257,3 +257,7 @@ ggsave(file = "output/dated_tree_with_state_changes_collapsed.pdf",
        height = 0.15*nrow(tree_tbl_collapsed),
        width = 0.08*nrow(tree_tbl_collapsed),
        units = "cm", limitsize = FALSE)
+
+sessionInfo() %>%
+  capture.output() %>%
+  writeLines("output/sessionInfo.txt")

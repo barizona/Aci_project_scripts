@@ -4,7 +4,7 @@ library(cowplot)
 library(vegan) # for mantel
 
 #xxxxxxxxxxxxxxxxxxxx
-# AIM: Plot PCoA to of distance matrix for Supplementary Figure 12 ---------------------------
+# AIM: Plot PCoA to of distance matrix for Figure 42A ---------------------------
 #xxxxxxxxxxxxxxxxxxxx
 
 # Description: 
@@ -356,3 +356,7 @@ for(i in 1:nrow(Mantel_test_results)) {
 rm(i)
 
 Mantel_test_results %>% write_tsv("output/Mantel_test_results_pearson.tsv")
+
+sessionInfo() %>%
+  capture.output() %>%
+  writeLines("output/sessionInfo.txt")

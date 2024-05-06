@@ -25,3 +25,7 @@ ggsave("output/Figure7.pdf", p, units = "in", height = 6, width = 8.5)
 
 # to convert the pdf to good resolution png:
 # convert -density 300 -trim output/Figure7.pdf -quality 100 output/Figure7.png
+
+sessionInfo() %>%
+    capture.output() %>%
+    writeLines("output/sessionInfo.txt")

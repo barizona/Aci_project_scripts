@@ -47,4 +47,4 @@ ggsave("output/Figure6.pdf", p, units = "in", height = 8.3, width = 8.5)
 
 sessionInfo() %>%
   capture.output() %>%
-  writeLines("output/Fig6_sessionInfo.txt")
+  writeLines("output/sessionInfo.txt")
