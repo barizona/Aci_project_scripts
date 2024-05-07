@@ -57,7 +57,7 @@ p_ABClegend <- p_ABClegend_v1$plot +
     scale_fill_manual(values = Colour_list$Fig7ABClegend_alpha) +
     theme(# legend
           legend.position = "top",
-          legend.text = element_markdown(size = 8))
+          legend.text = element_markdown(size = 8, family = "Arial"))
 
 
 ### saving legend to a variable ----

@@ -39,9 +39,10 @@ p_E <- E_tab %>%
     theme_void() +
     labs(x = "Phage", y = "", fill = "Sensitivity") +
     theme(legend.position = "top",
-          legend.text = element_text(size = 8),
           legend.key.size = unit(0.4, "cm"),
-          # axis font
-          axis.text.x = element_markdown(size = 8, angle = 45, vjust = 1, hjust = 1),
-          axis.text.y = element_markdown(size = 8))
+          # font
+          text = element_text(size = 8, family = "Arial"),
+          axis.text.x = element_markdown(size = 8, family = "Arial", angle = 45, 
+                                         vjust = 1, hjust = 1),
+          axis.text.y = element_markdown(size = 8, family = "Arial"))
 

@@ -51,21 +51,19 @@ p_F <- F_tab %>%
     scale_colour_manual(values = Colour_list$Fig6F, name = "Phage:") +
     facet_wrap(~isolate, nrow = 1) +
     # change y axis label to "log10 fold change in free phages"
-    labs(x = "", y = expression(paste("log"[10], " fold change"))) +
+    labs(x = "", y = expression(paste("log"[10], " fold change in free phage titers"))) +
     theme_linedraw(base_size = 14) +
     # colour the x axis values and ticks to transparent
     theme(axis.text.x = element_text(color = "transparent"),
           axis.ticks.x = element_line(color = "transparent"),
           # legend
           legend.position = "top",
-          legend.title = element_text(size = 8),
-          legend.text = element_text(size = 8),
           legend.key.size = unit(0, "cm"),
           # move the legend closer to the plot
           legend.margin = margin(t = 0, r = 0, b = -8, l = 0),
-          # axis font size
-          axis.title = element_text(size = 9),
-          axis.text = element_text(size = 8),
+          # font
+          text = element_text(size = 8, family = "Arial"),
+          axis.text.y = element_text(size = 8),
           # remove the vertical grid lines
           panel.grid.major.x = element_blank(),
           panel.grid.minor.x = element_blank(),
@@ -74,7 +72,8 @@ p_F <- F_tab %>%
           panel.grid.minor.y = element_blank(),
           # no background for facet headers
           strip.background = element_rect(fill = NA, color = "black"),
-          strip.text = element_text(size = 8, color = "black", face = "bold"),
+          strip.text = element_text(size = 8, color = "black", face = "bold", 
+                                    family = "Arial"),
           # reduce spacing between facets
           panel.spacing = unit(0, "lines"))
 

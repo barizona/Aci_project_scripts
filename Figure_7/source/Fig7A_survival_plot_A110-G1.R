@@ -107,8 +107,8 @@ p_A <- p_A_v1$plot +
              hjust = 0.5, vjust = 0.5) +
     theme(# legend
         legend.position = "none",
-        # axis font size
-        axis.title = element_text(size = 9),
+        # font
+        text = element_text(size = 8, family = "Arial"),
         axis.text = element_text(size = 8),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),

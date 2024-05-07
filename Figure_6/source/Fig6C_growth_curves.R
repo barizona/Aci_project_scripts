@@ -72,12 +72,11 @@ p_C <- C_tab %>%
     theme_linedraw(base_size = 14) +
     theme(# legend
         legend.position = c(0.8, 0.7),
-        legend.text = element_text(size = 8),
         legend.key.size = unit(0.5, "cm"),
-        # axis font size
-        axis.title = element_text(size = 9),
-        axis.text = element_text(size = 8),
-        axis.text.x = element_text(angle = 45, hjust = 1),
+        # font
+        text = element_text(size = 8, family = "Arial"),
+        axis.text.x = element_text(size = 8, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 8),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),

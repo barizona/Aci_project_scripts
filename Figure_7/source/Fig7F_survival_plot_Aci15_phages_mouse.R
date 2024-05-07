@@ -153,11 +153,11 @@ p_F <- p_F_v1$plot +
     guides(colour = guide_legend(nrow = 2, byrow = TRUE)) +
     theme(# legend
         legend.position = "top",
-        legend.text = element_text(size = 8),
         legend.margin = margin(0, 0, 0, 0),
-        # axis font size
-        axis.title = element_text(size = 9),
+        # font
+        text = element_text(size = 8, family = "Arial"),
         axis.text = element_text(size = 8),
+        legend.text = element_text(size = 8),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),

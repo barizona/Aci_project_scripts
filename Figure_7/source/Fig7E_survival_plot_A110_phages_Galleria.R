@@ -154,20 +154,17 @@ p_E <- p_E_v1$plot +
            fill = guide_legend(nrow = 2, byrow = TRUE), name = "") +
     theme(# legend
         legend.position = "top",
-        legend.text = element_text(size = 8),
         legend.margin = margin(0, 0, 0, 0),
-        # axis font size
-        axis.title = element_text(size = 9),
+        # font
+        text = element_text(size = 8, family = "Arial"),
+        legend.text = element_text(size = 8),
         axis.text = element_text(size = 8),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         # remove the horizontal grid lines
         panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        # legend margin
-        # plot.margin = unit(x = c(5.5, 5.5, 5.5, 5.5), units = "pt")
-        )
+        panel.grid.minor.y = element_blank())
 
 # new scale for x-axis
 p_E <- p_E + 

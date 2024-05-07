@@ -85,7 +85,7 @@ p_G <- G_tab %>%
   ggplot(aes(x = `Axis.1`, y = `Axis.2`, label = Sample, 
              colour = `Phage resistant`)) +
   geom_point(size = 1.2) +
-  geom_text_repel(show.legend = FALSE, size = 2.5) +
+  geom_text_repel(show.legend = FALSE, size = 7/.pt, family = "Arial") +
   # no title for legend
   scale_color_manual(name = NULL, values = Colour_list$Fig6G,
                      labels = paste("<span style='color:",
@@ -98,13 +98,14 @@ p_G <- G_tab %>%
   theme_linedraw(base_size = 14) +
         # legend
   theme(legend.position = "top",
-        legend.text = element_markdown(size = 8),
+        legend.text = element_markdown(size = 8, family = "Arial"),
         legend.key.size = unit(0, "cm"),
         # move the legend closer to the plot
         legend.margin = margin(t = 0, r = 0, b = -8, l = 0),
-        # axis font size
-        axis.title = element_text(size = 9),
-        axis.text = element_text(size = 8),
+        # font
+        text = element_text(size = 8, family = "Arial"),
+        axis.text.x = element_text(size = 8),
+        axis.text.y = element_text(size = 8),
         # remove the vertical grid lines
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),

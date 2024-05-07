@@ -20,7 +20,7 @@ library(ggtext) # for superscripts: theme(... element_markdown())
 # Input ------------------------------------------------------------------
 #xxxxxxxxxxxxxxxxxxxxxxx
 D_tab <- read_tsv("input/Fig7D_AB_sensitivity.tsv") %>% 
-    # conevrt to long
+    # convert to long
     pivot_longer(cols = -AB, names_to = "Strain", values_to = "Value") %>% 
     # convert to factor
     mutate(AB = factor(AB, levels = c("COL", "T-S", "LEV", "IMI", "MER")),
@@ -38,14 +38,15 @@ p_D <- D_tab %>%
     # add stars to the 5th row
     geom_text(data = filter(D_tab, AB == "MER"), 
               aes(label = "*"), 
-              size = 8, vjust = 0.7, color = "white") +
+              size = 8, vjust = 0.7, color = "white", family = "Arial") +
     labs(x = NULL, y = NULL, fill = "log<sup>2</sup> fold change in MIC") +
     guides(fill = guide_colorbar(title.position = "top")) +
     theme_void() +
     theme(legend.position = "top",
-          legend.title = element_markdown(size = 8),
-          legend.text = element_text(size = 8),
-          # axis font
+          # font
+          legend.title = element_markdown(size = 8, family = "Arial"),
+          legend.text = element_text(size = 8, family = "Arial"),
+          text = element_text(size = 8, family = "Arial"),
           axis.text.x = element_text(size = 8, angle = 45, vjust = 1, hjust = 1),
           axis.text.y = element_text(size = 8))
 
